@@ -60,8 +60,13 @@ export const AuctionProvider = ({ children }) => {
             const usr = await res.json();    
             if (aUser.email == usr.email && aUser.password == usr.password){
                 console.log("User & Password Correct");
+                localStorage.setItem("authed", "TRUE");
             }
-            else console.log("User or Password incorrect", aUser.email, aUser.password);
+            else 
+            {
+                console.log("User or Password incorrect", aUser.email, aUser.password);
+                localStorage.setItem("authed", "FALSE");
+            }
         
     }
     
