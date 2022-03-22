@@ -6,10 +6,10 @@ const validation = (newUser) => {
     let errors={};
  
 
-    // if name is empty...
+    /*/ if name is empty...
     if(!newUser.fullname){
         errors.fullname="Name is required."
-    }
+    }*/
 
     // if email is empty.... else if email don't contain . signs or @ sign 
     if (!newUser.email){

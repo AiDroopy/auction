@@ -26,7 +26,7 @@ const SignUp = ({submitForm}) => {
     event.preventDefault();
     setErrors(validation(newUser)); 
     setDataIsCorrect(true);
-    console.log(newUser);
+    // console.log(newUser);  // DEBUG
     addUser(newUser);
   };
 
