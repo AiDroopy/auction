@@ -15,7 +15,6 @@ export const AuctionProvider = ({ children }) => {
         return cloneObj;
     }
 
-  
     // Getter / Setter auction object
     const [bid, setBid] = useState({
         bidId: 0,
@@ -54,10 +53,16 @@ export const AuctionProvider = ({ children }) => {
         auctions: []  
     });
 
-    // Client side auth until backend is up and running
+    // Client side auth until backend is up and running.
     const authUser = async (aUser) => {
+
+        const res = await fetch(`/users/${aUser.id}`);
+            const usr = await res.json();    
+            if (aUser.email == usr.email && aUser.password == usr.password){
+                console.log("User & Password Correct");
+            }
+            else console.log("User or Password incorrect", aUser.email, aUser.password);
         
-        // filter
     }
     
     // Adds a user to REST API
