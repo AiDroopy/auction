@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import SignUp from './Signup';
+import React, { useContext, useState } from 'react';
+import SignUp from './SignUp';
 import SignupFormSuccess from './SignupFormSuccess';
 
+
 const Form = () => {
-  
+   
   const [formIsSubmitted, setFormIsSubmitted] = useState(false);
 
   const submitForm = () => {

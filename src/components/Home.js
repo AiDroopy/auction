@@ -1,10 +1,11 @@
 import TestCont from "./TestCont";
+import Form from "./Form"
 
 const Home = () => {
     return ( 
     <div className="home">
         <div>
-            <TestCont />
+            <Form />
         </div>
     </div> );
 }
