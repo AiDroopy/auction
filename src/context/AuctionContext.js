@@ -76,8 +76,10 @@ export const AuctionProvider = ({ children }) => {
 
         // filtrera ut aUser.email == någon av alla Users
         if (aUser.email == usr[0].email && aUser.password == usr[0].password){
+            console.log(usr[0].userId)
             console.log("User & Password Correct");
             localStorage.setItem("authed", "TRUE");
+            localStorage.setItem('userId', usr[0].userId)
             console.log(localStorage)
         }
         else 
@@ -111,7 +113,7 @@ export const AuctionProvider = ({ children }) => {
             addUser,    // AddUser function
             authUser,   // auth user
             isLoading,   // Conditional when fetching data or not.
-            users
+            users,
         }}
         >
             {children}

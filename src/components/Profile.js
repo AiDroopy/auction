@@ -8,7 +8,7 @@ const Profile = () => {
     
     return (
       users.map(function(user){
-        if (user.email === "dejan@fejjan.se"){
+        if (user.userId === localStorage.getItem('userId')){
           return (
           <div>
             <form>
