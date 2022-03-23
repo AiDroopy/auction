@@ -4,11 +4,10 @@ import AuctionContext from "../context/AuctionContext";
 const Profile = () => {
   
     const { users } = useContext(AuctionContext);
-    console.log(users)
     
     return (
       users.map(function(user){
-        if (user.userId === localStorage.getItem('userId')){
+        if (user.userId == localStorage.getItem('userId')){
           return (
           <div>
             <form>
@@ -16,10 +15,10 @@ const Profile = () => {
               <input type = "text" value= {user.userId}/>
               <label>user name:</label>
               <input type = "text" value= {user.email}/>
-              <label>Adress:</label>
+              {/* <label>Adress:</label>
               <input type = "text" value= {user.adress}/>
               <label>Phone nr:</label>
-              <input type = "text" value= {user.phoneNr}/>
+              <input type = "text" value= {user.phoneNr}/> */}
             </form>
             <h2>This is your won auctions:</h2>
             <h3> listan på auctions: </h3>

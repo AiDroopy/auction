@@ -22,7 +22,7 @@ export const AuctionProvider = ({ children }) => {
         userId: 0,
         auctionId: 0,
         bidAmount: 0,
-        timeStamp: 0
+        timeStamp: 0,
     });
     
     // Getter / Setter auction object
@@ -81,6 +81,7 @@ export const AuctionProvider = ({ children }) => {
             localStorage.setItem("authed", "TRUE");
             localStorage.setItem('userId', usr[0].userId)
             console.log(localStorage)
+            
         }
         else 
         {

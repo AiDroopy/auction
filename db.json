@@ -31,6 +31,14 @@
       "profile": {},
       "auctions": [],
       "id": 6
+    },
+    {
+      "userId": 4,
+      "email": "Hej@a.se",
+      "password": "123456789",
+      "profile": {},
+      "auctions": [],
+      "id": 7
     }
   ]
 }
