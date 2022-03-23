@@ -3,7 +3,7 @@ import SignUp from './SignUp';
 import SignupFormSuccess from './SignupFormSuccess';
 
 
-const Form = () => {
+const LoginForm = () => {
    
   const [formIsSubmitted, setFormIsSubmitted] = useState(false);
 
@@ -18,4 +18,4 @@ const Form = () => {
   )
 }
 
-export default Form
+export default LoginForm
