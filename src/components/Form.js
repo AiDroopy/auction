@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
-import Login from './Login';
+import SignUp from './SignUp';
 import SignupFormSuccess from './SignupFormSuccess';
 
 
-const LoginForm = () => {
+const Form = () => {
    
   const [formIsSubmitted, setFormIsSubmitted] = useState(false);
 
@@ -13,9 +13,9 @@ const LoginForm = () => {
 
   return (
     <div>
-        {!formIsSubmitted ? <Login submitForm={submitForm} /> : <SignupFormSuccess />}
+        {!formIsSubmitted ? <SignUp submitForm={submitForm} /> : <SignupFormSuccess />}
     </div>
   )
 }
 
-export default LoginForm
+export default Form

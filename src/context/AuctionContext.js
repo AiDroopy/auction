@@ -1,13 +1,14 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 const AuctionContext = createContext();
 
 export const AuctionProvider = ({ children }) => {
     
-    // Condition to be faöse when loading is done.
+    // Condition to be false when loading is done.
     const [isLoading, setIsLoading] = useState (true);
     const [bids, setBids] = useState ([]);
     const [auctions, setAuctions] = useState([]);
+    const [users, setUsers] = useState([    ]);
 
     // Deep copy / clone a json object, creates and returns an identical JSON object that was passed in.
     function createNew(object){
@@ -21,7 +22,7 @@ export const AuctionProvider = ({ children }) => {
         userId: 0,
         auctionId: 0,
         bidAmount: 0,
-        timeStamp: 0
+        timeStamp: 0,
     });
     
     // Getter / Setter auction object
@@ -52,27 +53,48 @@ export const AuctionProvider = ({ children }) => {
         profile: {}, 
         auctions: []  
     });
+    
+    useEffect (() => {
+        fetchUsers();
+      }, []);
+
+    // Get all users
+    const fetchUsers = async () => {
+        const res = await fetch("/users");
+        const data = await res.json();
+        
+        console.log(data);  // DEBUG
+        setUsers(data);
+        setIsLoading(false);
+    }
 
     // Client side auth until backend is up and running.
     const authUser = async (aUser) => {
+        let usr = users.filter(fUser => fUser.email == aUser.email);
+        // console.log(usr[0]);  // DEBUG
+        // console.log(aUser);   // DEBUG
 
-        const res = await fetch(`/users/${aUser.id}`);
-            const usr = await res.json();    
-            if (aUser.email == usr.email && aUser.password == usr.password){
-                console.log("User & Password Correct");
-                localStorage.setItem("authed", "TRUE");
-            }
-            else 
-            {
-                console.log("User or Password incorrect", aUser.email, aUser.password);
-                localStorage.setItem("authed", "FALSE");
-            }
-        
+        // filtrera ut aUser.email == någon av alla Users
+        if (aUser.email == usr[0].email && aUser.password == usr[0].password){
+            console.log(usr[0].userId)
+            console.log("User & Password Correct");
+            localStorage.setItem("authed", "TRUE");
+            localStorage.setItem('userId', usr[0].userId)
+            console.log(localStorage)
+            
+        }
+        else 
+        {
+            console.log("User or Password incorrect", aUser.email, aUser.password);
+            localStorage.setItem("authed", "FALSE");
+        }
+            
+        console.log("LocalStorage key authed: ", localStorage.getItem("authed"));  // DEBUG
     }
     
     // Adds a user to REST API
     const addUser = async (aUser) => {
-        const res = await fetch("http://localhost:8000/users", {
+        const res = await fetch("/users", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -90,7 +112,9 @@ export const AuctionProvider = ({ children }) => {
             user,       // user object
             createNew,  // Hardcopy json object
             addUser,    // AddUser function
-            isLoading   // Conditional when fetching data or not.
+            authUser,   // auth user
+            isLoading,   // Conditional when fetching data or not.
+            users,
         }}
         >
             {children}
