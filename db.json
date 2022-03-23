@@ -39,6 +39,14 @@
       "profile": {},
       "auctions": [],
       "id": 7
+    },
+    {
+      "userId": 0,
+      "email": "bjorn@mwef.se",
+      "password": "\"1231234567",
+      "profile": {},
+      "auctions": [],
+      "id": 8
     }
   ]
 }

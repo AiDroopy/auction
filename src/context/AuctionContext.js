@@ -10,6 +10,11 @@ export const AuctionProvider = ({ children }) => {
     const [auctions, setAuctions] = useState([]);
     const [users, setUsers] = useState([    ]);
 
+    const [userEdit, setUserEdit] = useState({
+        item: {},
+        edit: false,
+      });
+
     // Deep copy / clone a json object, creates and returns an identical JSON object that was passed in.
     function createNew(object){
         let cloneObj = JSON.parse(JSON.stringify(object));
@@ -80,8 +85,7 @@ export const AuctionProvider = ({ children }) => {
             console.log("User & Password Correct");
             localStorage.setItem("authed", "TRUE");
             localStorage.setItem('userId', usr[0].userId)
-            console.log(localStorage)
-            
+            console.log(localStorage)   
         }
         else 
         {
@@ -104,15 +108,41 @@ export const AuctionProvider = ({ children }) => {
 
     }
 
+    const updateProfile = async (userId, updateUser) => {
+        const response = await fetch(`/user/${userId}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updateUser),
+        });
+    
+        const data = await response.json();
+    
+        setUser(
+          user.map((user) => (user.userId === userId ? { ...user, ...data } : user))
+        );
+      };
+
+      const editUser = (item) => {
+        setUserEdit({
+          item,
+          edit: true,
+        });
+      };
+    
     return ( <AuctionContext.Provider
         value={{
             bid,        // bid object
             auction,    // auction object
             profile,    // profile object
             user,       // user object
+            userEdit,
             createNew,  // Hardcopy json object
             addUser,    // AddUser function
             authUser,   // auth user
+            updateProfile, //update user
+            editUser,
             isLoading,   // Conditional when fetching data or not.
             users,
         }}

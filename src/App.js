@@ -14,8 +14,7 @@ function App() {
 
       <div className="content">
         <Routes>
-          <Route exact path='/' element={<Login />} />
-          <Route path='/Profile' element={<Profile />} />
+          <Route exact path='/' element={<Home />} />
         </Routes>
       </div>
       </AuctionProvider>  
