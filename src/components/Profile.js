@@ -9,12 +9,12 @@ const Profile = () => {
       users.map(function(user){
         if (user.userId == localStorage.getItem('userId')){
           return (
-          <div>
-            <form>
+          <div key={user.userId}>
+            <form >
               <label>user id:</label>
               <input type = "text" value= {user.userId}/>
               <label>user name:</label>
-              <input type = "text" value= {user.email}/>
+              <input type = "text" defaultValue= {user.email}/>
               {/* <label>Adress:</label>
               <input type = "text" value= {user.adress}/>
               <label>Phone nr:</label>
