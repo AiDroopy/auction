@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router';
-import TestCont from './components/TestCont';
+import Home from './components/Home';
 import { AuctionProvider } from './context/AuctionContext';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
 
       <div className="content">
         <Routes>
-          <Route exact path='/' element={<TestCont/>} />
+          <Route exact path='/' element={<Home />} />
         </Routes>
       </div>
       </AuctionProvider>  

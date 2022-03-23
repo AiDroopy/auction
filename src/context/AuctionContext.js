@@ -15,7 +15,6 @@ export const AuctionProvider = ({ children }) => {
         return cloneObj;
     }
 
-  
     // Getter / Setter auction object
     const [bid, setBid] = useState({
         bidId: 0,
@@ -53,9 +52,27 @@ export const AuctionProvider = ({ children }) => {
         profile: {}, 
         auctions: []  
     });
+
+    // Client side auth until backend is up and running.
+    const authUser = async (aUser) => {
+
+        const res = await fetch(`/users/${aUser.id}`);
+            const usr = await res.json();    
+            if (aUser.email == usr.email && aUser.password == usr.password){
+                console.log("User & Password Correct");
+                localStorage.setItem("authed", "TRUE");
+            }
+            else 
+            {
+                console.log("User or Password incorrect", aUser.email, aUser.password);
+                localStorage.setItem("authed", "FALSE");
+            }
+        
+    }
     
+    // Adds a user to REST API
     const addUser = async (aUser) => {
-        const res = await fetch("/user", {
+        const res = await fetch("http://localhost:8000/users", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -64,6 +81,7 @@ export const AuctionProvider = ({ children }) => {
         });
 
     }
+
     return ( <AuctionContext.Provider
         value={{
             bid,        // bid object
@@ -72,11 +90,11 @@ export const AuctionProvider = ({ children }) => {
             user,       // user object
             createNew,  // Hardcopy json object
             addUser,    // AddUser function
-            isLoading
+            isLoading   // Conditional when fetching data or not.
         }}
         >
             {children}
         </AuctionContext.Provider> );
 }
- 
+
 export default AuctionContext;
