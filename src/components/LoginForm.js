@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import SignUp from './SignUp';
+import Login from './Login';
 import SignupFormSuccess from './SignupFormSuccess';
 
 
@@ -13,7 +13,7 @@ const LoginForm = () => {
 
   return (
     <div>
-        {!formIsSubmitted ? <SignUp submitForm={submitForm} /> : <SignupFormSuccess />}
+        {!formIsSubmitted ? <Login submitForm={submitForm} /> : <SignupFormSuccess />}
     </div>
   )
 }
