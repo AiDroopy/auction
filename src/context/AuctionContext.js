@@ -77,6 +77,7 @@ export const AuctionProvider = ({ children }) => {
         if (aUser.email == usr.email && aUser.password == usr.password){
             console.log("User & Password Correct");
             localStorage.setItem("authed", "TRUE");
+            console.log(localStorage)
         }
         else 
         {
@@ -89,7 +90,7 @@ export const AuctionProvider = ({ children }) => {
     
     // Adds a user to REST API
     const addUser = async (aUser) => {
-        const res = await fetch("http://localhost:6001/users", {
+        const res = await fetch("/users", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

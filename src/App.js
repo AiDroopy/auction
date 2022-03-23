@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router';
 import Home from './components/Home';
 import { AuctionProvider } from './context/AuctionContext';
 import Profile from './components/Profile';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
 
       <div className="content">
         <Routes>
-          <Route exact path='/' element={<Profile />} />
+          <Route exact path='/' element={<Login />} />
         </Routes>
       </div>
       </AuctionProvider>  
