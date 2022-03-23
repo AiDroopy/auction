@@ -71,10 +71,11 @@ export const AuctionProvider = ({ children }) => {
     // Client side auth until backend is up and running.
     const authUser = async (aUser) => {
         let usr = users.filter(fUser => fUser.email == aUser.email);
-        console.log(usr.email, usr.password);
+        // console.log(usr[0]);  // DEBUG
+        // console.log(aUser);   // DEBUG
 
         // filtrera ut aUser.email == någon av alla Users
-        if (aUser.email == usr.email && aUser.password == usr.password){
+        if (aUser.email == usr[0].email && aUser.password == usr[0].password){
             console.log("User & Password Correct");
             localStorage.setItem("authed", "TRUE");
             console.log(localStorage)
@@ -85,7 +86,7 @@ export const AuctionProvider = ({ children }) => {
             localStorage.setItem("authed", "FALSE");
         }
             
-        
+        console.log("LocalStorage key authed: ", localStorage.getItem("authed"));  // DEBUG
     }
     
     // Adds a user to REST API
