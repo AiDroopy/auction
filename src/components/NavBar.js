@@ -15,6 +15,7 @@ const NavBar = () => {
                         <Link to="/Login"><h2>Login</h2></Link>
                         <Link to="/Profile"><h2>Profile</h2></Link>
                         <Link to="/SignUp"><h2>Sign Up!</h2></Link>
+                        <Link to="/CreateAuction"><h2>Create auction!</h2></Link>
                 </div>
 
         </div>
