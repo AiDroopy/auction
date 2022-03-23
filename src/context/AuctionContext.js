@@ -4,7 +4,7 @@ const AuctionContext = createContext();
 
 export const AuctionProvider = ({ children }) => {
     
-    // Condition to be faöse when loading is done.
+    // Condition to be false when loading is done.
     const [isLoading, setIsLoading] = useState (true);
     const [bids, setBids] = useState ([]);
     const [auctions, setAuctions] = useState([]);
@@ -60,7 +60,7 @@ export const AuctionProvider = ({ children }) => {
 
     // Get all users
     const fetchUsers = async () => {
-        const res = await fetch("http://localhost:8000/users/");
+        const res = await fetch("/users");
         const data = await res.json();
         
         console.log(data);  // DEBUG
@@ -89,7 +89,7 @@ export const AuctionProvider = ({ children }) => {
     
     // Adds a user to REST API
     const addUser = async (aUser) => {
-        const res = await fetch("http://localhost:8000/users", {
+        const res = await fetch("http://localhost:6001/users", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -108,7 +108,8 @@ export const AuctionProvider = ({ children }) => {
             createNew,  // Hardcopy json object
             addUser,    // AddUser function
             authUser,   // auth user
-            isLoading   // Conditional when fetching data or not.
+            isLoading,   // Conditional when fetching data or not.
+            users
         }}
         >
             {children}
