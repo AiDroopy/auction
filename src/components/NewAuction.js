@@ -25,7 +25,7 @@ const NewAuction = () => {
                 onChange={handleOnChange}
               
             />
-            <label htmlFor="stratPrice">Start Price:</label>
+            <label htmlFor="startPrice">Start Price:</label>
             <input 
                 type="Start Price"
                 required 
@@ -45,7 +45,7 @@ const NewAuction = () => {
             />
 
             
-            <label htmlFor="endtDate">End Date: </label>
+            <label htmlFor="endate">End Date: </label>
             <input 
                 Month = "set Month"
                 Day = "set Day"
