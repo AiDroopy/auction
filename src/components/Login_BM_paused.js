@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Login = () => {
+const Login_BM_paused = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -12,10 +12,10 @@ const Login = () => {
             <label htmlFor="user-name">Username: </label>
             <input 
                 type="text"
-                id="user-name"
-                name="user-name" 
+                id="email"
+                name="email" 
                 required 
-                value={users.userName}
+                value={users.email}
                 onChange={handleOnChange}
             />
             <label htmlFor="password">Password:</label>
@@ -36,4 +36,4 @@ const Login = () => {
     </div>);
 }
  
-export default Login;
+export default Login_BM_paused;

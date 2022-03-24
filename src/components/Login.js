@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import validation from "./Validation";
 import AuctionContext from "../context/AuctionContext";
+import { Link } from "react-router-dom";
 
-const SignUp = ({submitForm}) => {
+const Login = ({submitForm}) => {
 
-  const { user, createNew, isLoading, addUser} = useContext (AuctionContext);  // get some stuff from AuctionContext
+  const { user, createNew, isLoading, authUser} = useContext (AuctionContext);  // get some stuff from AuctionContext
   //useState for values, using object data types
   const [newUser, setNewUser] = useState(createNew(user));
 
@@ -27,7 +28,9 @@ const SignUp = ({submitForm}) => {
     setErrors(validation(newUser)); 
     setDataIsCorrect(true);
     // console.log(newUser);  // DEBUG
-    addUser(newUser);
+    authUser(newUser);
+
+    // Check if user is correct... low prio!
   };
 
   // if errors is empty and data is correted change propsvalue to true 
@@ -41,7 +44,7 @@ const SignUp = ({submitForm}) => {
     <div className="container">
       <div className="app-wrapper">
         <div>
-          <h2 className="title">Create account</h2>
+          <h2 className="title">Login</h2>
         </div>
         <form className="form-wrapper">
           
@@ -68,9 +71,12 @@ const SignUp = ({submitForm}) => {
             {errors.password && <p className="error">{errors.password}</p>}
           </div>
           <div>
+
             <button className="submit" onClick={handleFormSubmit}>
-              Sign up
+              Login
+              
             </button>
+
           </div>
         </form>
       </div>
@@ -78,4 +84,4 @@ const SignUp = ({submitForm}) => {
   );
 };
 
-export default SignUp;
+export default Login;

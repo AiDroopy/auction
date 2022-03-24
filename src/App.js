@@ -1,6 +1,8 @@
 import { Route, Routes } from 'react-router';
-import TestCont from './components/TestCont';
+import Home from './components/Home';
 import { AuctionProvider } from './context/AuctionContext';
+import Profile from './components/Profile';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -12,7 +14,8 @@ function App() {
 
       <div className="content">
         <Routes>
-          <Route exact path='/' element={<TestCont/>} />
+          <Route exact path='/' element={<Login />} />
+          <Route path='/Profile' element={<Profile />} />
         </Routes>
       </div>
       </AuctionProvider>  
