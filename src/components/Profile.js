@@ -27,9 +27,7 @@ const Profile = () => {
             <h3> listan på auctions: </h3>
             <h4>Auction ID:</h4>
             <div className="auctions"> 
-            {auctions.map((auction) => if () {
-              
-            } (<div className="auctions">{auction.SellerId}{auction.productName}</div>   ))}   </div>
+            {auctions.map((auction) => (<div className="auctions">{auction.SellerId}{auction.productName}</div>   ))}   </div>
             <h4></h4>
             <h2>This is the auction where you are bidding:</h2>
             <h3> listan på auctions</h3>
