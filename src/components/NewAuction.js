@@ -4,44 +4,43 @@ import AuctionContext from "../context/AuctionContext";
 // Måste börja med Stor bokstav, även filnamnet
 const NewAuction = () => {
     const { user, createNew, isLoading, auction} = useContext (AuctionContext);  
-    const [newAuction, setNewAcution]
-    const [startPrice, setStartPrice] = useState("");
-    const [startDate, setStarDate] = useState("");
-    const [endDate, setEndDate] = useState("");
-    const [endTime, setEndTime] = useState("");
-    const [info, setInfo] = useState("");
-    const [img, setImg] = useState("");
+    const [newAuction, setNewAuction] = useState (null);
+
     
     const handleSubmit = (e) => {
         e.preventDefault();
         auction.sellerId = sessionStorage.getItem("userId");
-        auction.productName = "PRODUKT NAMN";
-        auction.productInfo = 
+        
   
   }
 
     // setting values for all instans fields, updates values, learn more!
-    const handleChange = (event) => {
-    setAuction({
-      ...newUser,
-      [event.target.name]: event.target.value,
+    const handleOnChange = (event) => {
+    setNewAuction({
+      ...newAuction,
+      [event.target.name]: event.target.value,  // prop name måste finnas med i html-fälten (i return..)
 
   })
 }
-    return ( <div className="new">
+    return ( <div className="new-auction">
     <h2>Creat Auction</h2>
         <form>
-            <label htmlFor="title">Title: </label>
+            <label htmlFor="productName">Title: </label>
             <input 
-                type="title"
+                type="text"
+                name="productName"
                 required 
-                value={auction.title}
+                value={auction.productName}
                 onChange={handleOnChange}
               
             />
-            <label htmlFor="stratPrice">Start Price:</label>
-            <input 
-                type="Start Price"
+
+
+            <label htmlFor="startPrice">Start Price:</label>
+            <input
+                id="startPrice" 
+                type="text"
+                name="startPrice"
                 required 
                 value={auction.startPrice}
                 onChange={handleOnChange}
@@ -50,8 +49,8 @@ const NewAuction = () => {
             
             <label htmlFor="startDate">Start Date: </label>
             <input 
-                Month = "set Month"
-                Day = "set Day"
+                type="text"
+                name="startDate"
                 required 
                 value={auction.startDate}
                 onChange={handleOnChange}
@@ -59,10 +58,10 @@ const NewAuction = () => {
             />
 
             
-            <label htmlFor="endtDate">End Date: </label>
+            <label htmlFor="endDate">End Date: </label>
             <input 
-                Month = "set Month"
-                Day = "set Day"
+                type="text"
+                name="endDate"
                 required 
                 value={auction.endDate}
                 onChange={handleOnChange}
@@ -72,8 +71,8 @@ const NewAuction = () => {
         
             <label htmlFor="endTime">Start Time: </label>
             <input 
-                Hours = "set Hour"
-                Minutes = "set Minute"
+                type="text"
+                name="endTime"
                 required 
                 value={auction.endTime}
                 onChange={handleOnChange}
@@ -81,11 +80,13 @@ const NewAuction = () => {
             />
 
             
-            <label htmlFor="info">Information: </label>
+            <label htmlFor="productInfo">Information: </label>
             <input 
-                type = "text"
+                type="text"
+                name="productInfo"
+                id="productInfo"
                 required 
-                value={auction.info}
+                value={auction.productInfo}
                 onChange={handleOnChange}
               
             />
