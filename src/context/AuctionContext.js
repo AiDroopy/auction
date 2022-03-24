@@ -39,6 +39,16 @@ export const AuctionProvider = ({ children }) => {
     setIsLoading(false);
   };
 
+  const addAuction = async (aAuction) => {
+    const res = await fetch("/auction", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(aAuction),
+    });
+  };
+
   // Getter / Setter auction object
   const [auction, setAuction] = useState({
     auctionId: 0,
