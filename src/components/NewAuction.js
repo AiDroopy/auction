@@ -3,9 +3,18 @@ import AuctionContext from "../context/AuctionContext";
 
 // Måste börja med Stor bokstav, även filnamnet
 const NewAuction = () => {
-    const { user, createNew, isLoading, auction} = useContext (AuctionContext);  
+    const { user, createNew, isLoading} = useContext (AuctionContext);  
     const [newAuction, setNewAuction] = useState (null);
-
+    const [auction, setAuction] = useState({
+    auctionId: 0,
+    userId: 0,
+    bids: [], // Change to bidId for relationship instead of aggregation
+    startPrice: "0",
+    endPrice: 0,
+    productName: "",
+    productInfo: "",
+    productImgURL: "",
+  });
     
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -47,17 +56,7 @@ const NewAuction = () => {
                 
             />
             
-            <label htmlFor="startDate">Start Date: </label>
-            <input 
-                type="text"
-                name="startDate"
-                required 
-                value={auction.startDate}
-                onChange={handleOnChange}
-              
-            />
-
-            
+                        
             <label htmlFor="endDate">End Date: </label>
             <input 
                 type="text"
@@ -90,11 +89,6 @@ const NewAuction = () => {
                 onChange={handleOnChange}
               
             />
-
-
-
-
-
 
             <button type="submit" onClick={handleSubmit}>
                 Add Auction
