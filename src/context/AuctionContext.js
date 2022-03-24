@@ -163,6 +163,7 @@ export const AuctionProvider = ({ children }) => {
         editUser,
         isLoading, // Conditional when fetching data or not.
         users,
+        auctions
       }}
     >
       {children}

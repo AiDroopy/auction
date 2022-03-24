@@ -54,7 +54,7 @@
   "auctions": [{
     
     "auctionId" : 1,
-    "Seller" : "UserId: 1",
+    "SellerId" : 0,
     "productName" : "Rolex",
     "productInfo" : "A nice Rolex",
     "productImage" : "img rolex",
