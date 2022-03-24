@@ -1,5 +1,6 @@
 import CountdownTimer from './CountdownTimer/CountdownTimer.js';
 
+
 const Card = ({image, title, id, latestBid, startPrice}) => {
     return (
     <div className="cards">

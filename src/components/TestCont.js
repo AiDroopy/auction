@@ -12,6 +12,7 @@ const TestCont = () => {
     newProfile.lastName = "Milebjörk"
     newProfile.address = "Ankeborg";
     
+    
 
     // Set up a mockup user
     const [newUser, setNewUser] = useState(createNew(user)); 

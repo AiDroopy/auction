@@ -3,11 +3,13 @@ import Home from './components/Home';
 import { AuctionProvider } from './context/AuctionContext';
 import Profile from './components/Profile';
 import Login from './components/Login';
+import Card from './components/Card';
+import img from './nedladdning(1).png'
 
 function App() {
   return (
     <div className="App">
-    <AuctionProvider>  
+    {/* <AuctionProvider>  
       <header className="App-header">
 
       </header>
@@ -18,7 +20,11 @@ function App() {
           <Route path='/Profile' element={<Profile />} />
         </Routes>
       </div>
-      </AuctionProvider>  
+      </AuctionProvider>   */}
+
+      <Card 
+      image = {img}/>
+      
     </div>
   );
 }
