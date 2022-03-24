@@ -22,7 +22,6 @@ const AuctionList = () => {
         <br></br>
         Bids: {auction.Bids}
         
-
         </div>))} 
          </div>
 

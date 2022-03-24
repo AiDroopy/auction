@@ -5,7 +5,8 @@ import Profile from './components/Profile';
 import Login from './components/Login';
 import LoginForm from './components/LoginForm';
 import SignUp from './components/SignUp';
-import Auction from './components/Auction';
+import AuctionList from './components/AuctionList';
+import SignUpForm from './components/SignUpForm';
 
 function App() {
   return (
@@ -21,8 +22,8 @@ function App() {
           <Route path='/LoginForm' element={<LoginForm />} />
           <Route path='/Login' element={<Login />} />
           <Route path='/Profile' element={<Profile />} />
-          <Route path='/SignUp' element={<SignUp />} />
-          <Route path='/Auction' element={<Auction />} />
+          <Route path='/SignUpForm' element={<SignUpForm />} />
+          <Route path='/AuctionList' element={<AuctionList />} />
 
           
         </Routes>
