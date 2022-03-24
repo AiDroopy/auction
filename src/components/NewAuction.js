@@ -1,19 +1,33 @@
 import { useContext, useState } from "react";
 import AuctionContext from "../context/AuctionContext";
 
-
+// Måste börja med Stor bokstav, även filnamnet
 const NewAuction = () => {
-    const { user, createNew, isLoading, authUser} = useContext (AuctionContext);  
-    
+    const { user, createNew, isLoading, auction} = useContext (AuctionContext);  
+    const [newAuction, setNewAcution]
     const [startPrice, setStartPrice] = useState("");
     const [startDate, setStarDate] = useState("");
     const [endDate, setEndDate] = useState("");
     const [endTime, setEndTime] = useState("");
     const [info, setInfo] = useState("");
     const [img, setImg] = useState("");
-
-
     
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        auction.sellerId = sessionStorage.getItem("userId");
+        auction.productName = "PRODUKT NAMN";
+        auction.productInfo = 
+  
+  }
+
+    // setting values for all instans fields, updates values, learn more!
+    const handleChange = (event) => {
+    setAuction({
+      ...newUser,
+      [event.target.name]: event.target.value,
+
+  })
+}
     return ( <div className="new">
     <h2>Creat Auction</h2>
         <form>
@@ -21,7 +35,7 @@ const NewAuction = () => {
             <input 
                 type="title"
                 required 
-                value={users.title}
+                value={auction.title}
                 onChange={handleOnChange}
               
             />
@@ -29,7 +43,7 @@ const NewAuction = () => {
             <input 
                 type="Start Price"
                 required 
-                value={users.startPrice}
+                value={auction.startPrice}
                 onChange={handleOnChange}
                 
             />
@@ -39,7 +53,7 @@ const NewAuction = () => {
                 Month = "set Month"
                 Day = "set Day"
                 required 
-                value={users.startDate}
+                value={auction.startDate}
                 onChange={handleOnChange}
               
             />
@@ -50,7 +64,7 @@ const NewAuction = () => {
                 Month = "set Month"
                 Day = "set Day"
                 required 
-                value={users.endDate}
+                value={auction.endDate}
                 onChange={handleOnChange}
               
             />
@@ -61,7 +75,7 @@ const NewAuction = () => {
                 Hours = "set Hour"
                 Minutes = "set Minute"
                 required 
-                value={users.endTime}
+                value={auction.endTime}
                 onChange={handleOnChange}
               
             />
@@ -71,7 +85,7 @@ const NewAuction = () => {
             <input 
                 type = "text"
                 required 
-                value={users.info}
+                value={auction.info}
                 onChange={handleOnChange}
               
             />
@@ -88,4 +102,4 @@ const NewAuction = () => {
     </div>);
 }
  
-export default NewAuction;
+export default NewAuction; // <- Måste börja med Stor bokstav
