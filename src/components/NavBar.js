@@ -12,9 +12,9 @@ const NavBar = () => {
                         <Link to="/Search"><h2>Search</h2></Link>
                 </div>
                 <div className="nav_right">
-                        <Link to="/Login"><h2>Login</h2></Link>
+                        <Link to="/LoginForm"><h2>Login</h2></Link>
                         <Link to="/Profile"><h2>Profile</h2></Link>
-                        <Link to="/SignUp"><h2>Sign Up!</h2></Link>
+                        <Link to="/SignUpForm"><h2>Sign Up!</h2></Link>
                         <Link to="/CreateAuction"><h2>Create auction!</h2></Link>
                 </div>
 
