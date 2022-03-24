@@ -1,17 +1,21 @@
 import TestCont from "./TestCont";
 import SignUpForm from "./SignUpForm"
 import LoginForm from "./LoginForm";
+import NavBar from "./NavBar";
+import AuctionList from"./AuctionList";
+
 
 const Home = () => {
     return ( 
     <div className="home">
-        <div>
-            <SignUpForm />
+        <div className = "navbar">
+            <NavBar />
 
         </div>
-        <div className="login">
-            <LoginForm />
+        <div className ="auctionlist">
+            <AuctionList />
         </div>
+        
     </div> );
 }
  
