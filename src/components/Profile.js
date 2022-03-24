@@ -25,9 +25,9 @@ const Profile = () => {
             </form>
             <h2>This is your won auctions:</h2>
             <h3> listan på auctions: </h3>
-            <h4>Auction ID:</h4>
+            <h4>Auctions:</h4>
             <div className="auctions"> 
-            {auctions.map((auction => { if (auction.SellerId == user.userId) return <div className="auctions" key={auction.auctionId}>{auction.SellerId}{auction.productName}</div>}))}
+            {auctions.map((auction => { if (auction.SellerId === user.userId) return <div className="auctions" key={auction.auctionId}>{auction.SellerId}{auction.productName}</div>}))}
             </div>
             <h4></h4>
             <h2>This is the auction where you are bidding:</h2>
