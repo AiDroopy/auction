@@ -106,6 +106,7 @@ export const AuctionProvider = ({ children }) => {
       localStorage.setItem("authed", "TRUE");
       localStorage.setItem("userId", usr[0].userId);
       console.log(localStorage);
+      
     } else {
       console.log("User or Password incorrect", aUser.email, aUser.password);
       localStorage.setItem("authed", "FALSE");
@@ -163,6 +164,7 @@ export const AuctionProvider = ({ children }) => {
         editUser,
         isLoading, // Conditional when fetching data or not.
         users,
+        auctions
       }}
     >
       {children}

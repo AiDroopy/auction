@@ -4,7 +4,7 @@ import AuctionContext from "../context/AuctionContext";
 
 const Profile = () => {
   
-    const { users } = useContext(AuctionContext);
+    const { users, auctions } = useContext(AuctionContext);
 
     return (
       users.map(function(user){
@@ -21,11 +21,25 @@ const Profile = () => {
               <input type = "text" value= {user.adress}/>
               <label>Phone nr:</label>
               <input type = "text" value= {user.phoneNr}/> */}
-      
+            
             </form>
             <h2>This is your won auctions:</h2>
             <h3> listan på auctions: </h3>
-            <h4>Auction ID:</h4>
+            <h4>Auctions:</h4>
+            <div className="auctions"> 
+            {auctions.map((auction => { if (auction.SellerId === user.userId) return <div className="auctions" key={auction.auctionId}><br></br>
+        Product name: {auction.productName}
+        <br></br>
+        Description: {auction.productInfo}
+        <br></br>
+        <img src={auction.productImage}></img>
+        <br></br>
+        Starting price: {auction.Startprice}
+        <br></br>
+        End time: {auction.endTime}
+        <br></br>
+        Bids: {auction.Bids}</div>}))}
+            </div>
             <h4></h4>
             <h2>This is the auction where you are bidding:</h2>
             <h3> listan på auctions</h3>
