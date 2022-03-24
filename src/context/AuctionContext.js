@@ -22,11 +22,11 @@ export const AuctionProvider = ({ children }) => {
 
   // Getter / Setter auction object
   const [bid, setBid] = useState({
-    bidId: 0,
+    id: 0,
+    bidTime: Date.now(),
     userId: 0,
     auctionId: 0,
-    bidAmount: 0,
-    timeStamp: 0,
+    amount: 0
   });
 
   // Get all auctions
@@ -104,8 +104,9 @@ export const AuctionProvider = ({ children }) => {
       console.log(usr[0].userId);
       console.log("User & Password Correct");
       localStorage.setItem("authed", "TRUE");
-      localStorage.setItem("userId", usr[0].userId);
+      sessionStorage.setItem("userId", usr[0].userId);
       console.log(localStorage);
+      
     } else {
       console.log("User or Password incorrect", aUser.email, aUser.password);
       localStorage.setItem("authed", "FALSE");
@@ -163,6 +164,7 @@ export const AuctionProvider = ({ children }) => {
         editUser,
         isLoading, // Conditional when fetching data or not.
         users,
+        auctions
       }}
     >
       {children}
