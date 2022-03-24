@@ -1,11 +1,11 @@
-
+import { useState } from "react";
 
 const Auction = () => {
     return (
         <div className="Content">
             <div className= "information">
                 <div className="box-1">
-                    <div class="item-bid">
+                    <div className="item-bid">
                         <div className="high-bid">
                             Högst bud
                         </div>
@@ -44,7 +44,7 @@ const Auction = () => {
 
             <div className="time-left">
                 Bid-end: 
-                <span ClassName="time">05:00</span> minutes!
+                <span id="time">05:00</span> minutes!
             </div>
 
             <div className="about">
