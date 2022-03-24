@@ -9,7 +9,7 @@ const NewAuction = () => {
     auctionId: 0,
     userId: 0,
     bids: [], // Change to bidId for relationship instead of aggregation
-    startPrice: "0",
+    startPrice: "",
     endPrice: 0,
     productName: "",
     productInfo: "",
@@ -22,7 +22,7 @@ const NewAuction = () => {
         
   
   }
-
+    
     // setting values for all instans fields, updates values, learn more!
     const handleOnChange = (event) => {
     setNewAuction({
@@ -30,6 +30,7 @@ const NewAuction = () => {
       [event.target.name]: event.target.value,  // prop name måste finnas med i html-fälten (i return..)
 
   })
+  console.log(newAuction)
 }
     return ( <div className="new-auction">
     <h2>Creat Auction</h2>
@@ -39,7 +40,7 @@ const NewAuction = () => {
                 type="text"
                 name="productName"
                 required 
-                value={auction.productName}
+                defaultValue={auction.productName}
                 onChange={handleOnChange}
               
             />
@@ -51,7 +52,7 @@ const NewAuction = () => {
                 type="text"
                 name="startPrice"
                 required 
-                value={auction.startPrice}
+                defaultValue={auction.startPrice}
                 onChange={handleOnChange}
                 
             />
@@ -85,10 +86,21 @@ const NewAuction = () => {
                 name="productInfo"
                 id="productInfo"
                 required 
-                value={auction.productInfo}
+                defaultValue={auction.productInfo}
                 onChange={handleOnChange}
               
             />
+
+
+            <label htmlFor="productImgURL">Upload image:  </label>
+            <div className="image-upload">
+                <input type="file" 
+                id="file-input" 
+                name="productImgURL" 
+                value={auction.productImgURL}
+                onChange={handleOnChange}
+                />
+            </div>
 
             <button type="submit" onClick={handleSubmit}>
                 Add Auction
