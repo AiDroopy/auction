@@ -2,8 +2,9 @@ import { useContext, useState } from "react";
 import AuctionContext from "../context/AuctionContext";
 
 
-const newAuction = () => {
+const NewAuction = () => {
     const { user, createNew, isLoading, authUser} = useContext (AuctionContext);  
+    
     const [startPrice, setStartPrice] = useState("");
     const [startDate, setStarDate] = useState("");
     const [endDate, setEndDate] = useState("");
@@ -87,4 +88,4 @@ const newAuction = () => {
     </div>);
 }
  
-export default newAuction;
+export default NewAuction;

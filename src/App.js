@@ -5,7 +5,7 @@ import Profile from './components/Profile';
 import Login from './components/Login';
 import LoginForm from './components/LoginForm';
 import SignUp from './components/SignUp';
-
+import NewAuction from './components/NewAuction';
 function App() {
   return (
     <div className="App">
@@ -21,7 +21,7 @@ function App() {
           <Route path='/Login' element={<Login />} />
           <Route path='/Profile' element={<Profile />} />
           <Route path='/SignUp' element={<SignUp />} />
-          
+          <Route path='/new-auction' element={<NewAuction />} />
         </Routes>
       </div>
       </AuctionProvider>  
