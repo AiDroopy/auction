@@ -37,7 +37,7 @@ const Bid = ({auctionId}) => {
             />
          
             <button type="submit" onClick={handleSubmit}>
-                Add Bet
+                Bid
             </button>
             </form> 
     </div>

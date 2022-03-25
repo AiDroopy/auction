@@ -35,6 +35,12 @@
       "password": "Johan",
       "profile": {},
       "id": 9
+    },
+    {
+      "email": "Max.Henkesson@gmail.com",
+      "password": "asdguausgd",
+      "profile": {},
+      "id": 10
     }
   ],
   "auctions": [
