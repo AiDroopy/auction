@@ -5,13 +5,13 @@ import AuctionContext from "../context/AuctionContext";
 const SignUp = ({submitForm}) => {
 
   const { user, createNew, isLoading, addUser} = useContext (AuctionContext);  // get some stuff from AuctionContext
+  
   //useState for values, using object data types
   const [newUser, setNewUser] = useState(createNew(user));
-
   const [errors, setErrors] = useState({});
   const [dataIsCorrect, setDataIsCorrect] = useState(false);
 
-  // setting values for all instans fields, updates values, learn more!
+  // setting values for all instans fields, updates values. 
   const handleChange = (event) => {
         setNewUser({
           ...newUser,

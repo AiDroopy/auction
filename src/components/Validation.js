@@ -6,7 +6,7 @@ const validation = (newUser) => {
     let errors={};
  
 
-    /*/ if name is empty...
+    /*
     if(!newUser.fullname){
         errors.fullname="Name is required."
     }*/
