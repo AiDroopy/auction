@@ -3,7 +3,7 @@ import AuctionContext from "../context/AuctionContext";
 
 
 const Bid = ({auctionId}) => {
-  const { bid, createNew, isLoading} = useContext (AuctionContext);  
+  const { bid, createNew, addBid, isLoading} = useContext (AuctionContext);  
   const [newBid, setNewBid] = useState(createNew(bid));  // newBid gets a fresh copy of bid
   console.log(auctionId);
 
@@ -18,6 +18,7 @@ const Bid = ({auctionId}) => {
     bid.bidTime = Date.now()
     bid.userId = 3 //sessionStorage.getItem("userId");
     bid.auctionId = auctionId;
+    addBid(bid)
 
 }
   return (

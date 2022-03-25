@@ -96,6 +96,13 @@
       "userId": 0,
       "auctionId": 2,
       "amount": 1200
+    },
+    {
+      "id": 2,
+      "bidTime": 1648197225793,
+      "userId": 3,
+      "auctionId": 1,
+      "amount": 0
     }
   ]
 }
