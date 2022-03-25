@@ -1,6 +1,11 @@
 import { useContext, useState } from "react";
 import AuctionContext from "../context/AuctionContext";
 
+
+/*
+Not used in project only for learning!
+*/
+
 const TestCont = () => {
 
     const {bid, auction, profile, user, createNew, isLoading} = useContext(AuctionContext);  // get some stuff from AuctionContext
@@ -11,6 +16,7 @@ const TestCont = () => {
     newProfile.firstName = "Björn";
     newProfile.lastName = "Milebjörk"
     newProfile.address = "Ankeborg";
+    
     
 
     // Set up a mockup user

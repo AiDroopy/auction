@@ -9,25 +9,11 @@ export const AuctionProvider = ({ children }) => {
   const [auctions, setAuctions] = useState([]);
   const [users, setUsers] = useState([]);
 
-  const [userEdit, setUserEdit] = useState({
-    item: {},
-    edit: false,
-  });
-
   // Deep copy / clone a json object, creates and returns an identical JSON object that was passed in.
   function createNew(object) {
     let cloneObj = JSON.parse(JSON.stringify(object));
     return cloneObj;
   }
-
-  // Getter / Setter auction object
-  const [bid, setBid] = useState({
-    id: 0,
-    bidTime: Date.now(),
-    userId: 0,
-    auctionId: 0,
-    amount: 0
-  });
 
   // Get all auctions
   const fetchAuctions = async () => {
@@ -38,9 +24,9 @@ export const AuctionProvider = ({ children }) => {
     setAuctions(data);
     setIsLoading(false);
   };
-
+  
   const addAuction = async (aAuction) => {
-    const res = await fetch("/auction", {
+    const res = await fetch("/auctions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -53,34 +39,48 @@ export const AuctionProvider = ({ children }) => {
   const [auction, setAuction] = useState({
     auctionId: 0,
     userId: 0,
-    bids: [], // Change to bidId for relationship instead of aggregation
-    startPrice: 0,
-    endPrice: 0,
     productName: "",
     productInfo: "",
     productImgURL: "",
+    startPrice: 0,
+    endPrice: 0,
+    endTime: Date.now(),
+    bids: [], // Change to bidId for relationship instead of aggregation
   });
 
-  // Getter / Setter profile object
-  const [profile, setProfile] = useState({
+  // Getter / Setter auction object
+  const [bid, setBid] = useState({
+    id: 0,
+    bidTime: Date.now(),
     userId: 0,
-    firstName: "",
-    lastName: "",
-    address: "",
+    auctionId: 0,
+    amount: 0
   });
 
-  // Getter / Setter user object
-  const [user, setUser] = useState({
-    userId: 0,
-    email: "",
-    password: "",
-    profile: {},
-    auctions: [],
-  });
+  // Get all bids
+  const fetchBids = async () => {
+    const res = await fetch("/bids");
+    const data = await res.json();
+
+    console.log(data); // DEBUG
+    setBids(data);
+    setIsLoading(false);
+  };
+
+  const addBid = async (aBid) => {
+    const res = await fetch("/bids", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(aBid),
+    });
+  };
 
   useEffect(() => {
     fetchUsers();
     fetchAuctions();
+    fetchBids();
   }, []);
 
   // Get all users
@@ -96,24 +96,38 @@ export const AuctionProvider = ({ children }) => {
   // Client side auth until backend is up and running.
   const authUser = async (aUser) => {
     let usr = users.filter((fUser) => fUser.email == aUser.email);
-    // console.log(usr[0]);  // DEBUG
-    // console.log(aUser);   // DEBUG
+    console.log(users);  // DEBUG
+    console.log(aUser);   // DEBUG
 
     // filtrera ut aUser.email == någon av alla Users
     if (aUser.email == usr[0].email && aUser.password == usr[0].password) {
-      console.log(usr[0].userId);
+      console.log(usr[0].id);
       console.log("User & Password Correct");
-      localStorage.setItem("authed", "TRUE");
-      sessionStorage.setItem("userId", usr[0].userId);
-      console.log(localStorage);
+      sessionStorage.setItem("authed", true);
+      sessionStorage.setItem("userId", usr[0].id);
       
     } else {
       console.log("User or Password incorrect", aUser.email, aUser.password);
-      localStorage.setItem("authed", "FALSE");
+      sessionStorage.setItem("authed", false);
     }
 
-    console.log("LocalStorage key authed: ", localStorage.getItem("authed")); // DEBUG
+    console.log("SessionStorage key authed: ", sessionStorage.getItem("authed")); // DEBUG
   };
+
+  // Getter / Setter profile object
+  const [profile, setProfile] = useState({
+    userId: 0,
+    firstName: "",
+    lastName: "",
+    address: "",
+  });
+
+  // Getter / Setter user object
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+    profile: {},
+  });
 
   // Adds a user to REST API
   const addUser = async (aUser) => {
@@ -142,13 +156,6 @@ export const AuctionProvider = ({ children }) => {
     );
   };
 
-  const editUser = (item) => {
-    setUserEdit({
-      item,
-      edit: true,
-    });
-  };
-
   return (
     <AuctionContext.Provider
       value={{
@@ -156,14 +163,13 @@ export const AuctionProvider = ({ children }) => {
         auction, // auction object
         profile, // profile object
         user, // user object
-        userEdit,
         createNew, // Hardcopy json object
         addUser, // AddUser function
         authUser, // auth user
-        updateProfile, //update user
-        editUser,
         isLoading, // Conditional when fetching data or not.
         users,
+        addAuction,
+        addBid,
         auctions
       }}
     >
