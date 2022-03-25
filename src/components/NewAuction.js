@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import AuctionContext from "../context/AuctionContext";
-
+import "./NewAuction.css";
 // Måste börja med Stor bokstav, även filnamnet
 const NewAuction = () => {
     const { auction, addAuction, createNew, isLoading} = useContext (AuctionContext);  

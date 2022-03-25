@@ -1,0 +1,20 @@
+.new-auction{
+    background-color:bisque;
+    align-content: space-between;
+    width: fit-content;
+    height: 150px;
+}
+form {
+    display: flex;
+    align-content:space-around; 
+    align-items: center;
+    
+}
+
+
+
+
+
+
+
+
