@@ -20,9 +20,9 @@ const AuctionList = () => {
         <br></br>
         <img src={auction.productImage}></img>
         <br></br>
-        Starting price: {auction.Startprice}
+        Starting price: {auction.startPrice}
         <br></br>
-        Bids: {auction.Bids}
+        Bids: {auction.bids}
         <CountdownTimer
                 countdownTimestampMs={auction.endTime + 259200000}/>
         </div>))} 
