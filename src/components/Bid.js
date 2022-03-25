@@ -7,20 +7,21 @@ const Bid = ({auctionId}) => {
   const [newBid, setNewBid] = useState(createNew(bid));  // newBid gets a fresh copy of bid
   console.log(auctionId);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    bid.bidTime = Date.now()
+    bid.userId = sessionStorage.getItem("userId");
+    bid.auctionId = auctionId;
+    addBid(bid)
+
+}
   const handleOnChange = (event) => {
     setNewBid({
       ...newBid,
       [event.target.name]: event.target.value, 
   })};
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    bid.bidTime = Date.now()
-    bid.userId = 3 //sessionStorage.getItem("userId");
-    bid.auctionId = auctionId;
-    addBid(bid)
 
-}
   return (
       <div className="new-bid">
     <h2>Add bid</h2>

@@ -103,6 +103,27 @@
       "userId": 3,
       "auctionId": 1,
       "amount": 0
+    },
+    {
+      "id": 3,
+      "bidTime": 1648197357440,
+      "userId": 3,
+      "auctionId": 1,
+      "amount": 0
+    },
+    {
+      "id": 4,
+      "bidTime": 1648197445536,
+      "userId": 3,
+      "auctionId": 1,
+      "amount": ""
+    },
+    {
+      "id": 5,
+      "bidTime": 1648197595487,
+      "userId": 3,
+      "auctionId": 1,
+      "amount": ""
     }
   ]
 }

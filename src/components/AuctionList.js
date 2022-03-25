@@ -19,7 +19,7 @@ const AuctionList = () => {
         <br></br>
         Description: {auction.productInfo}
         <br></br>
-        <img src={auction.productImage}></img>
+        <img src={auction.productImgURL}></img>
         <br></br>
         Starting price: {auction.Startprice}
         <br></br>
