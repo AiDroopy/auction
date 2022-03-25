@@ -26,7 +26,7 @@ const Bid = ({auctionId}) => {
       <div className="new-bid">
     <h2>Add bid</h2>
         <form>
-            <label htmlFor="amount">Bid </label>
+            <label className="bidlabel"htmlFor="amount">Bid </label>
             <input 
                 type="number"
                 name="amount"

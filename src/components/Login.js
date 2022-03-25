@@ -49,7 +49,7 @@ const Login = ({submitForm}) => {
         <form className="form-wrapper">
           
           <div className="email">
-            <label className="label">Email</label>
+            <label className="label">Email: </label>
             <input
               className="input"
               type="email"
@@ -59,8 +59,9 @@ const Login = ({submitForm}) => {
             />
             {errors.email && <p className="error">{errors.email}</p>}
           </div>
+
           <div className="password">
-            <label className="label">Password</label>
+            <label className="label">Password: </label>
             <input
               className="input"
               type="password"
@@ -74,7 +75,6 @@ const Login = ({submitForm}) => {
 
             <button className="submit" onClick={handleFormSubmit}>
               Login
-              
             </button>
 
           </div>
