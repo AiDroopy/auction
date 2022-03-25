@@ -9,6 +9,7 @@ import SignUp from './components/SignUp';
 import SignUpForm from './components/SignUpForm';
 import NewAuction from './components/NewAuction';
 import AuctionList from './components/AuctionList';
+import Search from './components/Search';
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
           <Route path='/LoginForm' element={<LoginForm />} />
           <Route path='/Profile' element={<Profile />} />
           <Route path='/NewAuction' element={<NewAuction />} />
-
+          <Route path='/Search' element={<Search />} />
           <Route path='/SignUpForm' element={<SignUpForm />} />
           <Route path='/AuctionList' element={<AuctionList />} />
 
