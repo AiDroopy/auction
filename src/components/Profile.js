@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import AuctionContext from "../context/AuctionContext";
 import LogOut from "./LogOut";
-
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   
@@ -14,6 +14,7 @@ const Profile = () => {
           <div key={user.id}>
             <form>
               <div className="logout"><LogOut/></div>
+              <Link to="/">Home</Link>
               <label>user id:</label>
               <input type = "text" name = "userId" value = {user.id}/>
               <label>user name:</label>

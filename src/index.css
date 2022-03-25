@@ -56,8 +56,9 @@ code {
 
 .auction-List{
   display: flex;
+  margin: auto;
 }
 
 .nav_container{
-  
+  display: flex;
 }
