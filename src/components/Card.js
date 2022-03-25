@@ -1,26 +1,19 @@
-import PropTypes from "prop-types";
+import CountdownTimer from './CountdownTimer/CountdownTimer.js';
 
-const Card = ({ children, reverse }) => {
-  return (
-    <div
-      className="card"
-      style={{
-        backgroundColor: reverse ? "rgba(0, 0, 0, 0.4)" : "#fff",
-        color: reverse ? "#fff" : "#000",
-      }}
-    >
-      {children}
-    </div>
-  );
+
+const Card = ({image, title, id, latestBid, startPrice}) => {
+    return (
+    <div className="cards">
+        <img src={image}/>
+            <div className="cards__item">
+                <h2> { title}</h2>
+                <p>id.nr:{id}</p>
+                <p>Aktuellt bud:{latestBid}</p>
+                <p>Utropspris:{startPrice}</p>
+                <CountdownTimer
+                countdownTimestampMs={Date.now() + 259200000}/>
+            </div>
+    </div>)
 };
-
-Card.defaultProps = {
-  reverse: false,
-};
-
-Card.propTypes = {
-  children: PropTypes.node.isRequired,
-  reverse: PropTypes.bool,
-};
-
+ 
 export default Card;

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import Login from './Login';
 import SignupFormSuccess from './SignupFormSuccess';
-
+import Profile from './Profile';
 
 const LoginForm = () => {
    
@@ -13,9 +13,9 @@ const LoginForm = () => {
 
   return (
     <div>
-        {!formIsSubmitted ? <Login submitForm={submitForm} /> : <SignupFormSuccess />}
+        {!formIsSubmitted ? <Login submitForm={submitForm} /> : <Profile />}
     </div>
   )
 }
 
-export default LoginForm
+export default LoginForm;
