@@ -3,23 +3,24 @@ import AuctionContext from "../context/AuctionContext";
 
 // Måste börja med Stor bokstav, även filnamnet
 const NewAuction = () => {
-    const { user, createNew, isLoading} = useContext (AuctionContext);  
-    const [newAuction, setNewAuction] = useState (null);
-    const [auction, setAuction] = useState({
-    auctionId: 0,
-    userId: 0,
-    bids: [], // Change to bidId for relationship instead of aggregation
-    startPrice: "",
-    endPrice: 0,
-    productName: "",
-    productInfo: "",
-    productImgURL: "",
-  });
+    const { auction, addAuction, createNew, isLoading} = useContext (AuctionContext);  
+    const [newAuction, setNewAuction] = useState (createNew(auction));
+//     const [newAuction, setAuction] = useState(
+//         createNew(newAuction)
+//     // auctionId: 0,
+//     // userId: 0,
+//     // bids: [], // Change to bidId for relationship instead of aggregation
+//     // startPrice: "",
+//     // endPrice: 0,
+//     // productName: "",
+//     // productInfo: "",
+//     // productImgURL: "",
+//   );
     
     const handleSubmit = (e) => {
         e.preventDefault();
         auction.sellerId = sessionStorage.getItem("userId");
-        
+        addAuction(auction);
   
   }
     

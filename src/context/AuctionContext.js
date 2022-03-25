@@ -20,15 +20,6 @@ export const AuctionProvider = ({ children }) => {
     return cloneObj;
   }
 
-  // Getter / Setter auction object
-  const [bid, setBid] = useState({
-    id: 0,
-    bidTime: Date.now(),
-    userId: 0,
-    auctionId: 0,
-    amount: 0
-  });
-
   // Get all auctions
   const fetchAuctions = async () => {
     const res = await fetch("/auctions");
@@ -40,7 +31,7 @@ export const AuctionProvider = ({ children }) => {
   };
 
   const addAuction = async (aAuction) => {
-    const res = await fetch("/auction", {
+    const res = await fetch("/auctions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -53,34 +44,48 @@ export const AuctionProvider = ({ children }) => {
   let auction = {
     auctionId: 0,
     userId: 0,
-    bids: [], // Change to bidId for relationship instead of aggregation
-    startPrice: "0",
-    endPrice: 0,
     productName: "",
     productInfo: "",
     productImgURL: "",
+    startPrice: "0",
+    endPrice: 0,
+    endTime: Date.now(),
+    bids: [], // Change to bidId for relationship instead of aggregation
   };
 
-  // Getter / Setter profile object
-  const [profile, setProfile] = useState({
+  // Getter / Setter auction object
+  const [bid, setBid] = useState({
+    id: 0,
+    bidTime: Date.now(),
     userId: 0,
-    firstName: "",
-    lastName: "",
-    address: "",
+    auctionId: 0,
+    amount: 0
   });
 
-  // Getter / Setter user object
-  const [user, setUser] = useState({
-    userId: 0,
-    email: "",
-    password: "",
-    profile: {},
-    auctions: [],
-  });
+  // Get all bids
+  const fetchBids = async () => {
+    const res = await fetch("/bids");
+    const data = await res.json();
+
+    console.log(data); // DEBUG
+    setUsers(data);
+    setIsLoading(false);
+  };
+
+  const addBid = async (aBid) => {
+    const res = await fetch("/bids", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(aBid),
+    });
+  };
 
   useEffect(() => {
     fetchUsers();
     fetchAuctions();
+    fetchBids();
   }, []);
 
   // Get all users
@@ -114,6 +119,22 @@ export const AuctionProvider = ({ children }) => {
 
     console.log("LocalStorage key authed: ", localStorage.getItem("authed")); // DEBUG
   };
+
+  // Getter / Setter profile object
+  const [profile, setProfile] = useState({
+    userId: 0,
+    firstName: "",
+    lastName: "",
+    address: "",
+  });
+
+  // Getter / Setter user object
+  const [user, setUser] = useState({
+    userId: 0,
+    email: "",
+    password: "",
+    profile: {},
+  });
 
   // Adds a user to REST API
   const addUser = async (aUser) => {
@@ -164,6 +185,8 @@ export const AuctionProvider = ({ children }) => {
         editUser,
         isLoading, // Conditional when fetching data or not.
         users,
+        addAuction,
+        addBid,
         auctions
       }}
     >
