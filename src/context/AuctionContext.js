@@ -100,12 +100,12 @@ export const AuctionProvider = ({ children }) => {
 
   // Client side auth until backend is up and running.
   const authUser = async (aUser) => {
-    let usr = users.filter((fUser) => fUser.email == aUser.email);
-    // console.log(usr[0]);  // DEBUG
+    let usr = users.filter((fUser) => fUser.email === aUser.email);
+     console.log(users);  // DEBUG
     // console.log(aUser);   // DEBUG
 
     // filtrera ut aUser.email == någon av alla Users
-    if (aUser.email == usr[0].email && aUser.password == usr[0].password) {
+    if (aUser.email === usr[0].email && aUser.password === usr[0].password) {
       console.log(usr[0].userId);
       console.log("User & Password Correct");
       localStorage.setItem("authed", "TRUE");

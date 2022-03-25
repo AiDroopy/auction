@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import AuctionContext from "../context/AuctionContext";
+import LogOut from "./LogOut";
 
 
 const Profile = () => {
@@ -12,7 +13,7 @@ const Profile = () => {
           return (
           <div key={user.id}>
             <form>
-            
+              <div className="logout"><LogOut/></div>
               <label>user id:</label>
               <input type = "text" name = "userId" value = {user.userId}/>
               <label>user name:</label>
