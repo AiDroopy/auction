@@ -13,8 +13,10 @@ const Profile = () => {
           return (
           <div key={user.id}>
             <form>
-              <div className="logout"><LogOut/></div>
               <Link to="/">Home</Link>
+              <LogOut/>
+              
+              <br></br>
               <label>user id:</label>
               <input type = "text" name = "userId" value = {user.id}/>
               <label>user name:</label>

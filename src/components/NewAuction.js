@@ -33,10 +33,11 @@ const NewAuction = () => {
   })
   console.log(newAuction)
 }
-    return ( <div className="new-auction">
-    <h2>Creat Auction</h2>
-        <form>
-            <label htmlFor="productName">Title: </label>
+    return ( <div className="new_auction">
+    <h2>Create Auction</h2>
+        <form className="new-auction">
+
+            <label className="bidlabel" htmlFor="productName">Title: </label>
             <input 
                 type="text"
                 name="productName"
@@ -45,7 +46,8 @@ const NewAuction = () => {
                 onChange={handleOnChange}
               
             />
-            <label htmlFor="startPrice">Start Price:</label>
+ 
+            <label className="bidlabel" htmlFor="startPrice">Start Price:</label>
             <input 
                 type="Start Price"
                 required 
@@ -53,8 +55,9 @@ const NewAuction = () => {
                 onChange={handleOnChange}
                 
             />
-            
-            <label htmlFor="startDate">Start Date: </label>
+
+
+            <label className="bidlabel" htmlFor="startDate">Start Date: </label>
             <input 
                 Month = "set Month"
                 Day = "set Day"
@@ -64,8 +67,9 @@ const NewAuction = () => {
               
             />
 
-            
-            <label htmlFor="endate">End Date: </label>
+
+
+            <label className="bidlabel" htmlFor="endate">End Date: </label>
             <input 
                 type="text"
                 name="endDate"
@@ -75,8 +79,8 @@ const NewAuction = () => {
               
             />
 
-        
-            <label htmlFor="endTime">Start Time: </label>
+ 
+            <label className="bidlabel" htmlFor="endTime">Start Time: </label>
             <input 
                 type="text"
                 name="endTime"
@@ -87,7 +91,7 @@ const NewAuction = () => {
             />
 
             
-            <label htmlFor="productInfo">Information: </label>
+            <label className="bidlabel" htmlFor="productInfo">Information: </label>
             <input 
                 type="text"
                 name="productInfo"
@@ -99,15 +103,14 @@ const NewAuction = () => {
             />
 
 
-            <label htmlFor="productImgURL">Upload image:  </label>
-            <div className="image-upload">
+            <label className="bidlabel" htmlFor="productImgURL">Upload image:  </label>
+
                 <input type="file" 
                 id="file-input" 
                 name="productImgURL" 
                 value={auction.productImgURL}
                 onChange={handleOnChange}
                 />
-            </div>
 
             <button type="submit" onClick={handleSubmit}>
                 Add Auction
