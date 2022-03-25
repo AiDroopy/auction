@@ -8,7 +8,7 @@ const Profile = () => {
 
     return (
       users.map(function(user){
-        if (user.userId == localStorage.getItem('userId')){
+        if (user.userId == sessionStorage.getItem('userId')){
           return (
           <div key={user.id}>
             <form>
