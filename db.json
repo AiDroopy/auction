@@ -1,53 +1,46 @@
 {
   "users": [
     {
-      "userId": 0,
       "email": "bjorn@mwef.se",
       "password": "1231234567",
       "profile": {},
-      "id": 2
+      "id": 0
     },
     {
-      "userId": 1,
       "email": "dejan@fejjan.se",
       "password": "1231234567wew",
       "profile": {},
       "id": 3
     },
     {
-      "userId": 2,
       "email": "Fatma@fejja.se",
       "password": "34567wew",
       "profile": {},
       "id": 5
     },
     {
-      "userId": 3,
       "email": "Zeena@fejjan.se",
       "password": "34567wew",
       "profile": {},
       "id": 6
     },
     {
-      "userId": 4,
       "email": "Hej@a.se",
       "password": "123456789",
       "profile": {},
       "id": 7
     },
     {
-      "userId": 5,
-      "email": "bjorn@mwef.se",
-      "password": "\"1231234567",
-      "profile": {},
-      "id": 8
-    },
-    {
-      "userId": 0,
       "email": "Max.Henkesson@gmail.com",
       "password": "Johan",
       "profile": {},
       "id": 9
+    },
+    {
+      "email": "Max.Henkesson@gmail.com",
+      "password": "asdguausgd",
+      "profile": {},
+      "id": 10
     }
   ],
   "auctions": [
@@ -74,19 +67,6 @@
       "endPrice": "?",
       "endTime": 1648130213358,
       "bids": []
-    },
-    {
-      "auctionId": 0,
-      "userId": 0,
-      "bids": [],
-      "startPrice": "0",
-      "endPrice": 0,
-      "productName": "",
-      "productInfo": "",
-      "productImgURL": "",
-      "endTime": 1648195938079,
-      "sellerId": null,
-      "id": 3
     }
   ],
   "bids": [
@@ -124,6 +104,20 @@
       "userId": 3,
       "auctionId": 1,
       "amount": ""
+    },
+    {
+      "id": 6,
+      "bidTime": 1648197963360,
+      "userId": 0,
+      "auctionId": 0,
+      "amount": "55"
+    },
+    {
+      "id": 7,
+      "bidTime": 1648197963360,
+      "userId": 0,
+      "auctionId": 0,
+      "amount": "45"
     }
   ]
 }

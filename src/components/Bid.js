@@ -12,7 +12,7 @@ const Bid = ({auctionId}) => {
     bid.bidTime = Date.now()
     bid.userId = sessionStorage.getItem("userId");
     bid.auctionId = auctionId;
-    addBid(bid)
+    addBid(newBid)
 
 }
   const handleOnChange = (event) => {
@@ -28,7 +28,7 @@ const Bid = ({auctionId}) => {
         <form>
             <label htmlFor="amount">Bid </label>
             <input 
-                type="text"
+                type="number"
                 name="amount"
                 required 
                 defaultValue={bid.amount}
@@ -37,7 +37,7 @@ const Bid = ({auctionId}) => {
             />
          
             <button type="submit" onClick={handleSubmit}>
-                Add Bet
+                Bid
             </button>
             </form> 
     </div>

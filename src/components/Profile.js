@@ -9,13 +9,13 @@ const Profile = () => {
 
     return (
       users.map(function(user){
-        if (user.userId == localStorage.getItem('userId')){
+        if (user.id == sessionStorage.getItem('userId')){
           return (
           <div key={user.id}>
             <form>
               <div className="logout"><LogOut/></div>
               <label>user id:</label>
-              <input type = "text" name = "userId" value = {user.userId}/>
+              <input type = "text" name = "userId" value = {user.id}/>
               <label>user name:</label>
               <input type = "text" name = "email" defaultValue= {user.email}/>
               {/* <label>Adress:</label>
@@ -28,12 +28,12 @@ const Profile = () => {
             <h3> listan på auctions: </h3>
             <h4>Auctions:</h4>
             <div className="auctions"> 
-            {auctions.map((auction => { if (auction.sellerId === user.userId) return <div className="auctions" key={auction.auctionId}><br></br>
+            {auctions.map((auction => { if (auction.userId === user.id) return <div className="auctions" key={auction.auctionId}><br></br>
         Product name: {auction.productName}
         <br></br>
         Description: {auction.productInfo}
         <br></br>
-        <img src={auction.productImage}></img>
+        <img src={auction.productImgURL}></img>
         <br></br>
         Starting price: {auction.startPrice}
         <br></br>

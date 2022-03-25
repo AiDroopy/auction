@@ -27,7 +27,7 @@ const AuctionList = () => {
         <CountdownTimer
                 countdownTimestampMs={auction.endTime + 259200000}/>
         
-        <Bid auctionId={ auction.auctionId }/>
+        {sessionStorage.getItem("authed") &&  < Bid auctionId={ auction.auctionId }/>}
     
         </div>))} 
          </div>
