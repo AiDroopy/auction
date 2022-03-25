@@ -36,13 +36,6 @@
       "id": 7
     },
     {
-      "userId": 5,
-      "email": "bjorn@mwef.se",
-      "password": "\"1231234567",
-      "profile": {},
-      "id": 8
-    },
-    {
       "userId": 0,
       "email": "Max.Henkesson@gmail.com",
       "password": "Johan",
@@ -74,19 +67,6 @@
       "endPrice": "?",
       "endTime": 1648130213358,
       "bids": []
-    },
-    {
-      "auctionId": 0,
-      "userId": 0,
-      "bids": [],
-      "startPrice": "0",
-      "endPrice": 0,
-      "productName": "",
-      "productInfo": "",
-      "productImgURL": "",
-      "endTime": 1648195938079,
-      "sellerId": null,
-      "id": 3
     }
   ],
   "bids": [
@@ -124,6 +104,20 @@
       "userId": 3,
       "auctionId": 1,
       "amount": ""
+    },
+    {
+      "id": 6,
+      "bidTime": 1648197963360,
+      "userId": 0,
+      "auctionId": 0,
+      "amount": "55"
+    },
+    {
+      "id": 7,
+      "bidTime": 1648197963360,
+      "userId": 0,
+      "auctionId": 0,
+      "amount": "45"
     }
   ]
 }

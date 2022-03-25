@@ -41,17 +41,17 @@ export const AuctionProvider = ({ children }) => {
   };
 
   // Getter / Setter auction object
-  let auction = {
+  const [auction, setAuction] = useState({
     auctionId: 0,
     userId: 0,
     productName: "",
     productInfo: "",
     productImgURL: "",
-    startPrice: "0",
+    startPrice: 0,
     endPrice: 0,
     endTime: Date.now(),
     bids: [], // Change to bidId for relationship instead of aggregation
-  };
+  });
 
   // Getter / Setter auction object
   const [bid, setBid] = useState({
@@ -101,23 +101,22 @@ export const AuctionProvider = ({ children }) => {
   // Client side auth until backend is up and running.
   const authUser = async (aUser) => {
     let usr = users.filter((fUser) => fUser.email == aUser.email);
-    // console.log(usr[0]);  // DEBUG
-    // console.log(aUser);   // DEBUG
+    console.log(usr[0]);  // DEBUG
+    console.log(aUser);   // DEBUG
 
     // filtrera ut aUser.email == någon av alla Users
     if (aUser.email == usr[0].email && aUser.password == usr[0].password) {
       console.log(usr[0].userId);
       console.log("User & Password Correct");
-      localStorage.setItem("authed", "TRUE");
+      sessionStorage.setItem("authed", true);
       sessionStorage.setItem("userId", usr[0].userId);
-      console.log(localStorage);
       
     } else {
       console.log("User or Password incorrect", aUser.email, aUser.password);
-      localStorage.setItem("authed", "FALSE");
+      sessionStorage.setItem("authed", false);
     }
 
-    console.log("LocalStorage key authed: ", localStorage.getItem("authed")); // DEBUG
+    console.log("SessionStorage key authed: ", sessionStorage.getItem("authed")); // DEBUG
   };
 
   // Getter / Setter profile object

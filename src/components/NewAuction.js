@@ -20,7 +20,7 @@ const NewAuction = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         auction.sellerId = sessionStorage.getItem("userId");
-        addAuction(auction);
+        addAuction(newAuction);
   
   }
     
