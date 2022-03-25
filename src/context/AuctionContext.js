@@ -40,7 +40,7 @@ export const AuctionProvider = ({ children }) => {
   };
 
   const addAuction = async (aAuction) => {
-    const res = await fetch("/auction", {
+    const res = await fetch("/auctions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -53,12 +53,13 @@ export const AuctionProvider = ({ children }) => {
   let auction = {
     auctionId: 0,
     userId: 0,
-    bids: [], // Change to bidId for relationship instead of aggregation
-    startPrice: "0",
-    endPrice: 0,
     productName: "",
     productInfo: "",
     productImgURL: "",
+    startPrice: "0",
+    endPrice: 0,
+    endTime: Date.now(),
+    bids: [], // Change to bidId for relationship instead of aggregation
   };
 
   // Getter / Setter profile object
@@ -75,7 +76,6 @@ export const AuctionProvider = ({ children }) => {
     email: "",
     password: "",
     profile: {},
-    auctions: [],
   });
 
   useEffect(() => {
