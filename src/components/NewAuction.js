@@ -1,27 +1,46 @@
 import { useContext, useState } from "react";
 import AuctionContext from "../context/AuctionContext";
 
-
+// Måste börja med Stor bokstav, även filnamnet
 const NewAuction = () => {
-    const { user, createNew, isLoading, authUser} = useContext (AuctionContext);  
+    const { user, createNew, isLoading} = useContext (AuctionContext);  
+    const [newAuction, setNewAuction] = useState (null);
+    const [auction, setAuction] = useState({
+    auctionId: 0,
+    userId: 0,
+    bids: [], // Change to bidId for relationship instead of aggregation
+    startPrice: "",
+    endPrice: 0,
+    productName: "",
+    productInfo: "",
+    productImgURL: "",
+  });
     
-    const [startPrice, setStartPrice] = useState("");
-    const [startDate, setStarDate] = useState("");
-    const [endDate, setEndDate] = useState("");
-    const [endTime, setEndTime] = useState("");
-    const [info, setInfo] = useState("");
-    const [img, setImg] = useState("");
-
-
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        auction.sellerId = sessionStorage.getItem("userId");
+        
+  
+  }
     
-    return ( <div className="new">
+    // setting values for all instans fields, updates values, learn more!
+    const handleOnChange = (event) => {
+    setNewAuction({
+      ...newAuction,
+      [event.target.name]: event.target.value,  // prop name måste finnas med i html-fälten (i return..)
+
+  })
+  console.log(newAuction)
+}
+    return ( <div className="new-auction">
     <h2>Creat Auction</h2>
         <form>
-            <label htmlFor="title">Title: </label>
+            <label htmlFor="productName">Title: </label>
             <input 
-                type="title"
+                type="text"
+                name="productName"
                 required 
-                value={users.title}
+                defaultValue={auction.productName}
                 onChange={handleOnChange}
               
             />
@@ -29,7 +48,7 @@ const NewAuction = () => {
             <input 
                 type="Start Price"
                 required 
-                value={users.startPrice}
+                defaultValue={auction.startPrice}
                 onChange={handleOnChange}
                 
             />
@@ -47,10 +66,10 @@ const NewAuction = () => {
             
             <label htmlFor="endate">End Date: </label>
             <input 
-                Month = "set Month"
-                Day = "set Day"
+                type="text"
+                name="endDate"
                 required 
-                value={users.endDate}
+                value={auction.endDate}
                 onChange={handleOnChange}
               
             />
@@ -58,28 +77,36 @@ const NewAuction = () => {
         
             <label htmlFor="endTime">Start Time: </label>
             <input 
-                Hours = "set Hour"
-                Minutes = "set Minute"
+                type="text"
+                name="endTime"
                 required 
-                value={users.endTime}
+                value={auction.endTime}
                 onChange={handleOnChange}
               
             />
 
             
-            <label htmlFor="info">Information: </label>
+            <label htmlFor="productInfo">Information: </label>
             <input 
-                type = "text"
+                type="text"
+                name="productInfo"
+                id="productInfo"
                 required 
-                value={users.info}
+                defaultValue={auction.productInfo}
                 onChange={handleOnChange}
               
             />
 
 
-
-
-
+            <label htmlFor="productImgURL">Upload image:  </label>
+            <div className="image-upload">
+                <input type="file" 
+                id="file-input" 
+                name="productImgURL" 
+                value={auction.productImgURL}
+                onChange={handleOnChange}
+                />
+            </div>
 
             <button type="submit" onClick={handleSubmit}>
                 Add Auction
@@ -88,4 +115,4 @@ const NewAuction = () => {
     </div>);
 }
  
-export default NewAuction;
+export default NewAuction; // <- Måste börja med Stor bokstav

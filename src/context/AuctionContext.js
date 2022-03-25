@@ -50,16 +50,16 @@ export const AuctionProvider = ({ children }) => {
   };
 
   // Getter / Setter auction object
-  const [auction, setAuction] = useState({
+  let auction = {
     auctionId: 0,
     userId: 0,
     bids: [], // Change to bidId for relationship instead of aggregation
-    startPrice: 0,
+    startPrice: "0",
     endPrice: 0,
     productName: "",
     productInfo: "",
     productImgURL: "",
-  });
+  };
 
   // Getter / Setter profile object
   const [profile, setProfile] = useState({
