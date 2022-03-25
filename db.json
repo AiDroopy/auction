@@ -1,42 +1,36 @@
 {
   "users": [
     {
-      "userId": 0,
       "email": "bjorn@mwef.se",
       "password": "1231234567",
       "profile": {},
-      "id": 2
+      "id": 0
     },
     {
-      "userId": 1,
       "email": "dejan@fejjan.se",
       "password": "1231234567wew",
       "profile": {},
       "id": 3
     },
     {
-      "userId": 2,
       "email": "Fatma@fejja.se",
       "password": "34567wew",
       "profile": {},
       "id": 5
     },
     {
-      "userId": 3,
       "email": "Zeena@fejjan.se",
       "password": "34567wew",
       "profile": {},
       "id": 6
     },
     {
-      "userId": 4,
       "email": "Hej@a.se",
       "password": "123456789",
       "profile": {},
       "id": 7
     },
     {
-      "userId": 0,
       "email": "Max.Henkesson@gmail.com",
       "password": "Johan",
       "profile": {},

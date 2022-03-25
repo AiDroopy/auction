@@ -101,10 +101,10 @@ export const AuctionProvider = ({ children }) => {
 
     // filtrera ut aUser.email == någon av alla Users
     if (aUser.email == usr[0].email && aUser.password == usr[0].password) {
-      console.log(usr[0].userId);
+      console.log(usr[0].id);
       console.log("User & Password Correct");
       sessionStorage.setItem("authed", true);
-      sessionStorage.setItem("userId", usr[0].userId);
+      sessionStorage.setItem("userId", usr[0].id);
       
     } else {
       console.log("User or Password incorrect", aUser.email, aUser.password);
@@ -124,7 +124,6 @@ export const AuctionProvider = ({ children }) => {
 
   // Getter / Setter user object
   const [user, setUser] = useState({
-    userId: 0,
     email: "",
     password: "",
     profile: {},
