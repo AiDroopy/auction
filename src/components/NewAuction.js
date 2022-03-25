@@ -58,7 +58,7 @@ const NewAuction = () => {
                 Month = "set Month"
                 Day = "set Day"
                 required 
-                value={users.startDate}
+                value={auction.startDate}
                 onChange={handleOnChange}
               
             />

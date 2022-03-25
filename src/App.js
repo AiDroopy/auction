@@ -4,12 +4,17 @@ import { AuctionProvider } from './context/AuctionContext';
 import Profile from './components/Profile';
 import Login from './components/Login';
 import Card from './components/Card';
-import img from './nedladdning(1).png'
+import LoginForm from './components/LoginForm';
+import SignUp from './components/SignUp';
+import SignUpForm from './components/SignUpForm';
+import NewAuction from './components/NewAuction';
+import AuctionList from './components/AuctionList';
+
 
 function App() {
   return (
     <div className="App">
-    {/* <AuctionProvider>  
+    <AuctionProvider>  
       <header className="App-header">
 
       </header>
@@ -29,13 +34,12 @@ function App() {
 
         </Routes>
       </div>
-      </AuctionProvider>   */}
+      </AuctionProvider>  
 
-      <Card 
-      image = {img}/>
       
     </div>
   );
 }
 
 export default App;
+
