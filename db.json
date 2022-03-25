@@ -67,6 +67,20 @@
       "endPrice": "?",
       "endTime": 1648130213358,
       "bids": []
+    },
+    {
+      "auctionId": 0,
+      "userId": 0,
+      "productName": "hej",
+      "productInfo": "adfas",
+      "productImgURL": "C:\\fakepath\\nedladdning (1).jpg",
+      "startPrice": 0,
+      "endPrice": 0,
+      "endTime": 1648214552623,
+      "bids": [],
+      "": "adf",
+      "endDate": "dasf",
+      "id": 3
     }
   ],
   "bids": [

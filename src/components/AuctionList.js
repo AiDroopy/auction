@@ -8,22 +8,22 @@ import Bid from "./Bid";
 const AuctionList = () => {
 
     const { auctions } = useContext(AuctionContext);
-    
-    console.log(Date.now())
+
     return (
 
-        <div className="auctions"> 
+        <div className="auction-List"> 
         {auctions.map((auction) => (<div className="auctions" key={auction.auctionId}> 
         <br></br>
         Product name: {auction.productName}
         <br></br>
         Description: {auction.productInfo}
         <br></br>
-        <img src={auction.productImgURL}></img>
+        <img src={auction.productImgURL} alt="img" className="img"></img>
         <br></br>
         Starting price: {auction.startPrice}
         <br></br>
         Bids: {auction.bids}
+        <Bid></Bid>
         <CountdownTimer
                 countdownTimestampMs={auction.endTime + 259200000}/>
         

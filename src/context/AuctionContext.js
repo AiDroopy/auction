@@ -24,7 +24,7 @@ export const AuctionProvider = ({ children }) => {
     setAuctions(data);
     setIsLoading(false);
   };
-
+  
   const addAuction = async (aAuction) => {
     const res = await fetch("/auctions", {
       method: "POST",

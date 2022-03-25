@@ -53,3 +53,11 @@ code {
 .two-numbers {
   width: 0.8ch;
 }
+
+.auction-List{
+  display: flex;
+}
+
+.nav_container{
+  
+}
