@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import AuctionContext from '../context/AuctionContext';
 import Card from "./Card";
 import CountdownTimer from './CountdownTimer/CountdownTimer';
+import Bid from "./Bid";
 
 const AuctionList = () => {
 
@@ -25,6 +26,9 @@ const AuctionList = () => {
         Bids: {auction.Bids}
         <CountdownTimer
                 countdownTimestampMs={auction.endTime + 259200000}/>
+        
+        <Bid auctionId={ auction.auctionId }/>
+    
         </div>))} 
          </div>
 

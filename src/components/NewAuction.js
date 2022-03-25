@@ -3,7 +3,7 @@ import AuctionContext from "../context/AuctionContext";
 
 // Måste börja med Stor bokstav, även filnamnet
 const NewAuction = () => {
-    const { user, createNew, isLoading} = useContext (AuctionContext);  
+    const { addAuction, createNew, isLoading} = useContext (AuctionContext);  
     const [newAuction, setNewAuction] = useState (null);
     const [auction, setAuction] = useState({
     auctionId: 0,
@@ -19,7 +19,7 @@ const NewAuction = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         auction.sellerId = sessionStorage.getItem("userId");
-        
+        addAuction(auction);
   
   }
     
