@@ -27,7 +27,6 @@ const Login = ({submitForm}) => {
     setErrors(validation(newUser)); 
     setDataIsCorrect(true);
     // console.log(newUser);  // DEBUG
-    authUser(newUser);
 
     // Check if user is correct... low prio!
   };
