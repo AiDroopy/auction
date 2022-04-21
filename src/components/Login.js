@@ -4,7 +4,7 @@ import AuctionContext from "../context/AuctionContext";
 
 const Login = ({submitForm}) => {
 
-  const { user, createNew, isLoading, authUser} = useContext (AuctionContext);  // get some stuff from AuctionContext
+  const { user, createNew, isLoading, authUser } = useContext (AuctionContext);  // get some stuff from AuctionContext
   
   //useState for values, using object data types
   const [newUser, setNewUser] = useState(createNew(user));
@@ -24,11 +24,9 @@ const Login = ({submitForm}) => {
   // setErrors -->
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    setErrors(validation(newUser)); 
+    setErrors(validation(newUser));
+    authUser(newUser);
     setDataIsCorrect(true);
-    // console.log(newUser);  // DEBUG
-
-    // Check if user is correct... low prio!
   };
 
   // if errors is empty and data is correted change propsvalue to true 
@@ -47,12 +45,12 @@ const Login = ({submitForm}) => {
         <form className="form-wrapper">
           
           <div className="email">
-            <label className="label">Email: </label>
+            <label className="label">Username: </label>
             <input
               className="input"
               type="email"
               name="email"
-              value={newUser.email}
+              value={newUser.username}
               onChange={handleChange}
             />
             {errors.email && <p className="error">{errors.email}</p>}

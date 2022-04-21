@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import AuctionService from "../services/AuctionService";
+import AuthService from "../services/AuthService";
 import UserService from "../services/UserService";
 
 const AuctionContext = createContext();
@@ -10,6 +11,7 @@ export const AuctionProvider = ({ children }) => {
   const [bids, setBids] = useState([]);
   const [auctions, setAuctions] = useState([]);
   const [users, setUsers] = useState([]);
+  const [login, setLoggedIn] = useState(false);
 
   useEffect(() => {
     getAllUsers();
@@ -111,25 +113,12 @@ export const AuctionProvider = ({ children }) => {
   // };
 
   // Client side auth until backend is up and running.
-  // const authUser = async (aUser) => {
-  //   let usr = users.filter((fUser) => fUser.username == aUser.username);
-  //   console.log(users);  // DEBUG
-  //   console.log(aUser);   // DEBUG
-
-  //   // filtrera ut aUser.email == någon av alla Users
-  //   if (aUser.username == usr[0].username && aUser.password == usr[0].password) {
-  //     console.log(usr[0].id);
-  //     console.log("User & Password Correct");
-  //     sessionStorage.setItem("authed", true);
-  //     sessionStorage.setItem("userId", usr[0].id);
-      
-  //   } else {
-  //     console.log("User or Password incorrect", aUser.username, aUser.password);
-  //     sessionStorage.setItem("authed", false);
-  //   }
-
-  //   console.log("SessionStorage key authed: ", sessionStorage.getItem("authed")); // DEBUG
-  // };
+    const authUser = (newUser) => {
+        AuthService.login(newUser).then((response) => {
+        setLoggedIn(true)
+        
+      })
+    };
 
   // Getter / Setter profile object
   const [profile, setProfile] = useState({
@@ -186,6 +175,7 @@ export const AuctionProvider = ({ children }) => {
         users,
         addAuction,
         addBid,
+        authUser,
         auctions
       }}
     >

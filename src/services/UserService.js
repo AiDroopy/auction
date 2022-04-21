@@ -1,11 +1,10 @@
 import axios from 'axios';
-axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
-const API_URL_TEST = "http://localhost:8080/api";
+const API_URL_TEST = "http://localhost:8080/api/users";
 
 class UserService{
 
     getAllUsers(){
-        return axios.get(`${API_URL_TEST}/users`)
+        return axios.get(`${API_URL_TEST}/all`)
     }
 }
 
