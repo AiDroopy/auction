@@ -3,6 +3,7 @@ import SignUpForm from "./SignUpForm"
 import LoginForm from "./LoginForm";
 import NavBar from "./NavBar";
 import AuctionList from"./AuctionList";
+import React from "react";
 
 
 const Home = () => {

@@ -10,6 +10,7 @@ import SignUpForm from './components/SignUpForm';
 import NewAuction from './components/NewAuction';
 import AuctionList from './components/AuctionList';
 import Search from './components/Search';
+import React from 'react';
 
 
 function App() {

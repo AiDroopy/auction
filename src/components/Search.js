@@ -1,5 +1,5 @@
 import AuctionContext from "../context/AuctionContext"
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 
 const Search = () => {
 
