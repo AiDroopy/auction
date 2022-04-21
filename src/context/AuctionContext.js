@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
+import UserService from "../services/UserService";
 
 const AuctionContext = createContext();
 
@@ -78,20 +79,26 @@ export const AuctionProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    fetchUsers();
+    getAllUsers();
     fetchAuctions();
     fetchBids();
   }, []);
 
   // Get all users
-  const fetchUsers = async () => {
-    const res = await fetch("/users");
-    const data = await res.json();
+  const getAllUsers = () =>{
+      UserService.getAllUsers().then((response) => {
+      setUsers(response.data);
+      setIsLoading(false);
+    })
+  }
+  // const fetchUsers = async () => {
+  //   const res = await fetch("/users");
+  //   const data = await res.json();
 
-    console.log(data); // DEBUG
-    setUsers(data);
-    setIsLoading(false);
-  };
+  //   console.log(data); // DEBUG
+  //   setUsers(data);
+  //   setIsLoading(false);
+  // };
 
   // Client side auth until backend is up and running.
   const authUser = async (aUser) => {
