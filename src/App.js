@@ -8,7 +8,6 @@ import NewAuction from './components/NewAuction';
 import AuctionList from './components/AuctionList';
 import Search from './components/Search';
 import React from 'react';
-import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
