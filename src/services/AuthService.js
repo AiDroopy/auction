@@ -4,7 +4,7 @@ const API_URL_TEST = "http://localhost:8080/api/auth";
 class AuthService{
 
     login(newUser){
-        return axios.post(`${API_URL_TEST}/signup`, newUser)
+        return axios.post(`${API_URL_TEST}/signin`, newUser)
     }
 }
 

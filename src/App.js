@@ -2,16 +2,13 @@ import { Route, Routes } from 'react-router';
 import Home from './components/Home';
 import { AuctionProvider } from './context/AuctionContext';
 import Profile from './components/Profile';
-import Login from './components/Login';
-import Card from './components/Card';
 import LoginForm from './components/LoginForm';
-import SignUp from './components/SignUp';
 import SignUpForm from './components/SignUpForm';
 import NewAuction from './components/NewAuction';
 import AuctionList from './components/AuctionList';
 import Search from './components/Search';
 import React from 'react';
-
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
