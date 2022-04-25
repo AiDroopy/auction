@@ -8,8 +8,12 @@ import SignUp from './components/SignUp';
 import NewAuction from './components/NewAuction';
 import AuctionList from './components/AuctionList';
 import SignUpForm from './components/SignUpForm';
+import Bid from './components/Bid';
+import BidsService from './services/BidsService';
 
 function App() {
+
+
   return (
     <div className="App">
     <AuctionProvider>  
@@ -26,6 +30,10 @@ function App() {
 
           <Route path='/SignUpForm' element={<SignUpForm />} />
           <Route path='/AuctionList' element={<AuctionList />} />
+          <Route path='/Bid' element={<Bid />} />
+          <Route path='/Bidsservice' element={<BidsService />} />
+          
+          
 
         </Routes>
       </div>
