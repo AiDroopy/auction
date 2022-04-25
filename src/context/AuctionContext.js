@@ -124,6 +124,23 @@ function insertBid (aBid) {
       setIsLoading(false);
     })
   }
+
+  // Get user by id
+  const getUserById = (id) =>{
+    UserService.getUserById().then((response) => {
+    setUsers(response.data);
+    setIsLoading(false);
+  })
+}
+
+const createUser = (newUser) =>{
+  UserService.createUser(newUser).then((response) => {
+  setUser(response.data);
+  setIsLoading(false);
+})
+}
+
+  
   // const fetchUsers = async () => {
   //   const res = await fetch("/users");
   //   const data = await res.json();
@@ -151,9 +168,8 @@ function insertBid (aBid) {
 
   // Getter / Setter user object
   const [user, setUser] = useState({
-    email: "",
-    password: "",
-    profile: {},
+    username: "",
+    password: ""
   });
 
   // Adds a user to REST API
@@ -192,6 +208,7 @@ function insertBid (aBid) {
         user, // user object
         createNew, // Hardcopy json object
         addUser, // AddUser function
+        createUser, //Adduser function with backend
         isLoading, // Conditional when fetching data or not.
         users,
         addAuction,

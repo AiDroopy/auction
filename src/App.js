@@ -12,6 +12,7 @@ import Bid from './components/Bid';
 import BidsService from './services/BidsService';
 
 import Search from './components/Search';
+import Users from './components/Users'
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -35,11 +36,15 @@ function App() {
           <Route path='/Search' element={<Search />} />
           <Route path='/SignUpForm' element={<SignUpForm />} />
           <Route path='/AuctionList' element={<AuctionList />} />
+<<<<<<< Updated upstream
           <Route path='/Bid' element={<Bid />} />
           <Route path='/Bidsservice' element={<BidsService />} />
           
           
 
+=======
+          <Route path='/Users' element={<Users />} />
+>>>>>>> Stashed changes
         </Routes>
       </div>
       </AuctionProvider>  
