@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import validation from "./Validation";
 import AuctionContext from "../context/AuctionContext";
+import AuthService from "../services/AuthService";
 
 const Login = ({submitForm}) => {
 
@@ -49,7 +50,7 @@ const Login = ({submitForm}) => {
             <input
               className="input"
               type="email"
-              name="email"
+              name="username"
               value={newUser.username}
               onChange={handleChange}
             />

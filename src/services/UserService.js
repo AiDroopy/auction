@@ -14,6 +14,7 @@ class UserService{
     createUser(newUser){
         return axios.post(`${API_URL_TEST}/auth/signup`, newUser)
     }
+
 }
 
 export default new UserService();

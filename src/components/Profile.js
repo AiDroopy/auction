@@ -2,15 +2,14 @@ import React, { useContext, useState, useEffect } from "react";
 import AuctionContext from "../context/AuctionContext";
 import LogOut from "./LogOut";
 import { Link } from "react-router-dom";
+import AuthService from "../services/AuthService";
 
 const Profile = () => {
   
-    const { users, auctions } = useContext(AuctionContext);
+    const { auctions } = useContext(AuctionContext);
+    const user = AuthService.getCurrentUser();
 
     return (
-      users.map(function(user){
-        if (user.id == sessionStorage.getItem('userId')){
-          return (
           <div key={user.id}>
             <form>
               <Link to="/">Home</Link>
@@ -20,11 +19,7 @@ const Profile = () => {
               <label>user id:</label>
               <input type = "text" name = "userId" value = {user.id}/>
               <label>user name:</label>
-              <input type = "text" name = "email" defaultValue= {user.email}/>
-              {/* <label>Adress:</label>
-              <input type = "text" value= {user.adress}/>
-              <label>Phone nr:</label>
-              <input type = "text" value= {user.phoneNr}/> */}
+              <input type = "text" name = "email" defaultValue= {user.username}/>
             
             </form>
             <h2>This is your won auctions:</h2>
@@ -51,8 +46,6 @@ const Profile = () => {
             <h3> listan på auctions</h3>
         </div>
           )}
-    })
-  )
-}
+
 
 export default Profile;

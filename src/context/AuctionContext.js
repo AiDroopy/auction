@@ -92,10 +92,11 @@ function insertBid (aBid) {
     })
   };
 
+  const userid = AuthService.getCurrentUser();
+
   // Getter / Setter auction object
   const [auction, setAuction] = useState({
-    auctionId: 0,
-    userId: 0,
+    userId: userid.id,
     productName: "",
     productInfo: "",
     productImgURL: "",
@@ -170,21 +171,6 @@ const createUser = (newUser) =>{
     });
   };
 
-  // const updateProfile = async (userId, updateUser) => {
-  //   const response = await fetch(`/user/${userId}`, {
-  //     method: "PUT",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(updateUser),
-  //   });
-
-  //   const data = await response.json();
-
-  //   setUser(
-  //     user.map((user) => (user.userId === userId ? { ...user, ...data } : user))
-  //   );
-  // };
 
   return (
     <AuctionContext.Provider
