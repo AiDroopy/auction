@@ -187,7 +187,8 @@ const createUser = (newUser) =>{
         addAuction,
         insertBid,
         authUser,
-        auctions
+        auctions,
+        userid
       }}
     >
       {children}
