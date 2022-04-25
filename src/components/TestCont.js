@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import AuctionContext from "../context/AuctionContext";
 
 
@@ -16,6 +16,7 @@ const TestCont = () => {
     newProfile.firstName = "Björn";
     newProfile.lastName = "Milebjörk"
     newProfile.address = "Ankeborg";
+    
     
 
     // Set up a mockup user

@@ -1,4 +1,7 @@
-import { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
+import AuctionService from "../services/AuctionService";
+import AuthService from "../services/AuthService";
+import UserService from "../services/UserService";
 
 const AuctionContext = createContext();
 
@@ -8,6 +11,13 @@ export const AuctionProvider = ({ children }) => {
   const [bids, setBids] = useState([]);
   const [auctions, setAuctions] = useState([]);
   const [users, setUsers] = useState([]);
+  const [login, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    getAllUsers();
+    getAuctions();
+    fetchBids();
+  }, []);
 
   // Deep copy / clone a json object, creates and returns an identical JSON object that was passed in.
   function createNew(object) {
@@ -16,6 +26,14 @@ export const AuctionProvider = ({ children }) => {
   }
 
   // Get all auctions
+  const getAuctions = () =>{
+    AuctionService.getAuctions().then((response) => {
+      console.log(response.data)
+      setAuctions(response.data);
+   
+    setIsLoading(false);
+  })
+}
   const fetchAuctions = async () => {
     const res = await fetch("/auctions");
     const data = await res.json();
@@ -24,7 +42,7 @@ export const AuctionProvider = ({ children }) => {
     setAuctions(data);
     setIsLoading(false);
   };
-
+  
   const addAuction = async (aAuction) => {
     const res = await fetch("/auctions", {
       method: "POST",
@@ -77,42 +95,30 @@ export const AuctionProvider = ({ children }) => {
     });
   };
 
-  useEffect(() => {
-    fetchUsers();
-    fetchAuctions();
-    fetchBids();
-  }, []);
 
   // Get all users
-  const fetchUsers = async () => {
-    const res = await fetch("/users");
-    const data = await res.json();
+  const getAllUsers = () =>{
+      UserService.getAllUsers().then((response) => {
+      setUsers(response.data);
+      setIsLoading(false);
+    })
+  }
+  // const fetchUsers = async () => {
+  //   const res = await fetch("/users");
+  //   const data = await res.json();
 
-    console.log(data); // DEBUG
-    setUsers(data);
-    setIsLoading(false);
-  };
+  //   console.log(data); // DEBUG
+  //   setUsers(data);
+  //   setIsLoading(false);
+  // };
 
   // Client side auth until backend is up and running.
-  const authUser = async (aUser) => {
-    let usr = users.filter((fUser) => fUser.email == aUser.email);
-    console.log(users);  // DEBUG
-    console.log(aUser);   // DEBUG
-
-    // filtrera ut aUser.email == någon av alla Users
-    if (aUser.email == usr[0].email && aUser.password == usr[0].password) {
-      console.log(usr[0].id);
-      console.log("User & Password Correct");
-      sessionStorage.setItem("authed", true);
-      sessionStorage.setItem("userId", usr[0].id);
-      
-    } else {
-      console.log("User or Password incorrect", aUser.email, aUser.password);
-      sessionStorage.setItem("authed", false);
-    }
-
-    console.log("SessionStorage key authed: ", sessionStorage.getItem("authed")); // DEBUG
-  };
+    const authUser = (newUser) => {
+        AuthService.login(newUser).then((response) => {
+        setLoggedIn(true)
+        
+      })
+    };
 
   // Getter / Setter profile object
   const [profile, setProfile] = useState({
@@ -165,11 +171,11 @@ export const AuctionProvider = ({ children }) => {
         user, // user object
         createNew, // Hardcopy json object
         addUser, // AddUser function
-        authUser, // auth user
         isLoading, // Conditional when fetching data or not.
         users,
         addAuction,
         addBid,
+        authUser,
         auctions
       }}
     >

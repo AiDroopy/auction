@@ -24,7 +24,7 @@ const SignUp = ({submitForm}) => {
   // setErrors -->
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    setErrors(validation(newUser)); 
+    setErrors(validation(newUser)); // Pass in validation 
     setDataIsCorrect(true);
     // console.log(newUser);  // DEBUG
     addUser(newUser);

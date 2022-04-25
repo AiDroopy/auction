@@ -13,7 +13,7 @@ const validation = (newUser) => {
 
     // if email is empty.... else if email don't contain . signs or @ sign 
     if (!newUser.email){
-        errors.email="Email is required"
+        //errors.email="Email is required"
     } else if(!/\S+@\S+\.\S+/.test(newUser.email)){
         errors.email="Email is invalid."
     }
