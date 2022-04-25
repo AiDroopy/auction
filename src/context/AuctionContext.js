@@ -18,6 +18,8 @@ export const AuctionProvider = ({ children }) => {
     getAllUsers();
     getAuctions();
     getBids();
+    getUsersBids();
+    getAuctionBids();
   }, []);
 
   // Deep copy / clone a json object, creates and returns an identical JSON object that was passed in.
@@ -36,7 +38,8 @@ export const AuctionProvider = ({ children }) => {
   })
 }
 
-// Get all bids
+// Get all bids in database
+// Tested OK!
 const getBids = () =>{
   BidsService.getAllBids().then((response) => {
     console.log(response.data)
@@ -46,7 +49,27 @@ const getBids = () =>{
 })
 }
 
+// get Bids belonging to a specific user
+// 625e701f3712d9caa15f2634 testuserID
+// Tested OK!
+function getUsersBids(userId){
+  BidsService.getUserBids("625e701f3712d9caa15f2634").then((response) =>{
+    console.log(response.data);
+  }
+  )
+}
+
+// get Bids belonging to a specific auction
+// 625e70c13712d9caa15f263a testauctionID
+// Tested OK!
+function getAuctionBids(auctionId){
+  BidsService.getAuctionBids("625e70c13712d9caa15f263a").then((response) =>{
+    console.log(response.data);
+  }
+  )
+}
 // Insert a Bid
+// Tested OK!
 function insertBid (aBid) {
   BidsService.createBid(aBid).then((response) => {
     console.log(response.data);
@@ -88,25 +111,11 @@ function insertBid (aBid) {
 
   // Getter / Setter auction object
   const [bid, setBid] = useState({
-    id: 0,
     bidTime: Date.now(),
     userId: 0,
     auctionId: 0,
     amount: 0
   });
-
-  
-
-  const addBid = async (aBid) => {
-    const res = await fetch("/bids", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(aBid),
-    });
-  };
-
 
   // Get all users
   const getAllUsers = () =>{
