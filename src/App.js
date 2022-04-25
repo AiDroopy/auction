@@ -7,7 +7,7 @@ import SignUpForm from './components/SignUpForm';
 import NewAuction from './components/NewAuction';
 import AuctionList from './components/AuctionList';
 
-import SignUpForm from './components/SignUpForm';
+
 import Bid from './components/Bid';
 import BidsService from './services/BidsService';
 

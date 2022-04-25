@@ -2,6 +2,7 @@ import React, { createContext, useEffect, useState } from "react";
 import AuctionService from "../services/AuctionService";
 import AuthService from "../services/AuthService";
 import UserService from "../services/UserService";
+import BidsService from "../services/BidsService";
 
 const AuctionContext = createContext();
 
@@ -16,7 +17,7 @@ export const AuctionProvider = ({ children }) => {
   useEffect(() => {
     getAllUsers();
     getAuctions();
-    fetchBids();
+    getBids();
   }, []);
 
   // Deep copy / clone a json object, creates and returns an identical JSON object that was passed in.
@@ -34,6 +35,25 @@ export const AuctionProvider = ({ children }) => {
     setIsLoading(false);
   })
 }
+
+// Get all bids
+const getBids = () =>{
+  BidsService.getAllBids().then((response) => {
+    console.log(response.data)
+    setBids(response.data);
+ 
+  setIsLoading(false);
+})
+}
+
+// Insert a Bid
+function insertBid (aBid) {
+  BidsService.createBid(aBid).then((response) => {
+    console.log(response.data);
+});
+}
+
+
   const fetchAuctions = async () => {
     const res = await fetch("/auctions");
     const data = await res.json();
@@ -75,15 +95,7 @@ export const AuctionProvider = ({ children }) => {
     amount: 0
   });
 
-  // Get all bids
-  const fetchBids = async () => {
-    const res = await fetch("/bids");
-    const data = await res.json();
-
-    console.log(data); // DEBUG
-    setBids(data);
-    setIsLoading(false);
-  };
+  
 
   const addBid = async (aBid) => {
     const res = await fetch("/bids", {
@@ -174,7 +186,7 @@ export const AuctionProvider = ({ children }) => {
         isLoading, // Conditional when fetching data or not.
         users,
         addAuction,
-        addBid,
+        insertBid,
         authUser,
         auctions
       }}
