@@ -12,7 +12,7 @@ const AuctionList = () => {
     return (
 
         <div className="auction-List"> 
-        {auctions.map((auction) => (<div className="auctions" key={auction.auctionId}> 
+        {auctions.map((auction) => (<div className="auctions" key={auction.id}> 
         <br></br>
         Product name: {auction.productName}
         <br></br>
@@ -23,11 +23,10 @@ const AuctionList = () => {
         Starting price: {auction.startPrice}
         <br></br>
         Bids: {auction.bids}
-        <Bid></Bid>
         <CountdownTimer
                 countdownTimestampMs={auction.endTime + 259200000}/>
         
-        {sessionStorage.getItem("authed") &&  < Bid auctionId={ auction.auctionId }/>}
+        {< Bid auctionId={ auction.id }/>}
     
         </div>))} 
          </div>

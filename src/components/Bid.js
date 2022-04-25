@@ -3,22 +3,19 @@ import AuctionContext from "../context/AuctionContext";
 //import BidsService from "../services/BidsService";
 
 const Bid = ({auctionId}) => {
-  const { bid, createNew, insertBid, isLoading} = useContext (AuctionContext);  
+  const { bid, createNew, insertBid, isLoading, auctions } = useContext (AuctionContext);  
   const [newBid, setNewBid] = useState(createNew(bid));  // newBid gets a fresh copy of bid
-  console.log(auctionId);
+  console.log(auctionId)
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    bid.bidTime = Date.now()
-    bid.userId = "bjorn";
-    bid.auctionId = auctionId;
+    newBid.auctionId = auctionId
     insertBid(newBid)
-
 }
   const handleOnChange = (event) => {
     setNewBid({
       ...newBid,
-      [event.target.name]: event.target.value, 
+      [event.target.name]: event.target.value,
   })};
 
 
