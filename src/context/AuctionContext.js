@@ -87,13 +87,9 @@ function insertBid (aBid) {
   };
   
   const addAuction = async (aAuction) => {
-    const res = await fetch("/auctions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(aAuction),
-    });
+    AuctionService.createAuction(aAuction).then((response) => {
+      console.log(response.data)
+    })
   };
 
   // Getter / Setter auction object
@@ -140,15 +136,6 @@ const createUser = (newUser) =>{
 })
 }
 
-  
-  // const fetchUsers = async () => {
-  //   const res = await fetch("/users");
-  //   const data = await res.json();
-
-  //   console.log(data); // DEBUG
-  //   setUsers(data);
-  //   setIsLoading(false);
-  // };
 
   // Client side auth until backend is up and running.
     const authUser = (newUser) => {
@@ -183,21 +170,21 @@ const createUser = (newUser) =>{
     });
   };
 
-  const updateProfile = async (userId, updateUser) => {
-    const response = await fetch(`/user/${userId}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updateUser),
-    });
+  // const updateProfile = async (userId, updateUser) => {
+  //   const response = await fetch(`/user/${userId}`, {
+  //     method: "PUT",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(updateUser),
+  //   });
 
-    const data = await response.json();
+  //   const data = await response.json();
 
-    setUser(
-      user.map((user) => (user.userId === userId ? { ...user, ...data } : user))
-    );
-  };
+  //   setUser(
+  //     user.map((user) => (user.userId === userId ? { ...user, ...data } : user))
+  //   );
+  // };
 
   return (
     <AuctionContext.Provider

@@ -5,23 +5,10 @@ import "./NewAuction.css";
 const NewAuction = () => {
     const { auction, addAuction, createNew, isLoading} = useContext (AuctionContext);  
     const [newAuction, setNewAuction] = useState (createNew(auction));
-//     const [newAuction, setAuction] = useState(
-//         createNew(newAuction)
-//     // auctionId: 0,
-//     // userId: 0,
-//     // bids: [], // Change to bidId for relationship instead of aggregation
-//     // startPrice: "",
-//     // endPrice: 0,
-//     // productName: "",
-//     // productInfo: "",
-//     // productImgURL: "",
-//   );
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        auction.userId = sessionStorage.getItem("userId");
         addAuction(newAuction);
-  
   }
     
     // setting values for all instans fields, updates values, learn more!

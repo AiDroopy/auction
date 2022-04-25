@@ -15,6 +15,10 @@ class AuctionService{
     createAuction(auction){
         return axios.post(`${API_URL}/create`, auction)
     }
+
+    getAuction(id){
+        return axios.get(`${API_URL}/${id}`)
+    }
 }
 
 export default new AuctionService();
