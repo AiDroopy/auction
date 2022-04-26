@@ -13,6 +13,7 @@ export const AuctionProvider = ({ children }) => {
   const [auctions, setAuctions] = useState([]);
   const [users, setUsers] = useState([]);
   const [login, setLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState(undefined);
 
   useEffect(() => {
     getAllUsers();
@@ -20,6 +21,11 @@ export const AuctionProvider = ({ children }) => {
     getBids();
     getUsersBids();
     getAuctionBids();
+    const user = AuthService.getCurrentUser();
+    if (user) {
+     
+      setCurrentUser(user);
+    }
   }, []);
 
   // Deep copy / clone a json object, creates and returns an identical JSON object that was passed in.
@@ -31,7 +37,6 @@ export const AuctionProvider = ({ children }) => {
   // Get all auctions
   const getAuctions = () =>{
     AuctionService.getAuctions().then((response) => {
-      console.log(response.data)
       setAuctions(response.data);
    
     setIsLoading(false);
@@ -42,7 +47,6 @@ export const AuctionProvider = ({ children }) => {
 // Tested OK!
 const getBids = () =>{
   BidsService.getAllBids().then((response) => {
-    console.log(response.data)
     setBids(response.data);
  
   setIsLoading(false);
@@ -53,7 +57,7 @@ const getBids = () =>{
 // 625e701f3712d9caa15f2634 testuserID
 // Tested OK!
 function getUsersBids(userId){
-  BidsService.getUserBids("625e701f3712d9caa15f2634").then((response) =>{
+  BidsService.getUserBids(userId).then((response) =>{
     console.log(response.data);
   }
   )
@@ -63,7 +67,7 @@ function getUsersBids(userId){
 // 625e70c13712d9caa15f263a testauctionID
 // Tested OK!
 function getAuctionBids(auctionId){
-  BidsService.getAuctionBids("625e70c13712d9caa15f263a").then((response) =>{
+  BidsService.getAuctionBids(auctionId).then((response) =>{
     console.log(response.data);
   }
   )
@@ -75,16 +79,6 @@ function insertBid (aBid) {
     console.log(response.data);
 });
 }
-
-
-  const fetchAuctions = async () => {
-    const res = await fetch("/auctions");
-    const data = await res.json();
-
-    console.log(data); // DEBUG
-    setAuctions(data);
-    setIsLoading(false);
-  };
   
   const addAuction = async (aAuction) => {
     AuctionService.createAuction(aAuction).then((response) => {
@@ -92,11 +86,9 @@ function insertBid (aBid) {
     })
   };
 
-  const userid = AuthService.getCurrentUser();
-
   // Getter / Setter auction object
   const [auction, setAuction] = useState({
-    userId: 0,
+    userId:"6266a160901a6d56a459c65f",
     productName: "",
     productInfo: "",
     productImgURL: "",
@@ -109,7 +101,7 @@ function insertBid (aBid) {
   // Getter / Setter auction object
   const [bid, setBid] = useState({
     bidTime: Date.now(),
-    userId: 0,
+    userId: "6266a160901a6d56a459c65f",
     auctionId: 0,
     amount: 0
   });

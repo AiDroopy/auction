@@ -11,7 +11,6 @@ const NavBar = () => {
                 <div className="nav_text">Welcome to our auction site, here you can buy awesome watches!</div>
                         <Link to="/AuctionList"><h2>Auctions</h2></Link>
                         <Link to="/Search"><h2>Search</h2></Link>
-                        <Link to="/Users"><h2>Users</h2></Link>
                 </div>
                 <div className="nav_right">
                         <Link to="/LoginForm"><h2>Login</h2></Link>

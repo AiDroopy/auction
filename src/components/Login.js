@@ -5,7 +5,7 @@ import AuthService from "../services/AuthService";
 
 const Login = ({submitForm}) => {
 
-  const { user, createNew, isLoading, authUser } = useContext (AuctionContext);  // get some stuff from AuctionContext
+  const { user, createNew, authUser } = useContext (AuctionContext);  // get some stuff from AuctionContext
   
   //useState for values, using object data types
   const [newUser, setNewUser] = useState(createNew(user));

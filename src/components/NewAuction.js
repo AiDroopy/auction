@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import AuctionContext from "../context/AuctionContext";
 import "./NewAuction.css";
+import { Link } from "react-router-dom";
+
 // Måste börja med Stor bokstav, även filnamnet
 const NewAuction = () => {
     const { auction, addAuction, createNew, isLoading} = useContext (AuctionContext);  
@@ -18,7 +20,6 @@ const NewAuction = () => {
       [event.target.name]: event.target.value,  // prop name måste finnas med i html-fälten (i return..)
 
   })
-  console.log(newAuction)
 }
     return ( <div className="new_auction">
     <h2>Create Auction</h2>
@@ -100,7 +101,7 @@ const NewAuction = () => {
                 />
 
             <button type="submit" onClick={handleSubmit}>
-                Add Auction
+                <Link to="/"><h2>Create auction!</h2></Link>
             </button>
         </form> 
     </div>);

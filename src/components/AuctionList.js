@@ -1,7 +1,6 @@
 import React from 'react'
 import { useContext } from 'react';
 import AuctionContext from '../context/AuctionContext';
-import Card from "./Card";
 import CountdownTimer from './CountdownTimer/CountdownTimer';
 import Bid from "./Bid";
 

@@ -5,28 +5,31 @@ import { Link } from "react-router-dom";
 import AuthService from "../services/AuthService";
 
 const Profile = () => {
-  
-    const { auctions } = useContext(AuctionContext);
-    const user = AuthService.getCurrentUser();
+
+  const { auctions } = useContext(AuctionContext);
+  const [currentUser, setCurrentUser] = useState(undefined);
+
+
+    console.log(currentUser)
 
     return (
-          <div key={user.id}>
+          <div key={currentUser.id}>
             <form>
               <Link to="/">Home</Link>
               <LogOut/>
               
               <br></br>
               <label>user id:</label>
-              <input type = "text" name = "userId" value = {user.id}/>
+              <input type = "text" name = "userId" value = {currentUser.id}/>
               <label>user name:</label>
-              <input type = "text" name = "email" defaultValue= {user.username}/>
+              <input type = "text" name = "email" defaultValue= {currentUser.username}/>
             
             </form>
             <h2>This is your won auctions:</h2>
             <h3> listan på auctions: </h3>
             <h4>Auctions:</h4>
             <div className="auctions"> 
-            {auctions.map((auction => { if (auction.userId === user.id) return <div className="auctions" key={auction.auctionId}><br></br>
+            {auctions.map((auction => { if (auction.userId === currentUser.id) return <div className="auctions" key={auction.auctionId}><br></br>
         Product name: {auction.productName}
         <br></br>
         Description: {auction.productInfo}

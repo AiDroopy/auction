@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import AuctionContext from "../context/AuctionContext";
-//import BidsService from "../services/BidsService";
 
 const Bid = ({auctionId}) => {
   const { bid, createNew, insertBid, isLoading, auctions } = useContext (AuctionContext);  
