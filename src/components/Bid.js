@@ -3,19 +3,15 @@ import AuctionContext from "../context/AuctionContext";
 //import BidsService from "../services/BidsService";
 
 const Bid = ({auctionId}) => {
-  const { bid, createNew, insertBid, isLoading, auctions, userid } = useContext (AuctionContext);  
+  const { bid, createNew, insertBid, isLoading, auctions } = useContext (AuctionContext);  
   const [newBid, setNewBid] = useState(createNew(bid));  // newBid gets a fresh copy of bid
   console.log(auctionId)
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(userid === 1){
-      alert("You must be logged in to bid")
-    }
-    else{
-      newBid.auctionId = auctionId
-      insertBid(newBid)
-    }
+    newBid.auctionId = auctionId
+    insertBid(newBid)
+    
 }
   const handleOnChange = (event) => {
     setNewBid({

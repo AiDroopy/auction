@@ -6,12 +6,9 @@ const register = (username, password) => {
     password,
   });
 };
-const login = (username, password) => {
+const login = (newUser) => {
   return axios
-    .post(API_URL + "signin", {
-      username,
-      password,
-    })
+    .post(API_URL + "signin", newUser)
     .then((response) => {
       if (response.data.accessToken) {
         localStorage.setItem("user", JSON.stringify(response.data));
@@ -24,10 +21,6 @@ const logout = () => {
 };
 const getCurrentUser = () => {
   const user = JSON.parse(localStorage.getItem("user"));
-  if (user === null){
-    return 1
-  }
-  else
   return user
 };
 const AuthService = {

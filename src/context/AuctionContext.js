@@ -96,7 +96,7 @@ function insertBid (aBid) {
 
   // Getter / Setter auction object
   const [auction, setAuction] = useState({
-    userId: userid.id,
+    userId: 0,
     productName: "",
     productInfo: "",
     productImgURL: "",
@@ -109,7 +109,7 @@ function insertBid (aBid) {
   // Getter / Setter auction object
   const [bid, setBid] = useState({
     bidTime: Date.now(),
-    userId: userid.id,
+    userId: 0,
     auctionId: 0,
     amount: 0
   });
@@ -187,8 +187,7 @@ const createUser = (newUser) =>{
         addAuction,
         insertBid,
         authUser,
-        auctions,
-        userid
+        auctions
       }}
     >
       {children}

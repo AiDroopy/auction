@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import React from 'react';
+import AuthService from "../services/AuthService";
 
 const LogOut = () => {
 
@@ -7,7 +8,7 @@ const LogOut = () => {
 
         <Link to="/">
 
-            {sessionStorage.clear()}
+            {AuthService.logout()}
 
         Log Out
 
