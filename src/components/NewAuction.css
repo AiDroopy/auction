@@ -1,5 +1,5 @@
 html{
-    background-color:bisque;
+    background-color:lightskyblue;
 }
 
 .new-auction{
@@ -10,7 +10,7 @@ html{
 }
 form {
     color:rgb(7, 7, 7);
-    background-color:bisque;
+    background-color:lightskyblue;
     display: flex;
     align-content:space-around; 
     align-items: center;

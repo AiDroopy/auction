@@ -7,7 +7,12 @@ import Bid from "./Bid";
 
 const AuctionList = () => {
 
-    const { auctions } = useContext(AuctionContext);
+const { auctions } = useContext(AuctionContext);
+const{setAuction} = useContext(AuctionContext);
+
+const removeAuction = (id) => { 
+    setAuction(auctions.filter((auctions) => auctions.id !== id));
+    }
 
     return (
 
@@ -26,6 +31,15 @@ const AuctionList = () => {
         <Bid></Bid>
         <CountdownTimer
                 countdownTimestampMs={auction.endTime + 259200000}/>
+
+        {auctions.map((auctions) => (
+          <div key={auctions.id} className="auction">
+            <p>{auctions.text}</p>
+            <button className="btn-delete" onClick={() => removeAuction(auctions.id)}>
+              Delete
+            </button>
+          </div>
+        ))}
         
         {sessionStorage.getItem("authed") &&  < Bid auctionId={ auction.auctionId }/>}
     

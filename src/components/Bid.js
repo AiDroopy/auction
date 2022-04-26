@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import AuctionContext from "../context/AuctionContext";
+import "./Bid.css";
 
 
 const Bid = ({auctionId}) => {
