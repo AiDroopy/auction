@@ -1,22 +1,23 @@
 import React, { useContext, useState, useEffect } from "react";
 import AuctionContext from "../context/AuctionContext";
-import LogOut from "./LogOut";
+
 import { Link } from "react-router-dom";
 import AuthService from "../services/AuthService";
 
 const Profile = () => {
 
+  const currentUser = AuthService.getCurrentUser();
+
+  console.log(currentUser)
+
   const { auctions } = useContext(AuctionContext);
-  const [currentUser, setCurrentUser] = useState(undefined);
 
-
-    console.log(currentUser)
 
     return (
           <div key={currentUser.id}>
             <form>
               <Link to="/">Home</Link>
-              <LogOut/>
+
               
               <br></br>
               <label>user id:</label>

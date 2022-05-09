@@ -7,7 +7,7 @@ const Card = ({image, title, id, latestBid, startPrice}) => {
     <div className="cards">
         <img src={image}/>
             <div className="cards__item">
-                <h2> { title}</h2>
+                <h2> {title}</h2>
                 <p>id.nr:{id}</p>
                 <p>Aktuellt bud:{latestBid}</p>
                 <p>Utropspris:{startPrice}</p>

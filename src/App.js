@@ -6,18 +6,11 @@ import LoginForm from './components/LoginForm';
 import SignUpForm from './components/SignUpForm';
 import NewAuction from './components/NewAuction';
 import AuctionList from './components/AuctionList';
-
-
-import Bid from './components/Bid';
-import BidsService from './services/BidsService';
-
 import Search from './components/Search';
-import Users from './components/Users'
+import Users from './components/Users';
 import React from 'react';
 
-
 function App() {
-
 
   return (
     <div className="App">

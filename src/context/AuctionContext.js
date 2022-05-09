@@ -13,7 +13,7 @@ export const AuctionProvider = ({ children }) => {
   const [auctions, setAuctions] = useState([]);
   const [users, setUsers] = useState([]);
   const [login, setLoggedIn] = useState(false);
-  const [currentUser, setCurrentUser] = useState(undefined);
+
 
   useEffect(() => {
     getAllUsers();
@@ -21,11 +21,6 @@ export const AuctionProvider = ({ children }) => {
     getBids();
     getUsersBids();
     getAuctionBids();
-    const user = AuthService.getCurrentUser();
-    if (user) {
-     
-      setCurrentUser(user);
-    }
   }, []);
 
   // Deep copy / clone a json object, creates and returns an identical JSON object that was passed in.
@@ -129,12 +124,10 @@ const createUser = (newUser) =>{
 })
 }
 
-
   // Client side auth until backend is up and running.
     const authUser = (newUser) => {
-        AuthService.login(newUser).then((response) => {
+        AuthService.login(newUser).then(() => {
         setLoggedIn(true)
-        
       })
     };
 
@@ -175,7 +168,6 @@ const createUser = (newUser) =>{
         addUser, // AddUser function
         createUser, //Adduser function with backend
         isLoading, // Conditional when fetching data or not.
-        users,
         addAuction,
         insertBid,
         authUser,

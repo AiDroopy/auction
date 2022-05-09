@@ -11,7 +11,7 @@ const Login = ({submitForm}) => {
   const [newUser, setNewUser] = useState(createNew(user));
   const [errors, setErrors] = useState({});
   const [dataIsCorrect, setDataIsCorrect] = useState(false);
-
+  
   // setting values for all instans fields.
   const handleChange = (event) => {
         setNewUser({
@@ -26,8 +26,9 @@ const Login = ({submitForm}) => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     setErrors(validation(newUser));
-    authUser(newUser);
     setDataIsCorrect(true);
+    authUser(newUser);
+    
   };
 
   // if errors is empty and data is correted change propsvalue to true 

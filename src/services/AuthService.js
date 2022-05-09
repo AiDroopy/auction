@@ -7,12 +7,12 @@ const register = (username, password) => {
   });
 };
 
-const login = (newUser) => {
+const login = async (newUser) => {
   return axios
     .post(API_URL + "signin", newUser)
     .then((response) => {
       if (response.data.accessToken) {
-        localStorage.setItem("accessToken", response.data.accessToken);
+        localStorage.setItem("user", JSON.stringify(response.data));
       }
       return response.data;
     });
@@ -23,12 +23,9 @@ const logout = () => {
 };
 
 const getCurrentUser = async () => {
-  let auth =  {Authorization: 'Bearer ' + localStorage.getItem("accessToken")}
-  console.log(auth)
-  let response = await fetch("http://localhost:8080/api/users/loggedin", { headers: auth })
-  response = response.json
-  return response
-}
+  const currentUser = JSON.parse(localStorage.getItem("user"))
+  return currentUser
+};
 
 const AuthService = {
   register,
