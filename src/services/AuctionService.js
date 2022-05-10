@@ -2,20 +2,23 @@ import axios from "axios";
 axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 const API_URL = "http://localhost:8080/api/auction"
 
-class AuctionService{
-
-    getAuctions(){
+    const getAuctions = () => {
         return axios.get(`${API_URL}/all`)
     }
-
-    deleteAuction(id){
-        axios.delete(`${API_URL}/delete/${id}`)
+    
+    const deleteAuction = (id) => {
+        return axios.delete(`${API_URL}/delete/${id}`)
     }
 
-    createAuction(auction){
+    const createAuction = (auction) =>{
         return axios.post(`${API_URL}/create`, auction)
     }
 
-}
 
-export default new AuctionService();
+    const AuctionService = {
+    getAuctions,
+    deleteAuction,
+    createAuction
+  };
+
+export default AuctionService;

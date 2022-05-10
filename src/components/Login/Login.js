@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import validation from "./Validation";
-import AuctionContext from "../context/AuctionContext";
-import AuthService from "../services/AuthService";
+import AuctionContext from "../../context/AuctionContext";
 
 const Login = ({submitForm}) => {
 

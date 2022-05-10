@@ -3,11 +3,10 @@ import AuctionContext from "../context/AuctionContext";
 import AuthService from "../services/AuthService";
 
 const Bid = ({auctionId}) => {
-  const { bid, createNew, insertBid, isLoading, auctions } = useContext (AuctionContext);  
+  const { bid, createNew, insertBid } = useContext (AuctionContext);  
   const [newBid, setNewBid] = useState(createNew(bid));  // newBid gets a fresh copy of bid
-  console.log(auctionId)
   const currentUser = AuthService.getCurrentUser()
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     newBid.auctionId = auctionId

@@ -23,8 +23,8 @@ const AuctionList = () => {
         <br></br>
         Bids: {auction.bids}
         <CountdownTimer
-                countdownTimestampMs={auction.endTime + 259200000}/>
-        
+                countdownTimestampMs={auction.endTime}/>
+            
         {< Bid auctionId={ auction.id }/>}
     
         </div>))} 

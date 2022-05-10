@@ -1,23 +1,20 @@
 import React, { useContext, useState, useEffect } from "react";
-import AuctionContext from "../context/AuctionContext";
+import AuctionContext from "../../context/AuctionContext";
 
 import { Link } from "react-router-dom";
-import AuthService from "../services/AuthService";
+import AuthService from "../../services/AuthService";
 
 const Profile = () => {
 
   const currentUser = AuthService.getCurrentUser();
 
-  console.log(currentUser)
-
   const { auctions } = useContext(AuctionContext);
-
-
-    return (
+  
+  return (
           <div key={currentUser.id}>
             <form>
               <Link to="/">Home</Link>
-
+              <button onClick={AuthService.logout}></button>
               
               <br></br>
               <label>user id:</label>
@@ -50,6 +47,5 @@ const Profile = () => {
             <h3> listan på auctions</h3>
         </div>
           )}
-
-
+    
 export default Profile;

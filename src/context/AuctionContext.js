@@ -14,8 +14,6 @@ export const AuctionProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [login, setLoggedIn] = useState(false);
 
-  const currentUser = AuthService.getCurrentUser()
-
   useEffect(() => {
     getAllUsers();
     getAuctions();
@@ -34,18 +32,20 @@ export const AuctionProvider = ({ children }) => {
   const getAuctions = () =>{
     AuctionService.getAuctions().then((response) => {
       setAuctions(response.data);
-   
-    setIsLoading(false);
+      setIsLoading(false);
   })
 }
 
+const createAuction = async (aAuction) => {
+  AuctionService.createAuction(aAuction).then((response) => {
+  })
+};
+
 // Get all bids in database
-// Tested OK!
 const getBids = () =>{
   BidsService.getAllBids().then((response) => {
     setBids(response.data);
- 
-  setIsLoading(false);
+    setIsLoading(false);
 })
 }
 
@@ -53,8 +53,7 @@ const getBids = () =>{
 // 625e701f3712d9caa15f2634 testuserID
 // Tested OK!
 function getUsersBids(userId){
-  BidsService.getUserBids(userId).then((response) =>{
-    console.log(response.data);
+  BidsService.getUserBids(userId).then(() =>{
   }
   )
 }
@@ -63,24 +62,15 @@ function getUsersBids(userId){
 // 625e70c13712d9caa15f263a testauctionID
 // Tested OK!
 function getAuctionBids(auctionId){
-  BidsService.getAuctionBids(auctionId).then((response) =>{
-    console.log(response.data);
+  BidsService.getAuctionBids(auctionId).then(() =>{
   }
   )
 }
 // Insert a Bid
-// Tested OK!
 function insertBid (aBid) {
   BidsService.createBid(aBid).then((response) => {
-    console.log(response.data);
 });
 }
-  
-  const addAuction = async (aAuction) => {
-    AuctionService.createAuction(aAuction).then((response) => {
-      console.log(response.data)
-    })
-  };
 
   // Getter / Setter auction object
   const [auction, setAuction] = useState({
@@ -89,8 +79,8 @@ function insertBid (aBid) {
     productInfo: "",
     productImgURL: "",
     startPrice: "",
-    endPrice: 0,
     endTime: "",
+    endPrice: 0,
     bids: [], // Change to bidId for relationship instead of aggregation
   });
 
@@ -112,7 +102,7 @@ function insertBid (aBid) {
 
   // Get user by id
   const getUserById = (id) =>{
-    UserService.getUserById().then((response) => {
+    UserService.getUserById(id).then((response) => {
     setUsers(response.data);
     setIsLoading(false);
   })
@@ -132,44 +122,22 @@ const createUser = (newUser) =>{
       })
     };
 
-  // Getter / Setter profile object
-  const [profile, setProfile] = useState({
-    userId: 0,
-    firstName: "",
-    lastName: "",
-    address: "",
-  });
-
   // Getter / Setter user object
   const [user, setUser] = useState({
     username: "",
     password: ""
   });
 
-  // Adds a user to REST API
-  const addUser = async (aUser) => {
-    const res = await fetch("/users", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(aUser),
-    });
-  };
-
-
   return (
     <AuctionContext.Provider
       value={{
         bid, // bid object
         auction, // auction object
-        profile, // profile object
         user, // user object
-        createNew, // Hardcopy json object
-        addUser, // AddUser function
-        createUser, //Adduser function with backend
         isLoading, // Conditional when fetching data or not.
-        addAuction,
+        createNew, // Hardcopy json object
+        createUser, //Adduser function with backend
+        createAuction,
         insertBid,
         authUser,
         auctions

@@ -1,4 +1,4 @@
-import AuctionContext from "../context/AuctionContext"
+import AuctionContext from "../../context/AuctionContext"
 import React, { useContext, useState } from "react";
 
 const Search = () => {

@@ -6,14 +6,17 @@ import AuthService from "../services/AuthService";
 
 // Måste börja med Stor bokstav, även filnamnet
 const NewAuction = () => {
-    const { auction, addAuction, createNew, isLoading} = useContext (AuctionContext);  
+    const { auction, createAuction, createNew } = useContext (AuctionContext);  
     const [newAuction, setNewAuction] = useState (createNew(auction));
     const currentUser = AuthService.getCurrentUser()
+    const date = new Date()
+    date.setDate(date.getDate() + 5)
 
     const handleSubmit = (e) => {
         e.preventDefault();
         newAuction.userId = currentUser.id
-        addAuction(newAuction);
+        newAuction.endTime = date
+        createAuction(newAuction);
   }
     
     // setting values for all instans fields, updates values, learn more!
@@ -41,7 +44,7 @@ const NewAuction = () => {
             <label className="bidlabel" htmlFor="startPrice">Start Price:</label>
             <input 
                 type="Start Price"
-                name="start price"
+                name="startPrice"
                 required 
                 defaultValue={auction.startPrice}
                 onChange={handleOnChange}
