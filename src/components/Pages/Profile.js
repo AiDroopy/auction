@@ -7,7 +7,6 @@ import AuthService from "../../services/AuthService";
 const Profile = () => {
 
   const currentUser = AuthService.getCurrentUser();
-
   const { auctions } = useContext(AuctionContext);
   
   return (

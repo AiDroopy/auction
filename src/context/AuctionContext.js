@@ -9,13 +9,12 @@ const AuctionContext = createContext();
 export const AuctionProvider = ({ children }) => {
   // Condition to be false when loading is done.
   const [isLoading, setIsLoading] = useState(true);
-  const [bids, setBids] = useState([]);
+  const [setBids] = useState([]);
   const [auctions, setAuctions] = useState([]);
-  const [users, setUsers] = useState([]);
-  const [login, setLoggedIn] = useState(false);
+  const [setUsers] = useState([]);
+  const [setLoggedIn] = useState(false);
 
   useEffect(() => {
-    getAllUsers();
     getAuctions();
     getBids();
     getUsersBids();
@@ -91,14 +90,6 @@ function insertBid (aBid) {
     auctionId: 0,
     amount: 0
   });
-
-  // Get all users
-  const getAllUsers = () =>{
-      UserService.getAllUsers().then((response) => {
-      setUsers(response.data);
-      setIsLoading(false);
-    })
-  }
 
   // Get user by id
   const getUserById = (id) =>{
