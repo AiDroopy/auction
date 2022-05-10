@@ -14,6 +14,7 @@ export const AuctionProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [login, setLoggedIn] = useState(false);
 
+  const currentUser = AuthService.getCurrentUser()
 
   useEffect(() => {
     getAllUsers();
@@ -83,20 +84,20 @@ function insertBid (aBid) {
 
   // Getter / Setter auction object
   const [auction, setAuction] = useState({
-    userId:"6266a160901a6d56a459c65f",
+    userId:"",
     productName: "",
     productInfo: "",
     productImgURL: "",
-    startPrice: 0,
+    startPrice: "",
     endPrice: 0,
-    endTime: Date.now(),
+    endTime: "",
     bids: [], // Change to bidId for relationship instead of aggregation
   });
 
   // Getter / Setter auction object
   const [bid, setBid] = useState({
     bidTime: Date.now(),
-    userId: "6266a160901a6d56a459c65f",
+    userId: "",
     auctionId: 0,
     amount: 0
   });

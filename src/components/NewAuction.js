@@ -2,14 +2,17 @@ import React, { useContext, useState } from "react";
 import AuctionContext from "../context/AuctionContext";
 import "./NewAuction.css";
 import { Link } from "react-router-dom";
+import AuthService from "../services/AuthService";
 
 // Måste börja med Stor bokstav, även filnamnet
 const NewAuction = () => {
     const { auction, addAuction, createNew, isLoading} = useContext (AuctionContext);  
     const [newAuction, setNewAuction] = useState (createNew(auction));
-    
+    const currentUser = AuthService.getCurrentUser()
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        newAuction.userId = currentUser.id
         addAuction(newAuction);
   }
     
@@ -38,44 +41,11 @@ const NewAuction = () => {
             <label className="bidlabel" htmlFor="startPrice">Start Price:</label>
             <input 
                 type="Start Price"
+                name="start price"
                 required 
                 defaultValue={auction.startPrice}
                 onChange={handleOnChange}
                 
-            />
-
-
-            <label className="bidlabel" htmlFor="startDate">Start Date: </label>
-            <input 
-                Month = "set Month"
-                Day = "set Day"
-                required 
-                value={auction.startDate}
-                onChange={handleOnChange}
-              
-            />
-
-
-
-            <label className="bidlabel" htmlFor="endate">End Date: </label>
-            <input 
-                type="text"
-                name="endDate"
-                required 
-                value={auction.endDate}
-                onChange={handleOnChange}
-              
-            />
-
- 
-            <label className="bidlabel" htmlFor="endTime">Start Time: </label>
-            <input 
-                type="text"
-                name="endTime"
-                required 
-                value={auction.endTime}
-                onChange={handleOnChange}
-              
             />
 
             
@@ -83,7 +53,6 @@ const NewAuction = () => {
             <input 
                 type="text"
                 name="productInfo"
-                id="productInfo"
                 required 
                 defaultValue={auction.productInfo}
                 onChange={handleOnChange}
