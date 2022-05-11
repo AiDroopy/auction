@@ -3,6 +3,7 @@ import AuctionService from "../services/AuctionService";
 import AuthService from "../services/AuthService";
 import UserService from "../services/UserService";
 import BidsService from "../services/BidsService";
+import DeliveryService from "../services/DeliveryService";
 
 const AuctionContext = createContext();
 
@@ -13,18 +14,26 @@ export const AuctionProvider = ({ children }) => {
   const [auctions, setAuctions] = useState([]);
   const [users, setUsers] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
+  const [destinations, setDestinations] = useState([])
 
   useEffect(() => {
     getAuctions();
     getBids();
     getUsersBids();
     getAuctionBids();
+    getAllDestinations();
   }, []);
 
   // Deep copy / clone a json object, creates and returns an identical JSON object that was passed in.
   function createNew(object) {
     let cloneObj = JSON.parse(JSON.stringify(object));
     return cloneObj;
+  }
+
+  const getAllDestinations = () => {
+    DeliveryService.getAllDestinations().then((response) => {
+      console.log(response)
+    })
   }
 
   // Get all auctions

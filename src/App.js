@@ -8,6 +8,7 @@ import NewAuction from './components/NewAuction';
 import AuctionList from './components/AuctionList';
 import Search from './components/Pages/Search';
 import React from 'react';
+import DeliveryOptions from './components/Pages/DeliveryOptions';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/LoginForm' element={<LoginForm />} />
+          <Route path='/Destination' element={<DeliveryOptions/>} />
           <Route path='/Profile' element={<Profile />} />
           <Route path='/NewAuction' element={<NewAuction />} />
           <Route path='/Search' element={<Search />} />
