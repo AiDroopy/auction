@@ -9,10 +9,10 @@ const AuctionContext = createContext();
 export const AuctionProvider = ({ children }) => {
   // Condition to be false when loading is done.
   const [isLoading, setIsLoading] = useState(true);
-  const [setBids] = useState([]);
+  const [bids, setBids] = useState([]);
   const [auctions, setAuctions] = useState([]);
-  const [setUsers] = useState([]);
-  const [setLoggedIn] = useState(false);
+  const [users, setUsers] = useState([]);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
     getAuctions();

@@ -9,13 +9,10 @@ const NewAuction = () => {
     const { auction, createAuction, createNew } = useContext (AuctionContext);  
     const [newAuction, setNewAuction] = useState (createNew(auction));
     const currentUser = AuthService.getCurrentUser()
-    const date = new Date()
-    date.setDate(date.getDate() + 5)
 
     const handleSubmit = (e) => {
         e.preventDefault();
         newAuction.userId = currentUser.id
-        newAuction.endTime = date
         createAuction(newAuction);
   }
     
