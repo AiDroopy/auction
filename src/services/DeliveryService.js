@@ -1,5 +1,5 @@
 import axios from "axios";
-axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+// axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 
 const URL_API = "http://localhost:5099/api/Destination/"
 
