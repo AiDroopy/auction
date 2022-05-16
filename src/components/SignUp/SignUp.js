@@ -4,11 +4,8 @@ import AuctionContext from "../../context/AuctionContext";
 
 const SignUp = ({submitForm}) => {
 
-<<<<<<< HEAD:src/components/SignUp.js
-  const { user, createNew, isLoading, addUser} = useContext (AuctionContext);  // get some stuff from AuctionContext
-=======
   const { user, createNew, createUser} = useContext (AuctionContext);  // get some stuff from AuctionContext
->>>>>>> master:src/components/SignUp/SignUp.js
+
   
   //useState for values, using object data types
   const [newUser, setNewUser] = useState(createNew(user));

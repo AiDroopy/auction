@@ -1,6 +1,4 @@
 body {
-<<<<<<< HEAD
-
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,35 +8,28 @@ body {
 
   font-family: "Poppins", sans-serif;
   background-color: lightblue;
-=======
   font-family: "Poppins", sans-serif;
-  background-color: #1c5541;
->>>>>>> master
   color: #fff;
   line-height: 1.6;
 }
+
 a{
   text-decoration: none;
   color: black;
-<<<<<<< HEAD
 
-=======
->>>>>>> master
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-<<<<<<< HEAD
 
-=======
 .cards {
   display: flex;
 
   /* Put a card in the next row when previous cards take all width */
   flex-wrap: wrap;
-
   margin-left: -8px;
   margin-right: -8px;
   border: 2px solid black;
@@ -112,4 +103,3 @@ code {
 .bidlabel{
   margin-top: 3px;
 }
->>>>>>> master

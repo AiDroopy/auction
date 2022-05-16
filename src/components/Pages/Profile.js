@@ -1,37 +1,19 @@
-<<<<<<< HEAD:src/components/Profile.js
-import { useContext, useState, useEffect } from "react";
-import AuctionContext from "../context/AuctionContext";
+
 import { useParams } from "react-router";
-import React, { Component }  from 'react';
-=======
 import React, { useContext, useState, useEffect } from "react";
 import AuctionContext from "../../context/AuctionContext";
->>>>>>> master:src/components/Pages/Profile.js
-
 import { Link } from "react-router-dom";
 import AuthService from "../../services/AuthService";
 
 const Profile = () => {
-<<<<<<< HEAD:src/components/Profile.js
-    const params = useParams ();
-
   
-    const { users, auctions } = useContext(AuctionContext);
 
-    return (
-
-      users.map(function(user){
-        if (user.userId == localStorage.getItem('userId')){
-          return (
-          <div key={user.id}>
-=======
-
-  const currentUser = AuthService.getCurrentUser();
-  const { auctions } = useContext(AuctionContext);
+    const currentUser = AuthService.getCurrentUser();
+    const { auctions } = useContext(AuctionContext);
   
   return (
           <div key={currentUser.id}>
->>>>>>> master:src/components/Pages/Profile.js
+
             <form>
               <Link to="/">Home</Link>
               <button onClick={AuthService.logout}></button>

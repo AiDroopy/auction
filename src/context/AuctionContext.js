@@ -1,14 +1,11 @@
-<<<<<<< HEAD
-import { createContext, useEffect, useState } from "react";
-import React, { Component }  from 'react';
-=======
+
 import React, { createContext, useEffect, useState } from "react";
 import AuctionService from "../services/AuctionService";
 import AuthService from "../services/AuthService";
 import UserService from "../services/UserService";
 import BidsService from "../services/BidsService";
 import DeliveryService from "../services/DeliveryService";
->>>>>>> master
+
 
 const AuctionContext = createContext();
 

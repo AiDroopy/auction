@@ -6,15 +6,11 @@ import LoginForm from './components/Login/LoginForm';
 import SignUpForm from './components/SignUp/SignUpForm';
 import NewAuction from './components/NewAuction';
 import AuctionList from './components/AuctionList';
-<<<<<<< HEAD
-import SignUpForm from './components/SignUpForm';
-import React, { Component }  from 'react';
-=======
+
 import Search from './components/Pages/Search';
 import React from 'react';
 import DeliveryOptions from './components/Pages/DeliveryOptions';
 
->>>>>>> master
 
 function App() {
 

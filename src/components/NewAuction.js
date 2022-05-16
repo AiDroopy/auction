@@ -1,12 +1,9 @@
 import React, { useContext, useState } from "react";
 import AuctionContext from "../context/AuctionContext";
-<<<<<<< HEAD
-import React, { Component }  from 'react';
-=======
 import "../NewAuction.css";
 import { Link } from "react-router-dom";
 import AuthService from "../services/AuthService";
->>>>>>> master
+
 
 // Måste börja med Stor bokstav, även filnamnet
 const NewAuction = () => {
@@ -41,26 +38,24 @@ const NewAuction = () => {
                 onChange={handleOnChange}
               
             />
-<<<<<<< HEAD
+
 
 
             <label htmlFor="startPrice">Start Price:</label>
             <input
                 id="startPrice" 
-                type="text"
-=======
+                type="text"/>
+
  
             <label className="bidlabel" htmlFor="startPrice">Start Price:</label>
             <input 
                 type="Start Price"
->>>>>>> master
+
                 name="startPrice"
                 required 
                 defaultValue={auction.startPrice}
-                onChange={handleOnChange}
-                
+                onChange={handleOnChange}    
             />
-<<<<<<< HEAD
             
                         
             <label htmlFor="endDate">End Date: </label>
@@ -86,11 +81,11 @@ const NewAuction = () => {
 
             
             <label htmlFor="productInfo">Information: </label>
-=======
+
 
             
             <label className="bidlabel" htmlFor="productInfo">Information: </label>
->>>>>>> master
+
             <input 
                 type="text"
                 name="productInfo"

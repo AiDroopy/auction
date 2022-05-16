@@ -1,11 +1,7 @@
 import React, { useContext, useState } from "react";
 import AuctionContext from "../context/AuctionContext";
-<<<<<<< HEAD
-import React, { Component }  from 'react';
-
-=======
 import AuthService from "../services/AuthService";
->>>>>>> master
+
 
 const Bid = ({auctionId}) => {
   const { bid, createNew, insertBid } = useContext (AuctionContext);  
