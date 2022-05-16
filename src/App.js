@@ -9,7 +9,7 @@ import AuctionList from './components/AuctionList';
 import Search from './components/Pages/Search';
 import React from 'react';
 import DeliveryOptions from './components/Pages/DeliveryOptions';
-
+import DeliveryForm from "./components/DeliveryForm";
 
 function App() {
 
@@ -22,7 +22,13 @@ function App() {
 
       <div className="content">
         <Routes>
+          
+         
+
           <Route path='/' element={<Home />} />
+
+          <Route path='/DeliveryForm' element={<DeliveryForm />} />
+
           <Route path='/LoginForm' element={<LoginForm />} />
           <Route path='/Destination' element={<DeliveryOptions/>} />
           <Route path='/Profile' element={<Profile />} />
