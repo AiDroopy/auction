@@ -6,12 +6,14 @@ import { Link } from "react-router-dom";
 import AuthService from "../../services/AuthService";
 
 const Profile = () => {
-  
 
     const currentUser = AuthService.getCurrentUser();
     const { auctions } = useContext(AuctionContext);
+    const params = useParams();
   
   return (
+
+    
           <div key={currentUser.id}>
 
             <form>

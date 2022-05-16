@@ -103,3 +103,27 @@ code {
 .bidlabel{
   margin-top: 3px;
 }
+
+header{
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  display: flex;
+  flex-direction: row;  
+}
+
+ .h {
+  
+  color: black;
+  align-items: flex-start;
+  
+
+
+}
+
+.navbar{
+  font-size: x-small;
+  margin-top: 10px;
+  margin-left: 750px;
+}
+
