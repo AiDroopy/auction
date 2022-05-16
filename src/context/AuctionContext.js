@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import React, { Component }  from 'react';
 
 const AuctionContext = createContext();
 

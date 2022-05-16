@@ -1,5 +1,5 @@
 import CountdownTimer from './CountdownTimer/CountdownTimer.js';
-
+import React, { Component }  from 'react';
 
 const Card = ({image, title, id, latestBid, startPrice}) => {
     return (

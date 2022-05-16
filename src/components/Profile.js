@@ -1,12 +1,17 @@
 import { useContext, useState, useEffect } from "react";
 import AuctionContext from "../context/AuctionContext";
+import { useParams } from "react-router";
+import React, { Component }  from 'react';
 
 
 const Profile = () => {
+    const params = useParams ();
+
   
     const { users, auctions } = useContext(AuctionContext);
 
     return (
+
       users.map(function(user){
         if (user.userId == localStorage.getItem('userId')){
           return (
@@ -44,7 +49,7 @@ const Profile = () => {
             <h2>This is the auction where you are bidding:</h2>
             <h3> listan på auctions</h3>
             <h2>This is the auctions where you are selling:</h2>
-            <h3> listan på auctions</h3>
+            <h3>listan på auctions</h3>
         </div>
           )}
     })

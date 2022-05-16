@@ -8,6 +8,7 @@ import SignUp from './components/SignUp';
 import NewAuction from './components/NewAuction';
 import AuctionList from './components/AuctionList';
 import SignUpForm from './components/SignUpForm';
+import React, { Component }  from 'react';
 
 function App() {
   return (
