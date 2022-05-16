@@ -6,7 +6,7 @@ import Bid from "./Bid";
 
 const AuctionList = () => {
 
-    const { auctions } = useContext(AuctionContext);
+    const { auctions, bids} = useContext(AuctionContext);
 
     return (
 
@@ -21,7 +21,14 @@ const AuctionList = () => {
                 <br></br>
                     Starting price: {auction.startPrice}
                 <br></br>
-                    Bids: {auction.bids}
+                    Bids: {bids.map((bid) => {if(bid.auctionId === auction.id) return( <div className="bids">
+                        bid time: {bid.bidTime}
+                        <br></br>
+                        bid amount: {bid.amount}
+                        <br></br>
+                        bid amount: {bid.amount}
+                        <br></br><br></br>
+                </div>)})}
                 <CountdownTimer
                     countdownTimestampMs={auction.endTime}/>
             

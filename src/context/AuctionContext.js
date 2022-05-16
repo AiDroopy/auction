@@ -140,7 +140,10 @@ const createUser = (newUser) =>{
         createAuction,
         insertBid,
         authUser,
-        auctions
+        getAuctionBids,
+        getBids,
+        auctions,
+        bids
       }}
     >
       {children}
