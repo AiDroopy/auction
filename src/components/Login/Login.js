@@ -1,17 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
 import validation from "./Validation";
-import AuctionContext from "../context/AuctionContext";
+import AuctionContext from "../../context/AuctionContext";
 
-const SignUp = ({submitForm}) => {
+const Login = ({submitForm}) => {
 
-  const { user, createNew, isLoading, addUser} = useContext (AuctionContext);  // get some stuff from AuctionContext
+  const { user, createNew, authUser } = useContext (AuctionContext);  // get some stuff from AuctionContext
   
   //useState for values, using object data types
   const [newUser, setNewUser] = useState(createNew(user));
   const [errors, setErrors] = useState({});
   const [dataIsCorrect, setDataIsCorrect] = useState(false);
-
-  // setting values for all instans fields, updates values. 
+  
+  // setting values for all instans fields.
   const handleChange = (event) => {
         setNewUser({
           ...newUser,
@@ -24,10 +24,10 @@ const SignUp = ({submitForm}) => {
   // setErrors -->
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    setErrors(validation(newUser)); 
+    setErrors(validation(newUser));
     setDataIsCorrect(true);
-    // console.log(newUser);  // DEBUG
-    addUser(newUser);
+    authUser(newUser);
+    
   };
 
   // if errors is empty and data is correted change propsvalue to true 
@@ -41,23 +41,24 @@ const SignUp = ({submitForm}) => {
     <div className="container">
       <div className="app-wrapper">
         <div>
-          <h2 className="title">Create account</h2>
+          <h2 className="title">Login</h2>
         </div>
         <form className="form-wrapper">
           
           <div className="email">
-            <label className="label">Email</label>
+            <label className="label">Username: </label>
             <input
               className="input"
               type="email"
-              name="email"
-              value={newUser.email}
+              name="username"
+              value={newUser.username}
               onChange={handleChange}
             />
             {errors.email && <p className="error">{errors.email}</p>}
           </div>
+
           <div className="password">
-            <label className="label">Password</label>
+            <label className="label">Password: </label>
             <input
               className="input"
               type="password"
@@ -68,9 +69,11 @@ const SignUp = ({submitForm}) => {
             {errors.password && <p className="error">{errors.password}</p>}
           </div>
           <div>
+
             <button className="submit" onClick={handleFormSubmit}>
-              Sign up
+              Login
             </button>
+
           </div>
         </form>
       </div>
@@ -78,4 +81,4 @@ const SignUp = ({submitForm}) => {
   );
 };
 
-export default SignUp;
+export default Login;

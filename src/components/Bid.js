@@ -1,25 +1,28 @@
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import AuctionContext from "../context/AuctionContext";
+<<<<<<< HEAD
 import React, { Component }  from 'react';
 
+=======
+import AuthService from "../services/AuthService";
+>>>>>>> master
 
 const Bid = ({auctionId}) => {
-  const { bid, createNew, addBid, isLoading} = useContext (AuctionContext);  
+  const { bid, createNew, insertBid } = useContext (AuctionContext);  
   const [newBid, setNewBid] = useState(createNew(bid));  // newBid gets a fresh copy of bid
-  console.log(auctionId);
+  const currentUser = AuthService.getCurrentUser()
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    bid.bidTime = Date.now()
-    bid.userId = sessionStorage.getItem("userId");
-    bid.auctionId = auctionId;
-    addBid(bid)
-
+    newBid.auctionId = auctionId
+    newBid.userId = currentUser.id
+    insertBid(newBid)
+    
 }
   const handleOnChange = (event) => {
     setNewBid({
       ...newBid,
-      [event.target.name]: event.target.value, 
+      [event.target.name]: event.target.value,
   })};
 
 
@@ -27,9 +30,9 @@ const Bid = ({auctionId}) => {
       <div className="new-bid">
     <h2>Add bid</h2>
         <form>
-            <label htmlFor="amount">Bid </label>
+            <label className="bidlabel"htmlFor="amount">Bid </label>
             <input 
-                type="text"
+                type="number"
                 name="amount"
                 required 
                 defaultValue={bid.amount}
@@ -38,7 +41,7 @@ const Bid = ({auctionId}) => {
             />
          
             <button type="submit" onClick={handleSubmit}>
-                Add Bet
+                Bid
             </button>
             </form> 
     </div>

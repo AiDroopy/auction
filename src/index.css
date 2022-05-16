@@ -1,4 +1,5 @@
 body {
+<<<<<<< HEAD
 
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -9,17 +10,106 @@ body {
 
   font-family: "Poppins", sans-serif;
   background-color: lightblue;
+=======
+  font-family: "Poppins", sans-serif;
+  background-color: #1c5541;
+>>>>>>> master
   color: #fff;
   line-height: 1.6;
 }
 a{
   text-decoration: none;
   color: black;
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+<<<<<<< HEAD
 
+=======
+.cards {
+  display: flex;
+
+  /* Put a card in the next row when previous cards take all width */
+  flex-wrap: wrap;
+
+  margin-left: -8px;
+  margin-right: -8px;
+  border: 2px solid black;
+  width: 400px;
+  height: 300px;
+}
+
+.cards__item {
+  /* There will be 4 cards per row */
+  flex-basis: 25%;
+
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.countdown-timer {
+  width: 300px;
+  height: 50px;
+
+  font-family: "Oswald";
+  font-size: 15px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.countdown-timer span {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.two-numbers {
+  width: 0.8ch;
+}
+
+.auction-List{
+  display: flex;
+  margin: auto;
+  justify-content: space-evenly;
+}
+.nav {
+  max-width: 768px;
+  margin: auto;
+  padding: 0 20px;
+}
+.nav_container{
+  display: flex;
+}
+.password, .email{
+  margin-bottom: 10px; 
+}
+.label, .bidlabel {
+  display: inline-block;
+  width: 150px;
+  text-align: right;
+}
+.submit{
+  width: 150px;
+  margin-left: 150px;
+}
+.title{
+  margin-left: 150px;
+}
+.new_auction{
+  max-width: 768px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.bidlabel{
+  margin-top: 3px;
+}
+>>>>>>> master

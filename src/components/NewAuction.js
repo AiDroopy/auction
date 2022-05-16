@@ -1,28 +1,23 @@
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import AuctionContext from "../context/AuctionContext";
+<<<<<<< HEAD
 import React, { Component }  from 'react';
+=======
+import "../NewAuction.css";
+import { Link } from "react-router-dom";
+import AuthService from "../services/AuthService";
+>>>>>>> master
 
 // Måste börja med Stor bokstav, även filnamnet
 const NewAuction = () => {
-    const { auction, addAuction, createNew, isLoading} = useContext (AuctionContext);  
+    const { auction, createAuction, createNew } = useContext (AuctionContext);  
     const [newAuction, setNewAuction] = useState (createNew(auction));
-//     const [newAuction, setAuction] = useState(
-//         createNew(newAuction)
-//     // auctionId: 0,
-//     // userId: 0,
-//     // bids: [], // Change to bidId for relationship instead of aggregation
-//     // startPrice: "",
-//     // endPrice: 0,
-//     // productName: "",
-//     // productInfo: "",
-//     // productImgURL: "",
-//   );
-    
+    const currentUser = AuthService.getCurrentUser()
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        auction.sellerId = sessionStorage.getItem("userId");
-        addAuction(auction);
-  
+        newAuction.userId = currentUser.id
+        createAuction(newAuction);
   }
     
     // setting values for all instans fields, updates values, learn more!
@@ -32,12 +27,12 @@ const NewAuction = () => {
       [event.target.name]: event.target.value,  // prop name måste finnas med i html-fälten (i return..)
 
   })
-  console.log(newAuction)
 }
-    return ( <div className="new-auction">
-    <h2>Creat Auction</h2>
-        <form>
-            <label htmlFor="productName">Title: </label>
+    return ( <div className="new_auction">
+    <h2>Create Auction</h2>
+        <form className="new-auction">
+
+            <label className="bidlabel" htmlFor="productName">Title: </label>
             <input 
                 type="text"
                 name="productName"
@@ -46,18 +41,26 @@ const NewAuction = () => {
                 onChange={handleOnChange}
               
             />
+<<<<<<< HEAD
 
 
             <label htmlFor="startPrice">Start Price:</label>
             <input
                 id="startPrice" 
                 type="text"
+=======
+ 
+            <label className="bidlabel" htmlFor="startPrice">Start Price:</label>
+            <input 
+                type="Start Price"
+>>>>>>> master
                 name="startPrice"
                 required 
                 defaultValue={auction.startPrice}
                 onChange={handleOnChange}
                 
             />
+<<<<<<< HEAD
             
                         
             <label htmlFor="endDate">End Date: </label>
@@ -83,10 +86,14 @@ const NewAuction = () => {
 
             
             <label htmlFor="productInfo">Information: </label>
+=======
+
+            
+            <label className="bidlabel" htmlFor="productInfo">Information: </label>
+>>>>>>> master
             <input 
                 type="text"
                 name="productInfo"
-                id="productInfo"
                 required 
                 defaultValue={auction.productInfo}
                 onChange={handleOnChange}
@@ -94,18 +101,17 @@ const NewAuction = () => {
             />
 
 
-            <label htmlFor="productImgURL">Upload image:  </label>
-            <div className="image-upload">
+            <label className="bidlabel" htmlFor="productImgURL">Upload image:  </label>
+
                 <input type="file" 
                 id="file-input" 
                 name="productImgURL" 
                 value={auction.productImgURL}
                 onChange={handleOnChange}
                 />
-            </div>
 
             <button type="submit" onClick={handleSubmit}>
-                Add Auction
+                <Link to="/"><h2>Create auction!</h2></Link>
             </button>
         </form> 
     </div>);
