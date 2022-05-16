@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AuctionContext from "../context/AuctionContext";
+
 import AuthService from "../services/AuthService";
 import DeliveryService from "../services/DeliveryService";
 import { Link } from "react-router-dom";
@@ -7,26 +7,30 @@ import { Link } from "react-router-dom";
 const DeliveryForm = () => {
     const currentUser = AuthService.getCurrentUser()
     
-    const [address, setAddress] = useState ({
- 
-        "user": {
-          "id": "FRONTEND-USR-ID_101",
-          "name": "FRONTEND-USR-NAME"
-        },
-        "address": "FRONTEND-USR-ADDRESS",
-        "city": "Halmstad",
-        "country": "Sverige",
-        "zipCode": 12345,
-        "auction": {
-          "id": "POSTMAN-AUCTION-ID_8"
+    const [address, setAddress] = useState (
+        {
+            "user": 
+            {
+            "id": "FRONTEND-USR-ID_101",
+            "name": "FRONTEND-USR-NAME"
+            },
+
+            "address": "FRONTEND-USR-ADDRESS",
+            "city": "Halmstad",
+            "country": "Sverige",
+            "zipCode": 12345,
+            
+            "auction": 
+            {
+            "id": "FRONTEND-AUCTION-ID_101"
+            }
         }
-      });
+    );
 
     const saveAddr = (address) =>{
-        DeliveryService.deliver(address).then((response) => {
+        DeliveryService.getDeliveryInfo(address).then((response) => {
             console.log(response.data);
-            // setUser(response.data);
-            // setIsLoading(false);
+            
       })
       }
 
@@ -41,8 +45,9 @@ const DeliveryForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        address.auction = "AUCTIONID";
-        address.user = currentUser.id;
+        // UTELÄMNA DESSA 2 FÄLT FÖR ATT SLIPPA DUPLICATED STUFF
+        //address.auction = "AUCTIONID";
+        //address.user = currentUser.id;
         console.log("DeliveryForm.js ", address)        //DEBUG
         saveAddr(address);
        

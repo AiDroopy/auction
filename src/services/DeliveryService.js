@@ -1,4 +1,3 @@
-import React from "react";
 import axios from "axios";
 // axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 
@@ -20,8 +19,8 @@ const getDeliveryInfo = (address) =>{
 }
 
 const DeliveryService ={
-    getAllDestinations
-    deliver
+    getAllDestinations,
+    deliver,
     getDeliveryInfo
 
 }
