@@ -8,9 +8,11 @@ const getAllDestinations = () => {
     return axios.get(API_URL)
 }
 
+// Samma som nedan
 function deliver(address){
-    return axios.post(API_URL, address)
+    return axios.post(`${API_URL}`, address)
 }
+
 const getDeliveryInfo = (address) =>{
     //console.log("This is Delivery Service")
     //console.log(address);
@@ -19,6 +21,9 @@ const getDeliveryInfo = (address) =>{
 
 const DeliveryService ={
     getAllDestinations
+    deliver
+    getDeliveryInfo
+
 }
 
 export default DeliveryService;

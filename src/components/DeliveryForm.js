@@ -8,13 +8,19 @@ const DeliveryForm = () => {
     const currentUser = AuthService.getCurrentUser()
     
     const [address, setAddress] = useState ({
-        "user": 2,
-        "address": "",
-        "city": "",
-        "country": "",
-        "zipCode": 0,
-        "auction": "23rsf2" 
-    });
+ 
+        "user": {
+          "id": "FRONTEND-USR-ID_101",
+          "name": "FRONTEND-USR-NAME"
+        },
+        "address": "FRONTEND-USR-ADDRESS",
+        "city": "Halmstad",
+        "country": "Sverige",
+        "zipCode": 12345,
+        "auction": {
+          "id": "POSTMAN-AUCTION-ID_8"
+        }
+      });
 
     const saveAddr = (address) =>{
         DeliveryService.deliver(address).then((response) => {
@@ -37,9 +43,9 @@ const DeliveryForm = () => {
         e.preventDefault();
         address.auction = "AUCTIONID";
         address.user = currentUser.id;
-        console.log(address)
-        DeliveryService.deliver(address);
-        //createAuction(newAuction);
+        console.log("DeliveryForm.js ", address)        //DEBUG
+        saveAddr(address);
+       
   }
 
     return (  <div className="delivery-form">
