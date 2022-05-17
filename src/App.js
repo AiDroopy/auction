@@ -25,13 +25,13 @@ function App() {
       <div className="content">
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/LoginForm' element={<LoginForm />} />
-          <Route path='/Destination' element={<DeliveryOptions/>} />
-          <Route path='/Profile' element={<Profile />} />
-          <Route path='/NewAuction' element={<NewAuction />} />
-          <Route path='/Search' element={<Search />} />
-          <Route path='/SignUpForm' element={<SignUpForm />} />
-          <Route path='/AuctionList' element={<AuctionList />} />
+          <Route path='/loginform' element={<LoginForm />} />
+          <Route path='/destination' element={<DeliveryOptions/>} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/newauction' element={<NewAuction />} />
+          <Route path='/search' element={<Search />} />
+          <Route path='/signupform' element={<SignUpForm />} />
+          <Route path='/auctionlist' element={<AuctionList />} />
           <Route path='/auction/:id' element={<SingleAuction/>}/>
         </Routes>
       </div>

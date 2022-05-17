@@ -7,10 +7,9 @@ const SingleAuction = () => {
     const [auction, setAuction] = useState([])
 
     const {id} = useParams();
-    
 
     useEffect(() => {
-        AuctionService.getAuction(id).then((setAuction))
+        AuctionService.getAuction(id).then(setAuction)
         }, []);
     
     return (
