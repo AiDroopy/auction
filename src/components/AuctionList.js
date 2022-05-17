@@ -3,15 +3,38 @@ import { useContext } from 'react';
 import AuctionContext from '../context/AuctionContext';
 import CountdownTimer from './CountdownTimer/CountdownTimer';
 import Bid from "./Bid";
+import { Link } from 'react-router-dom';
+
+ 
 
 const AuctionList = () => {
 
     const { auctions, bids} = useContext(AuctionContext);
 
+    const renderHighBid = (theBids, auction) => {
+        let highBid = 0
+        theBids.map((bid) => {
+        if (bid.auctionId === auction.id){
+            if (highBid === 0 || highBid < bid.amount){
+                highBid = bid.amount
+            }
+        }})
+        if(Date.parse(auction.endTime) < Date.parse(Date())){
+            return <div> Auction closed with winning bid: {highBid} </div> 
+        }
+        if(Date.parse(auction.endTime) > Date.parse(Date())){
+            return <div>
+                 Highest bid: {highBid} 
+                 <CountdownTimer
+                    countdownTimestampMs={auction.endTime}/></div> 
+        }
+    }
+
+    
     return (
 
         <div className="auction-List"> 
-            {auctions.map((auction) => (<div className="auctions" key={auction.id}> 
+            {auctions.map((auction) => (<Link to="/"><div className="auctions" key={auction.id}> 
                 <br></br>
                     Product name: {auction.productName}
                 <br></br>
@@ -20,21 +43,13 @@ const AuctionList = () => {
                     <img src={auction.productImgURL} alt="img" className="img"></img>
                 <br></br>
                     Starting price: {auction.startPrice}
+                    
                 <br></br>
-                    Bids: {bids.map((bid) => {if(bid.auctionId === auction.id) return( <div className="bids">
-                        bid time: {bid.bidTime}
-                        <br></br>
-                        bid amount: {bid.amount}
-                        <br></br>
-                        bid amount: {bid.amount}
-                        <br></br><br></br>
-                </div>)})}
-                <CountdownTimer
-                    countdownTimestampMs={auction.endTime}/>
+                    {renderHighBid(bids, auction)}
             
                 {< Bid auctionId={ auction.id }/>}
     
-        </div>))} 
+        </div></Link>))} 
          </div>
 
       );
