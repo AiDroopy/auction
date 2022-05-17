@@ -9,6 +9,7 @@ import AuctionList from './components/AuctionList';
 import Search from './components/Pages/Search';
 import React from 'react';
 import DeliveryOptions from './components/Pages/DeliveryOptions';
+import SingleAuction from './components/Pages/SingleAuction';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path='/Search' element={<Search />} />
           <Route path='/SignUpForm' element={<SignUpForm />} />
           <Route path='/AuctionList' element={<AuctionList />} />
+          <Route path='auction/:id' element={<SingleAuction/>}/>
         </Routes>
       </div>
       </AuctionProvider> 
