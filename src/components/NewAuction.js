@@ -17,15 +17,13 @@ const NewAuction = () => {
         newAuction.userId = currentUser.id
         createAuction(newAuction);
 
-        
         const formData = new FormData();
         formData.append("file", newFile);
             try {
                 FileService.uploadImage(formData, {headers: { "Content-Type": "multipart/form-data" }} )
             } catch(error) {
             console.log(error)
-            }
-        
+            } 
     }
     
     // setting values for all instans fields, updates values, learn more!
@@ -80,7 +78,6 @@ const NewAuction = () => {
                 <input type="file" 
                 id="file" 
                 name="file"
-                defaultValue={auction.productImgURL}
                 onChange={handleFileChange}
                 />
 
