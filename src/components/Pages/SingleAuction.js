@@ -1,19 +1,21 @@
-import React, {useState}from 'react'
+import React, {useState, useEffect } from 'react'
 import {useParams} from 'react-router-dom'
-import AuctionService from './'
+import AuctionService from '../../services/AuctionService'
 
 const SingleAuction = () => {
 
-    const [auction, setAuction] = useState()
+    const [auction, setAuction] = useState([])
 
     const {id} = useParams();
-
-    React.useEffect(() => {
-        AuctionService.getAuction(id).then(setAuction)
-        }, [id]
     
-  return (
-    <div>{auction.id}</div>
-  )
+
+    useEffect(() => {
+        AuctionService.getAuction(id).then((setAuction))
+        }, []);
+    
+    return (
+      <div>{auction.id}</div>
+    )
 }
+
 export default SingleAuction;

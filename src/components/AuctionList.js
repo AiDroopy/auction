@@ -4,7 +4,6 @@ import AuctionContext from '../context/AuctionContext';
 import CountdownTimer from './CountdownTimer/CountdownTimer';
 import Bid from "./Bid";
 import { Link } from 'react-router-dom';
-
  
 
 const AuctionList = () => {
@@ -34,7 +33,7 @@ const AuctionList = () => {
     return (
 
         <div className="auction-List"> 
-            {auctions.map((auction) => (<Link to="/"><div className="auctions" key={auction.id}> 
+            {auctions.map((auction) => (<Link to={`auction/${auction.id}`}><div className="auctions" key={auction.id}> 
                 <br></br>
                     Product name: {auction.productName}
                 <br></br>
