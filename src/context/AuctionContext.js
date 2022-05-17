@@ -94,10 +94,10 @@ function insertBid (aBid) {
 
   // Getter / Setter auction object
   const [bid, setBid] = useState({
-    bidTime: Date.now(),
+    bidTime: "",
     userId: "",
-    auctionId: 0,
-    amount: 0
+    auctionId: "",
+    amount: ""
   });
 
   // Get user by id
