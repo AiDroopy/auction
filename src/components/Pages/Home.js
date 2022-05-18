@@ -6,7 +6,10 @@ import React from "react";
 
 const Home = () => {
     return ( 
+
+
         <Layout>
+        <h1>Auction</h1>
         <div className="home">
             <div className = "navbar">
                 <NavBar />

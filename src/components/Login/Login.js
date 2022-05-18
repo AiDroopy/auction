@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import validation from "./Validation";
 import AuctionContext from "../../context/AuctionContext";
 
+
 const Login = ({submitForm}) => {
 
   const { user, createNew, authUser } = useContext (AuctionContext);  // get some stuff from AuctionContext
@@ -72,9 +73,9 @@ const Login = ({submitForm}) => {
 
             <button className="submit" onClick={handleFormSubmit}>
               Login
-            </button>
-
+            </button> 
           </div>
+
         </form>
       </div>
     </div>
