@@ -146,7 +146,7 @@ const createUser = (newUser) =>{
             Highest bid: {highBid} 
             <CountdownTimer
             countdownTimestampMs={auction.endTime}/>
-            {< Bid auctionId={ auction.id }/>}
+            {< Bid theAuction ={ auction }/>}
             </div> 
     }
 }

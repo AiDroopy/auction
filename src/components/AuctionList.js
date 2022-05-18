@@ -12,7 +12,7 @@ const AuctionList = () => {
     return (
 
         <div className="auction-List"> 
-            {auctions.map((auction) => (<Link to={`auction/${auction.id}`}><div className="auctions" key={auction.id}> 
+            {auctions.map((auction) => (<div><Link to={`auction/${auction.id}`}><div className="auctions" key={auction.id}> 
                 <br></br>
                     Product name: {auction.productName}
                 <br></br>
@@ -23,9 +23,9 @@ const AuctionList = () => {
                     Starting price: {auction.startPrice}
                     
                 <br></br>
-                    {renderHighBid(bids, auction)}
+                    
     
-        </div></Link>))} 
+        </div></Link> <div>{renderHighBid(bids, auction)}</div></div>))} 
          </div>
 
       );
