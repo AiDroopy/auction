@@ -10,6 +10,7 @@ import Search from './components/Pages/Search';
 import React from 'react';
 import SingleAuction from './components/Pages/SingleAuction';
 import DeliveryOptions from './components/Pages/DeliveryOptions';
+import Logout from './components/Pages/Logout';
 
 
 
@@ -33,6 +34,7 @@ function App() {
           <Route path='/signupform' element={<SignUpForm />} />
           <Route path='/auctionlist' element={<AuctionList />} />
           <Route path='/auction/:id' element={<SingleAuction/>}/>
+          <Route path='/logout' element={<Logout/>}/>
         </Routes>
       </div>
       </AuctionProvider> 
