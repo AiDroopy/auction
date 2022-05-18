@@ -1,5 +1,6 @@
 import AuctionContext from "../../context/AuctionContext"
 import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Search = () => {
 
@@ -11,20 +12,19 @@ const Search = () => {
   return (
     <div className="search-bar">
         <input type="text" placeholder="Search..." onChange={event => {setTheSearch(event.target.value)}}/>
-        {auctions.filter((val)=>{
+        {auctions.filter((auction)=>{
             if (theSearch == ''){
-                return val
+                return (<div>{auction.productName}</div>)
             }
-                else if(val.productName.toLowerCase().includes(theSearch.toLowerCase())){
-                    return val.productName
+                else if(auction.productName.toLowerCase().includes(theSearch.toLowerCase())){
+                    return (<div>{auction.productName}</div>)
                 }
-            }).map((val) => {
+            }).map((auction) => {
                 return (
-                    <div class="auctions"> {val.productName}
-                    </div>
+                    (<Link to={`/auction/${auction.id}`}><div>{auction.productName}</div></Link>)
                 );
             })}
         </div>
     )}
-
-export default Search
+        
+export default Search;
