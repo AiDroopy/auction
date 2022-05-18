@@ -27,16 +27,10 @@ const NewAuction = () => {
         e.preventDefault();
         newAuction.userId = currentUser.id
         const formData = new FormData();
-        
-        console.log(newFile)
 
         formData.append("file", newFile)
         formData.append("auction", new Blob([JSON.stringify(newAuction)], {type:"application/json"}));
-        
-        for (var pair of formData.entries()) {
-            console.log(pair[0]+ ', ' + pair[1]); 
-        }
-
+    
             try {
                createAuction(formData)
             } catch(error) {
