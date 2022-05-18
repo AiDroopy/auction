@@ -14,11 +14,24 @@ const API_URL = "http://localhost:8080/api/auction"
         return axios.post(`${API_URL}/create`, auction)
     }
 
+    const getAuction = async (id) => {
+        try {
+        const response = await axios.get(`${API_URL}/${id}`)
+
+        console.log(response.data)
+
+        return response.data
+
+        } catch (err) {
+        console.error(err)
+        }
+    }
 
     const AuctionService = {
     getAuctions,
     deleteAuction,
-    createAuction
+    createAuction,
+    getAuction
   };
-
+    
 export default AuctionService;
