@@ -12,41 +12,50 @@ const NewAuction = () => {
     const [newFile, setNewFile] = useState ([]);
     const currentUser = AuthService.getCurrentUser();
     
+    const handleOnChange = (event) => {
+        setNewAuction({
+          ...newAuction,
+          [event.target.name]: event.target.value,  
+            })
+      }   
+    
+        const handleFileChange = (event) => {
+        setNewFile(event.target.files[0]); 
+      }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         newAuction.userId = currentUser.id
-        createAuction(newAuction);
-
-        
         const formData = new FormData();
-        formData.append("file", newFile);
+        
+        console.log(newFile)
+
+        formData.append("file", newFile)
+        formData.append("auction", new Blob([JSON.stringify(newAuction)], {type:"application/json"}));
+        
+        for (var pair of formData.entries()) {
+            console.log(pair[0]+ ', ' + pair[1]); 
+        }
+
             try {
-                FileService.uploadImage(formData, {headers: { "Content-Type": "multipart/form-data" }} )
+               createAuction(formData)
             } catch(error) {
             console.log(error)
-            }
-        
+            }     
     }
     
     // setting values for all instans fields, updates values, learn more!
-    const handleOnChange = (event) => {
-    setNewAuction({
-      ...newAuction,
-      [event.target.name]: event.target.value,  // prop name måste finnas med i html-fälten (i return..)
-        })
-  }   
 
-    const handleFileChange = (event) => {
-    setNewFile(event.target.files[0]); // prop name måste finnas med i html-fälten (i return..)
-  }
     return ( <div className="new_auction">
+
     <h2>Create Auction</h2>
-        <form className="new-auction">
+        <form id="formElem"className="new-auction">
 
             <label className="bidlabel" htmlFor="productName">Title: </label>
             <input 
-                type="text"
+                type="productName"
                 name="productName"
+                id=""
                 required 
                 defaultValue={auction.productName}
                 onChange={handleOnChange}
@@ -57,6 +66,7 @@ const NewAuction = () => {
             <input 
                 type="Start Price"
                 name="startPrice"
+                id="startPrice"
                 required 
                 defaultValue={auction.startPrice}
                 onChange={handleOnChange}
@@ -67,6 +77,7 @@ const NewAuction = () => {
             <label className="bidlabel" htmlFor="productInfo">Information: </label>
             <input 
                 type="text"
+                id="productInfo"
                 name="productInfo"
                 required 
                 defaultValue={auction.productInfo}
@@ -74,20 +85,19 @@ const NewAuction = () => {
               
             />
 
-
-            <label className="bidlabel" htmlFor="productImgURL">Upload image:  </label>
+            <label className="bidlabel" htmlFor="file">Upload image:  </label>
 
                 <input type="file" 
                 id="file" 
                 name="file"
-                defaultValue={auction.productImgURL}
+                // defaultValue={auction.productImgURL}
                 onChange={handleFileChange}
                 />
 
             <button type="submit" onClick={handleSubmit}>
                 <Link to="/"><h2>Create auction!</h2></Link>
             </button>
-        </form>
+            </form>
     </div>);
 }
 
