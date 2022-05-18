@@ -23,10 +23,10 @@ const Profile = () => {
             
             </form>
             <h2>This is your won auctions:</h2>
-            <h3> listan på auctions: </h3>
-            <h4>Auctions:</h4>
+            <Link to = "/Profile"><h3> listan på auctions: </h3></Link>
+            <Link to ="/Profile"> <h4>Auctions:</h4></Link>
             <div className="auctions"> 
-            {auctions.map((auction => { if (auction.userId === currentUser.id) return <div className="auctions" key={auction.auctionId}><br></br>
+            {auctions.map((auction => { if (auction.userId === currentUser.id) return  <div className="auctions" key={auction.auctionId}><br></br>
         Product name: {auction.productName}
         <br></br>
         Description: {auction.productInfo}
@@ -40,10 +40,10 @@ const Profile = () => {
         Bids: {auction.bids}</div>}))}
             </div>
             <h4></h4>
-            <h2>This is the auction where you are bidding:</h2>
-            <h3> listan på auctions</h3>
-            <h2>This is the auctions where you are selling:</h2>
-            <h3> listan på auctions</h3>
+            <Link to = "/Profile"><h2>This is the auction where you are bidding:</h2></Link>
+            <Link to = "/Profile"><h3> listan på auctions</h3></Link>
+            <Link to = "/Profile"><h2>This is the auctions where you are selling:</h2></Link>
+            <Link to = "/Profile"><h3> listan på auctions</h3></Link>
         </div>
           )}
     
