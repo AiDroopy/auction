@@ -48,9 +48,6 @@ const Profile = () => {
             <div className= "bidAuction">
               {auctions.map((auction =>{ if( auction.userId) return (auction.id)}))}
             </div>
-            
-
-
             <Link to = "/Profile"><h2>This is you won auction:</h2></Link>
             <Link to = "/Profile"><h3> listan på auctions</h3></Link>
         </div>
