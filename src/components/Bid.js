@@ -18,6 +18,8 @@ const Bid = ({theAuction}) => {
       return alert("You may not bid on your own auction")
     }
     insertBid(newBid)
+
+    window.location.reload();
     
 }
   const handleOnChange = (event) => {

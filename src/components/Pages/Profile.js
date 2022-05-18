@@ -46,7 +46,7 @@ const Profile = () => {
             <h4></h4>
             <Link to = "/Profile"><h2>This is the auction where you are bidding:</h2></Link>
             <div className= "bidAuction">
-              {auctions.map((auction =>{ if( !auction.userId) return (auction)}))}
+              {auctions.map((auction =>{ if( auction.userId) return (auction.id)}))}
             </div>
             
 
