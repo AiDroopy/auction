@@ -100,8 +100,9 @@ code {
 
 .auction-List{
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap:wrap;
   flex: 1 1 160px;
+  justify-content:center;
 }
 
 
