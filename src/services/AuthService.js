@@ -1,11 +1,37 @@
-import axios from 'axios';
-const API_URL_TEST = "http://localhost:8080/api/auth";
+import axios from "axios";
+const API_URL = "http://localhost:8080/api/auth/";
+const register = (username, password) => {
+  return axios.post(API_URL + "signup", {
+    username,
+    password,
+  });
+};
 
-class AuthService{
+const login = async (newUser) => {
+  return axios
+    .post(API_URL + "signin", newUser)
+    .then((response) => {
+      if (response.data.accessToken) {
+        localStorage.setItem("user", JSON.stringify(response.data));
+      }
+      return response.data;
+    });
+};
 
-    login(newUser){
-        return axios.post(`${API_URL_TEST}/signin`, newUser)
-    }
-}
+const logout = () => {
+  localStorage.removeItem("user");
+};
 
-export default new AuthService();
+const getCurrentUser = () => {
+  const currentUser = JSON.parse(localStorage.getItem("user"))
+  return currentUser
+};
+
+const AuthService = {
+  register,
+  login,
+  logout,
+  getCurrentUser,
+};
+
+export default AuthService;

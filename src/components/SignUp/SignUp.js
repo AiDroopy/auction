@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-import validation from "./Validation";
-import AuctionContext from "../context/AuctionContext";
+import validation from "../Login/Validation";
+import AuctionContext from "../../context/AuctionContext";
 
 const SignUp = ({submitForm}) => {
 
-  const { user, createNew, isLoading, addUser} = useContext (AuctionContext);  // get some stuff from AuctionContext
+  const { user, createNew, createUser} = useContext (AuctionContext);  // get some stuff from AuctionContext
   
   //useState for values, using object data types
   const [newUser, setNewUser] = useState(createNew(user));
@@ -26,8 +26,7 @@ const SignUp = ({submitForm}) => {
     event.preventDefault();
     setErrors(validation(newUser)); // Pass in validation 
     setDataIsCorrect(true);
-    // console.log(newUser);  // DEBUG
-    addUser(newUser);
+    createUser(newUser);
   };
 
   // if errors is empty and data is correted change propsvalue to true 
@@ -50,8 +49,8 @@ const SignUp = ({submitForm}) => {
             <input
               className="input"
               type="email"
-              name="email"
-              value={newUser.email}
+              name="username"
+              value={newUser.username}
               onChange={handleChange}
             />
             {errors.email && <p className="error">{errors.email}</p>}

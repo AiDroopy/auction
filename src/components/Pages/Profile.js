@@ -1,37 +1,32 @@
 import React, { useContext, useState, useEffect } from "react";
-import AuctionContext from "../context/AuctionContext";
-import LogOut from "./LogOut";
+import AuctionContext from "../../context/AuctionContext";
+
 import { Link } from "react-router-dom";
+import AuthService from "../../services/AuthService";
 
 const Profile = () => {
-  
-    const { users, auctions } = useContext(AuctionContext);
 
-    return (
-      users.map(function(user){
-        if (user.id == sessionStorage.getItem('userId')){
-          return (
-          <div key={user.id}>
+  const currentUser = AuthService.getCurrentUser();
+  const { auctions } = useContext(AuctionContext);
+  
+  return (
+          <div key={currentUser.id}>
             <form>
               <Link to="/">Home</Link>
-              <LogOut/>
+              <button onClick={AuthService.logout}></button>
               
               <br></br>
               <label>user id:</label>
-              <input type = "text" name = "userId" value = {user.id}/>
+              <input type = "text" name = "userId" value = {currentUser.id}/>
               <label>user name:</label>
-              <input type = "text" name = "email" defaultValue= {user.email}/>
-              {/* <label>Adress:</label>
-              <input type = "text" value= {user.adress}/>
-              <label>Phone nr:</label>
-              <input type = "text" value= {user.phoneNr}/> */}
+              <input type = "text" name = "email" defaultValue= {currentUser.username}/>
             
             </form>
             <h2>This is your won auctions:</h2>
             <h3> listan på auctions: </h3>
             <h4>Auctions:</h4>
             <div className="auctions"> 
-            {auctions.map((auction => { if (auction.userId === user.id) return <div className="auctions" key={auction.auctionId}><br></br>
+            {auctions.map((auction => { if (auction.userId === currentUser.id) return <div className="auctions" key={auction.auctionId}><br></br>
         Product name: {auction.productName}
         <br></br>
         Description: {auction.productInfo}
@@ -51,8 +46,5 @@ const Profile = () => {
             <h3> listan på auctions</h3>
         </div>
           )}
-    })
-  )
-}
-
+    
 export default Profile;

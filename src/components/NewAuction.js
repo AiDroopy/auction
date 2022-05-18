@@ -1,39 +1,42 @@
 import React, { useContext, useState } from "react";
 import AuctionContext from "../context/AuctionContext";
-import "./NewAuction.css";
+import "../NewAuction.css";
+import { Link } from "react-router-dom";
+import AuthService from "../services/AuthService";
+import FileService from "../services/FileService";
 
 // Måste börja med Stor bokstav, även filnamnet
 const NewAuction = () => {
-    const { auction, addAuction, createNew, isLoading} = useContext (AuctionContext);  
+    const { auction, createAuction, createNew } = useContext (AuctionContext);  
     const [newAuction, setNewAuction] = useState (createNew(auction));
-//     const [newAuction, setAuction] = useState(
-//         createNew(newAuction)
-//     // auctionId: 0,
-//     // userId: 0,
-//     // bids: [], // Change to bidId for relationship instead of aggregation
-//     // startPrice: "",
-//     // endPrice: 0,
-//     // productName: "",
-//     // productInfo: "",
-//     // productImgURL: "",
-//   );
+    const [newFile, setNewFile] = useState ([]);
+    const currentUser = AuthService.getCurrentUser();
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        auction.userId = sessionStorage.getItem("userId");
-        addAuction(newAuction);
-  
-  }
+        newAuction.userId = currentUser.id
+        createAuction(newAuction);
+
+        const formData = new FormData();
+        formData.append("file", newFile);
+            try {
+                FileService.uploadImage(formData, {headers: { "Content-Type": "multipart/form-data" }} )
+            } catch(error) {
+            console.log(error)
+            } 
+    }
     
     // setting values for all instans fields, updates values, learn more!
     const handleOnChange = (event) => {
     setNewAuction({
       ...newAuction,
       [event.target.name]: event.target.value,  // prop name måste finnas med i html-fälten (i return..)
+        })
+  }   
 
-  })
-  console.log(newAuction)
-}
+    const handleFileChange = (event) => {
+    setNewFile(event.target.files[0]); // prop name måste finnas med i html-fälten (i return..)
+  }
     return ( <div className="new_auction">
     <h2>Create Auction</h2>
         <form className="new-auction">
@@ -51,44 +54,11 @@ const NewAuction = () => {
             <label className="bidlabel" htmlFor="startPrice">Start Price:</label>
             <input 
                 type="Start Price"
+                name="startPrice"
                 required 
                 defaultValue={auction.startPrice}
                 onChange={handleOnChange}
                 
-            />
-
-
-            <label className="bidlabel" htmlFor="startDate">Start Date: </label>
-            <input 
-                Month = "set Month"
-                Day = "set Day"
-                required 
-                value={auction.startDate}
-                onChange={handleOnChange}
-              
-            />
-
-
-
-            <label className="bidlabel" htmlFor="endate">End Date: </label>
-            <input 
-                type="text"
-                name="endDate"
-                required 
-                value={auction.endDate}
-                onChange={handleOnChange}
-              
-            />
-
- 
-            <label className="bidlabel" htmlFor="endTime">Start Time: </label>
-            <input 
-                type="text"
-                name="endTime"
-                required 
-                value={auction.endTime}
-                onChange={handleOnChange}
-              
             />
 
             
@@ -96,7 +66,6 @@ const NewAuction = () => {
             <input 
                 type="text"
                 name="productInfo"
-                id="productInfo"
                 required 
                 defaultValue={auction.productInfo}
                 onChange={handleOnChange}
@@ -107,17 +76,16 @@ const NewAuction = () => {
             <label className="bidlabel" htmlFor="productImgURL">Upload image:  </label>
 
                 <input type="file" 
-                id="file-input" 
-                name="productImgURL" 
-                value={auction.productImgURL}
-                onChange={handleOnChange}
+                id="file" 
+                name="file"
+                onChange={handleFileChange}
                 />
 
             <button type="submit" onClick={handleSubmit}>
-                Add Auction
+                <Link to="/"><h2>Create auction!</h2></Link>
             </button>
-        </form> 
+        </form>
     </div>);
 }
- 
+
 export default NewAuction; // <- Måste börja med Stor bokstav

@@ -2,6 +2,8 @@ import React, { createContext, useEffect, useState } from "react";
 import AuctionService from "../services/AuctionService";
 import AuthService from "../services/AuthService";
 import UserService from "../services/UserService";
+import BidsService from "../services/BidsService";
+import DeliveryService from "../services/DeliveryService";
 
 const AuctionContext = createContext();
 
@@ -11,12 +13,15 @@ export const AuctionProvider = ({ children }) => {
   const [bids, setBids] = useState([]);
   const [auctions, setAuctions] = useState([]);
   const [users, setUsers] = useState([]);
-  const [login, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [destinations, setDestinations] = useState([])
 
   useEffect(() => {
-    getAllUsers();
     getAuctions();
-    fetchBids();
+    getBids();
+    getUsersBids();
+    getAuctionBids();
+    getAllDestinations();
   }, []);
 
   // Deep copy / clone a json object, creates and returns an identical JSON object that was passed in.
@@ -25,156 +30,115 @@ export const AuctionProvider = ({ children }) => {
     return cloneObj;
   }
 
+  const getAllDestinations = () => {
+    DeliveryService.getAllDestinations().then((response) => {
+      console.log(response)
+    })
+  }
+
   // Get all auctions
   const getAuctions = () =>{
     AuctionService.getAuctions().then((response) => {
-      console.log(response.data)
       setAuctions(response.data);
-   
-    setIsLoading(false);
+      setIsLoading(false);
   })
 }
-  const fetchAuctions = async () => {
-    const res = await fetch("/auctions");
-    const data = await res.json();
 
-    console.log(data); // DEBUG
-    setAuctions(data);
+const createAuction = async (aAuction) => {
+  AuctionService.createAuction(aAuction).then((response) => {
+  })
+};
+
+// Get all bids in database
+const getBids = () =>{
+  BidsService.getAllBids().then((response) => {
+    setBids(response.data);
     setIsLoading(false);
-  };
-  
-  const addAuction = async (aAuction) => {
-    const res = await fetch("/auctions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(aAuction),
-    });
-  };
+})
+}
+
+// get Bids belonging to a specific user
+// 625e701f3712d9caa15f2634 testuserID
+// Tested OK!
+function getUsersBids(userId){
+  BidsService.getUserBids(userId).then(() =>{
+  }
+  )
+}
+
+// get Bids belonging to a specific auction
+// 625e70c13712d9caa15f263a testauctionID
+// Tested OK!
+function getAuctionBids(auctionId){
+  BidsService.getAuctionBids(auctionId).then(() =>{
+  }
+  )
+}
+// Insert a Bid
+function insertBid (aBid) {
+  BidsService.createBid(aBid).then((response) => {
+});
+}
 
   // Getter / Setter auction object
   const [auction, setAuction] = useState({
-    auctionId: 0,
-    userId: 0,
+    userId:"",
     productName: "",
     productInfo: "",
     productImgURL: "",
-    startPrice: 0,
+    startPrice: "",
+    endTime: "",
     endPrice: 0,
-    endTime: Date.now(),
     bids: [], // Change to bidId for relationship instead of aggregation
   });
 
   // Getter / Setter auction object
   const [bid, setBid] = useState({
-    id: 0,
-    bidTime: Date.now(),
-    userId: 0,
-    auctionId: 0,
-    amount: 0
+    bidTime: "",
+    userId: "",
+    auctionId: "",
+    amount: ""
   });
 
-  // Get all bids
-  const fetchBids = async () => {
-    const res = await fetch("/bids");
-    const data = await res.json();
-
-    console.log(data); // DEBUG
-    setBids(data);
+  // Get user by id
+  const getUserById = (id) =>{
+    UserService.getUserById(id).then((response) => {
+    setUsers(response.data);
     setIsLoading(false);
-  };
+  })
+}
 
-  const addBid = async (aBid) => {
-    const res = await fetch("/bids", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(aBid),
-    });
-  };
-
-
-  // Get all users
-  const getAllUsers = () =>{
-      UserService.getAllUsers().then((response) => {
-      setUsers(response.data);
-      setIsLoading(false);
-    })
-  }
-  // const fetchUsers = async () => {
-  //   const res = await fetch("/users");
-  //   const data = await res.json();
-
-  //   console.log(data); // DEBUG
-  //   setUsers(data);
-  //   setIsLoading(false);
-  // };
+const createUser = (newUser) =>{
+  UserService.createUser(newUser).then((response) => {
+  setUser(response.data);
+  setIsLoading(false);
+})
+}
 
   // Client side auth until backend is up and running.
     const authUser = (newUser) => {
-        AuthService.login(newUser).then((response) => {
+        AuthService.login(newUser).then(() => {
         setLoggedIn(true)
-        
       })
     };
 
-  // Getter / Setter profile object
-  const [profile, setProfile] = useState({
-    userId: 0,
-    firstName: "",
-    lastName: "",
-    address: "",
-  });
-
   // Getter / Setter user object
   const [user, setUser] = useState({
-    email: "",
-    password: "",
-    profile: {},
+    username: "",
+    password: ""
   });
-
-  // Adds a user to REST API
-  const addUser = async (aUser) => {
-    const res = await fetch("/users", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(aUser),
-    });
-  };
-
-  const updateProfile = async (userId, updateUser) => {
-    const response = await fetch(`/user/${userId}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updateUser),
-    });
-
-    const data = await response.json();
-
-    setUser(
-      user.map((user) => (user.userId === userId ? { ...user, ...data } : user))
-    );
-  };
 
   return (
     <AuctionContext.Provider
       value={{
         bid, // bid object
         auction, // auction object
-        profile, // profile object
         user, // user object
-        createNew, // Hardcopy json object
-        addUser, // AddUser function
         isLoading, // Conditional when fetching data or not.
-        users,
-        addAuction,
-        addBid,
+        createNew, // Hardcopy json object
+        createUser, //Adduser function with backend
+        createAuction,
+        insertBid,
         authUser,
         auctions
       }}

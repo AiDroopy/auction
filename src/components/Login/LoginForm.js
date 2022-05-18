@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import Login from './Login';
-import SignupFormSuccess from './SignupFormSuccess';
-import Profile from './Profile';
+import Home from '../Pages/Home';
 
 const LoginForm = () => {
    
@@ -13,7 +12,7 @@ const LoginForm = () => {
 
   return (
     <div>
-        {!formIsSubmitted ? <Login submitForm={submitForm} /> : <Profile />}
+        {!formIsSubmitted ? <Login submitForm={submitForm} /> : <Home />}
     </div>
   )
 }

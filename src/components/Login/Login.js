@@ -1,16 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import validation from "./Validation";
-import AuctionContext from "../context/AuctionContext";
+import AuctionContext from "../../context/AuctionContext";
 
 const Login = ({submitForm}) => {
 
-  const { user, createNew, isLoading, authUser } = useContext (AuctionContext);  // get some stuff from AuctionContext
+  const { user, createNew, authUser } = useContext (AuctionContext);  // get some stuff from AuctionContext
   
   //useState for values, using object data types
   const [newUser, setNewUser] = useState(createNew(user));
   const [errors, setErrors] = useState({});
   const [dataIsCorrect, setDataIsCorrect] = useState(false);
-
+  
   // setting values for all instans fields.
   const handleChange = (event) => {
         setNewUser({
@@ -25,8 +25,9 @@ const Login = ({submitForm}) => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     setErrors(validation(newUser));
-    authUser(newUser);
     setDataIsCorrect(true);
+    authUser(newUser);
+    
   };
 
   // if errors is empty and data is correted change propsvalue to true 
@@ -49,7 +50,7 @@ const Login = ({submitForm}) => {
             <input
               className="input"
               type="email"
-              name="email"
+              name="username"
               value={newUser.username}
               onChange={handleChange}
             />
