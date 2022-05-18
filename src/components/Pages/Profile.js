@@ -27,7 +27,7 @@ const Profile = () => {
             {auctions.map((auction => { 
               let bidder = false
               bids.map((bid) => {
-                if(bid.userId === currentUser.id){
+                if(bid.userId === currentUser.id && bid.auctionId === auction.id){
                   bidder = true
                 }})
               
