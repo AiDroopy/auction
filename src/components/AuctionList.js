@@ -1,17 +1,18 @@
 import React from 'react'
 import { useContext } from 'react';
 import AuctionContext from '../context/AuctionContext';
-import CountdownTimer from './CountdownTimer/CountdownTimer';
-import Bid from "./Bid";
+import { Link } from 'react-router-dom';
+ 
 
 const AuctionList = () => {
 
-    const { auctions } = useContext(AuctionContext);
+    const { auctions, bids, renderHighBid} = useContext(AuctionContext);
 
+    
     return (
 
         <div className="auction-List"> 
-            {auctions.map((auction) => (<div className="auctions" key={auction.id}> 
+            {auctions.map((auction) => (<div><Link to={`auction/${auction.id}`}><div className="auctions" key={auction.id}> 
                 <br></br>
                     Product name: {auction.productName}
                 <br></br>
@@ -20,14 +21,11 @@ const AuctionList = () => {
                     <img src={auction.productImgURL} alt="img" className="img"></img>
                 <br></br>
                     Starting price: {auction.startPrice}
+                    
                 <br></br>
-                    Bids: {auction.bids}
-                <CountdownTimer
-                    countdownTimestampMs={auction.endTime}/>
-            
-                {< Bid auctionId={ auction.id }/>}
+                    
     
-        </div>))} 
+        </div></Link> <div>{renderHighBid(bids, auction)}</div></div>))} 
          </div>
 
       );

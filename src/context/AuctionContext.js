@@ -5,6 +5,8 @@ import AuthService from "../services/AuthService";
 import UserService from "../services/UserService";
 import BidsService from "../services/BidsService";
 import DeliveryService from "../services/DeliveryService";
+import Bid from "../components/Bid";
+import CountdownTimer from "../components/CountdownTimer/CountdownTimer";
 
 
 const AuctionContext = createContext();
@@ -130,6 +132,27 @@ const createUser = (newUser) =>{
     password: ""
   });
 
+  const renderHighBid = (theBids, auction) => {
+    let highBid = 0
+    theBids.map((bid) => {
+    if (bid.auctionId === auction.id){
+        if (highBid === 0 || highBid < bid.amount){
+            highBid = bid.amount
+        }
+    }})
+    if(Date.parse(auction.endTime) < Date.parse(Date())){
+        return <div> Auction closed with winning bid: {highBid} </div> 
+    }
+    if(Date.parse(auction.endTime) > Date.parse(Date())){
+        return <div>
+            Highest bid: {highBid} 
+            <CountdownTimer
+            countdownTimestampMs={auction.endTime}/>
+            {< Bid theAuction ={ auction }/>}
+            </div> 
+    }
+}
+
   return (
     <AuctionContext.Provider
       value={{
@@ -142,7 +165,11 @@ const createUser = (newUser) =>{
         createAuction,
         insertBid,
         authUser,
-        auctions
+        getAuctionBids,
+        getBids,
+        auctions,
+        bids,
+        renderHighBid
       }}
     >
       {children}
