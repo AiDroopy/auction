@@ -25,6 +25,9 @@ const NewAuction = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (!currentUser){
+            return alert("You must be logged in to create an auction")
+          }
         newAuction.userId = currentUser.id
         const formData = new FormData();
 
