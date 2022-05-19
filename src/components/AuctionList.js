@@ -26,6 +26,7 @@ const AuctionList = () => {
                     
     
         </div></Link> <div>{renderHighBid(bids, auction)}</div></div>))} 
+         
          </div>
 
       );
