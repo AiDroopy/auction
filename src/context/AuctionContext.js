@@ -87,11 +87,9 @@ function insertBid (aBid) {
     userId:"",
     productName: "",
     productInfo: "",
-    productImgURL: "",
     startPrice: "",
     endTime: "",
     endPrice: 0,
-    bids: [], // Change to bidId for relationship instead of aggregation
   });
 
   // Getter / Setter auction object
