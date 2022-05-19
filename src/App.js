@@ -10,7 +10,7 @@ import Search from './components/Pages/Search';
 import React from 'react';
 import SingleAuction from './components/Pages/SingleAuction';
 import DeliveryOptions from './components/Pages/DeliveryOptions';
-
+import DeliveryForm from "./components/DeliveryForm";
 
 
 
@@ -25,15 +25,21 @@ function App() {
 
       <div className="content">
         <Routes>
+          
+         
+
           <Route path='/' element={<Home />} />
-          <Route path='/loginform' element={<LoginForm />} />
+
+          <Route path='/deliveryForm' element={<DeliveryForm />} />
+          
+          <Route path='/loginForm' element={<LoginForm />} />
           <Route path='/destination' element={<DeliveryOptions/>} />
           <Route path='/profile' element={<Profile />} />
-          <Route path='/newauction' element={<NewAuction />} />
+          <Route path='/newAuction' element={<NewAuction />} />
           <Route path='/search' element={<Search />} />
-          <Route path='/signupform' element={<SignUpForm />} />
-          <Route path='/auctionlist' element={<AuctionList />} />
-          <Route path='/auction/:id' element={<SingleAuction/>}/>
+          <Route path='/signUpForm' element={<SignUpForm />} />
+          <Route path='/auctionList' element={<AuctionList />} />
+          <Route path='/auction/:id' element={<SingleAuction/>} />
         </Routes>
       </div>
       </AuctionProvider> 

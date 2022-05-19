@@ -5,7 +5,7 @@ import "./search.css";
 
 const Search = () => {
 
-    const { auctions } = useContext(AuctionContext);
+    const { auctions, bids, renderHighBid } = useContext(AuctionContext);
     const [theSearch, setTheSearch] = useState('')
 
   return (
@@ -19,7 +19,23 @@ const Search = () => {
                     return(<div>{auction.productName}</div>)
                 }
         }).map((auction) => {
-            return (<Link to={`/auction/${auction.id}`}><div>{auction.productName}</div></Link>)
+            return (<div><Link to={`/auction/${auction.id}`}>
+                <div>{auction.productName}</div>
+                <div className="auctions" key={auction.id}> 
+                <br></br>
+                    Product name: {auction.productName}
+                <br></br>
+                    Description: {auction.productInfo}
+                <br></br>
+                    <img src={auction.productImgURL} alt="img" className="img"></img>
+                <br></br>
+                    Starting price: {auction.startPrice}
+                    </div> </Link>   
+                <br/>
+                    {renderHighBid(bids, auction)}
+    
+        </div>
+                )
         })}
     </div>
 )}

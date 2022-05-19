@@ -11,7 +11,7 @@ const NewAuction = () => {
     const [newAuction, setNewAuction] = useState (createNew(auction));
     const [newFile, setNewFile] = useState ([]);
     const currentUser = AuthService.getCurrentUser();
-    
+
     const handleOnChange = (event) => {
         setNewAuction({
           ...newAuction,
@@ -19,12 +19,15 @@ const NewAuction = () => {
             })
       }   
     
-        const handleFileChange = (event) => {
-        setNewFile(event.target.files[0]); 
+    const handleFileChange = (event) => {
+        setNewFile(event.target.files[0])
       }
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (!currentUser){
+            return alert("You must be logged in to create an auction")
+          }
         newAuction.userId = currentUser.id
         const formData = new FormData();
 
@@ -84,7 +87,7 @@ const NewAuction = () => {
                 <input type="file" 
                 id="file" 
                 name="file"
-                // defaultValue={auction.productImgURL}
+                accept="image/png, image/gif, image/jpeg"
                 onChange={handleFileChange}
                 />
 
