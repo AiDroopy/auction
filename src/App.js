@@ -38,6 +38,7 @@ function App() {
           <Route path='/search' element={<Search />} />
           <Route path='/signUpForm' element={<SignUpForm />} />
           <Route path='/auctionList' element={<AuctionList />} />
+          <Route path='/auction/:id' element={<SingleAuction/>} />
         </Routes>
       </div>
       </AuctionProvider> 
