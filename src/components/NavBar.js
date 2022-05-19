@@ -1,8 +1,6 @@
-import React,{useContext} from "react";
 import { Link } from "react-router-dom";
+import React from 'react';
 import AuthService from "../services/AuthService";
-
-
 /**
  *      <Link to="/DeliveryForm"><h4>Address</h4></Link> is a temporary link until DeliveryForm.js 
  *      can be called from an Auction or a Bid when Auction is closed.

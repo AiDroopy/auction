@@ -1,0 +1,49 @@
+.app-wrapper {
+    
+    min-width: 350px;
+    min-height: 650px;
+    padding: 30 px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.tilte {
+    
+    text-align: center;
+    margin: 40px 0px 30px 0px;
+}
+
+.name, 
+.email,
+.password {
+    margin: 20px;
+    font-size: 16px;
+}
+
+.password {
+    margin-bottom: 40px;
+}
+
+.Login input {
+    height: 32px;
+    font-size: 20px;
+    outline: none;
+    width: 100%;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom-style: 2px solid black;
+    margin-bottom: 10px;
+}
+
+.submit {
+    display: flex;
+    color:black;
+    font-size: 20px;
+    border-radius: 25px;
+    color: white;
+    padding: 10px 60px;
+    margin: auto;
+    outline: none;
+    border: none;  
+}

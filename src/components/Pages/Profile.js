@@ -22,8 +22,8 @@ const Profile = () => {
               <input type = "text" name = "userId" value = {currentUser.id}/>
               <label>user name:</label>
               <input type = "text" name = "email" defaultValue= {currentUser.username}/>
-            </form>         
             
+            </form>
             <h2>These are the auctions where you have ongoing bids:</h2>
             <div className="auctions"> 
             {auctions.map((auction => { 
@@ -86,7 +86,7 @@ const Profile = () => {
                 <br></br>
                 </div>}))}
                 </div>
-                </div>
+        </div>
           )}
   
 export default Profile;
