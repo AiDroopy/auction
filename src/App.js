@@ -29,15 +29,15 @@ function App() {
 
           <Route path='/' element={<Home />} />
 
-          <Route path='/DeliveryForm' element={<DeliveryForm />} />
+          <Route path='/deliveryForm' element={<DeliveryForm />} />
           
-          <Route path='/LoginForm' element={<LoginForm />} />
-          <Route path='/Destination' element={<DeliveryOptions/>} />
-          <Route path='/Profile' element={<Profile />} />
-          <Route path='/NewAuction' element={<NewAuction />} />
-          <Route path='/Search' element={<Search />} />
-          <Route path='/SignUpForm' element={<SignUpForm />} />
-          <Route path='/AuctionList' element={<AuctionList />} />
+          <Route path='/loginForm' element={<LoginForm />} />
+          <Route path='/destination' element={<DeliveryOptions/>} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/newAuction' element={<NewAuction />} />
+          <Route path='/search' element={<Search />} />
+          <Route path='/signUpForm' element={<SignUpForm />} />
+          <Route path='/auctionList' element={<AuctionList />} />
         </Routes>
       </div>
       </AuctionProvider> 
