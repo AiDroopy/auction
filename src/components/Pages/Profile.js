@@ -7,7 +7,7 @@ import AuthService from "../../services/AuthService";
 const Profile = () => {
 
   const currentUser = AuthService.getCurrentUser();
-  const { auctions } = useContext(AuctionContext);
+  const { auctions, bids } = useContext(AuctionContext);
   
   return (
           <div key={currentUser.id}>
@@ -22,28 +22,68 @@ const Profile = () => {
               <input type = "text" name = "email" defaultValue= {currentUser.username}/>
             
             </form>
-            <h2>This is your won auctions:</h2>
-            <h3> listan på auctions: </h3>
-            <h4>Auctions:</h4>
+            <h2>These are the auctions where you have ongoing bids:</h2>
             <div className="auctions"> 
-            {auctions.map((auction => { if (auction.userId === currentUser.id) return <div className="auctions" key={auction.auctionId}><br></br>
-        Product name: {auction.productName}
-        <br></br>
-        Description: {auction.productInfo}
-        <br></br>
-        <img src={auction.productImgURL}></img>
-        <br></br>
-        Starting price: {auction.startPrice}
-        <br></br>
-        End time: {auction.endTime}
-        <br></br>
-        Bids: {auction.bids}</div>}))}
-            </div>
-            <h4></h4>
-            <h2>This is the auction where you are bidding:</h2>
-            <h3> listan på auctions</h3>
+            {auctions.map((auction => { 
+              let bidder = false
+              bids.map((bid) => {
+                if(bid.userId === currentUser.id && bid.auctionId === auction.id){
+                  bidder = true
+                }})
+              
+              if (bidder && Date.parse(auction.endTime) > Date.parse(Date())) 
+              return <div className="auctions" key={auction.auctionId}><br></br>
+              Product name: {auction.productName}
+              <br></br>
+              Description: {auction.productInfo}
+              <br></br>
+              <img src={auction.productImgURL}></img>
+              <br></br>
+              Starting price: {auction.startPrice}
+              <br></br>
+              End time: {auction.endTime}
+              <br></br>
+              </div>}))}
+                  </div>
+            
+            <h2>This is your won auctions:</h2>
+            {auctions.map((auction => { 
+              let highBid = 0
+              let highBidUserId = ''
+              bids.map((bid) => {
+              if (bid.auctionId === auction.id){
+                  if (highBid === 0 || highBid < bid.amount){
+                      highBid = bid.amount
+                      highBidUserId = bid.userId
+                  }}})
+              if (Date.parse(auction.endTime) < Date.parse(Date()) && highBidUserId === currentUser.id) return <div className="auctions" key={auction.auctionId}><br></br>
+              Product name: {auction.productName}
+              <br></br>
+              Description: {auction.productInfo}
+              <br></br>
+              <img src={auction.productImgURL}></img>
+              <br></br>
+              Starting price: {auction.startPrice}
+              <br></br>
+              End time: {auction.endTime}
+              <br></br>
+              </div>}))}
+
             <h2>This is the auctions where you are selling:</h2>
-            <h3> listan på auctions</h3>
+            <div className="auctions"> 
+              {auctions.map((auction => { if (auction.userId === currentUser.id) return <div className="auctions" key={auction.auctionId}><br></br>
+                Product name: {auction.productName}
+                <br></br>
+                Description: {auction.productInfo}
+                <br></br>
+                <img src={auction.productImgURL}></img>
+                <br></br>
+                Starting price: {auction.startPrice}
+                <br></br>
+                End time: {auction.endTime}
+                <br></br>
+                </div>}))}
+                </div>
         </div>
           )}
     

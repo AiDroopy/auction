@@ -8,8 +8,10 @@ import NewAuction from './components/NewAuction';
 import AuctionList from './components/AuctionList';
 import Search from './components/Pages/Search';
 import React from 'react';
+import SingleAuction from './components/Pages/SingleAuction';
 import DeliveryOptions from './components/Pages/DeliveryOptions';
 import DeliveryForm from "./components/DeliveryForm";
+
 
 function App() {
 
