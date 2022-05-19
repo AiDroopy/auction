@@ -4,26 +4,36 @@ import AuthService from "../services/AuthService";
 import DeliveryService from "../services/DeliveryService";
 import { Link } from "react-router-dom";
 
-const DeliveryForm = () => {
+const DeliveryForm = ({auctionId}) => {
     const currentUser = AuthService.getCurrentUser()
     
+    const [auction_Id, setAuction_Id] = useState() 
+    if (!auctionId){
+        console.log("AuctionId PROP not set");
+        auctionId = "PROP-NOT-SET";
+        
+    }
+
     const [address, setAddress] = useState (
-        {
+        {        
             "user": 
             {
-            "id": "FRONTEND-USR-ID_101",
-            "name": "FRONTEND-USR-NAME"
+                "id": "889",
+                "name": "UserName",
             },
 
-            "address": "FRONTEND-USR-ADDRESS",
+            "address": "POSTMAN-USR-ADDRESS",
             "city": "Halmstad",
             "country": "Sverige",
             "zipCode": 12345,
-            
-            "auction": 
-            {
-            "id": "FRONTEND-AUCTION-ID_101"
-            }
+            "auction": {
+                "id": auctionId + "223"
+            },
+
+            "zip":"12345",
+            "AuctionObjectId": auctionId,
+            "Distance2Destination": 0.0,
+            "DeliveryCost":0.0,
         }
     );
 
@@ -45,9 +55,9 @@ const DeliveryForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // UTELÄMNA DESSA 2 FÄLT FÖR ATT SLIPPA DUPLICATED STUFF
-        //address.auction = "AUCTIONID";
-        //address.user = currentUser.id;
+        // ANVÄNDER INTE DESSA FÄLT FÖR ATT SLIPPA DUPLICATED STUFF VID UTVECKLING
+        // address.address = "AuctionObjID";
+        // address.user.name = currentUser.id;
         console.log("DeliveryForm.js ", address)        //DEBUG
         saveAddr(address);
        
@@ -89,12 +99,12 @@ const DeliveryForm = () => {
               
             />
 
-            <label className="address-zip-label" htmlFor="zip">Country: </label>
+            <label className="address-zip-label" htmlFor="zip">Zip: </label>
             <input 
                 type="text"
                 name="zip"
                 required 
-                defaultValue={123}
+                defaultValue={"123 12"}
                 onChange={handleOnChange}
               
             />
