@@ -7,7 +7,8 @@ import { Link } from "react-router-dom";
 const DeliveryForm = ({auctionId}) => {
     const currentUser = AuthService.getCurrentUser()
     
-    const [auction_Id, setAuction_Id] = useState() 
+    const [auction_Id, setAuction_Id] = useState()
+
     if (!auctionId){
         console.log("AuctionId PROP not set");
         auctionId = "PROP-NOT-SET";
@@ -20,7 +21,7 @@ const DeliveryForm = ({auctionId}) => {
         "city": "string",
         "zipCode": "string",
         "country": "string",
-        "auctionId": "string",
+        "auctionId": auctionId,
         "deliveryCost": 0,
         "dilivered": true,
         "tariff": 0,
