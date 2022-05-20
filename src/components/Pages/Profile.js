@@ -65,7 +65,7 @@ const Profile = () => {
               <br></br>
               Starting price: {auction.startPrice}
               <br></br>
-              End time: {auction.endTime}
+              <Link to="/DeliveryForm"><h5>Specify delivery Info</h5></Link>
               <br></br>
               </div>}))}
 
