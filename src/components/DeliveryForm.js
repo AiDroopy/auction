@@ -15,26 +15,18 @@ const DeliveryForm = ({auctionId}) => {
     }
 
     const [address, setAddress] = useState (
-        {        
-            "user": 
-            {
-                "id": "889",
-                "name": "UserName",
-            },
-
-            "address": "POSTMAN-USR-ADDRESS",
-            "city": "Halmstad",
-            "country": "Sverige",
-            "zipCode": 12345,
-            "auction": {
-                "id": auctionId + "223"
-            },
-
-            "zip":"12345",
-            "AuctionObjectId": auctionId,
-            "Distance2Destination": 0.0,
-            "DeliveryCost":0.0,
-        }
+        { 
+        "adress": "string",
+        "city": "Stockholm",
+        "zipCode": "string",
+        "country": "Sverige",
+        "auctionId": "string",
+        "deliveryCost": 0,
+        "dilivered": true,
+        "tariff": 0,
+        "fixedCosts": 0,
+        "distanceInKm": 0,
+        "verboseMode": true }
     );
 
     const saveAddr = (address) =>{

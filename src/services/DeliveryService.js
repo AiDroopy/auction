@@ -1,7 +1,7 @@
 import axios from "axios";
 // axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 
-const API_URL = "http://localhost:5099/api/Destination/"
+const API_URL = "http://localhost:5099/api/Delivery/"
 
 const getAllDestinations = () => {
     return axios.get(API_URL)
