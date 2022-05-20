@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import AuthService from "../services/AuthService";
 import DeliveryService from "../services/DeliveryService";
 import { Link } from "react-router-dom";
+import AuctionContext from "../context/AuctionContext";
 
 const DeliveryForm = ({auctionId}) => {
     const currentUser = AuthService.getCurrentUser()
-    
+    const {newDelivery} = useContext(AuctionContext)
     const [auction_Id, setAuction_Id] = useState()
 
     if (!auctionId){
@@ -30,13 +31,6 @@ const DeliveryForm = ({auctionId}) => {
         "verboseMode": true }
     );
 
-    const saveAddr = (address) =>{
-        DeliveryService.getDeliveryInfo(address).then((response) => {
-            console.log(response.data);
-            
-      })
-      }
-
      // setting values for all instans fields, updates values, learn more!
      const handleOnChange = (event) => {
         setAddress({
@@ -52,7 +46,8 @@ const DeliveryForm = ({auctionId}) => {
         // address.address = "AuctionObjID";
         // address.user.name = currentUser.id;
         console.log("DeliveryForm.js ", address)        //DEBUG
-        saveAddr(address);
+        newDelivery(address)
+    
        
   }
 
