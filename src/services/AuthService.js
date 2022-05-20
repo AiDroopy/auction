@@ -20,6 +20,7 @@ const login = async (newUser) => {
 
 const logout = () => {
   localStorage.removeItem("user");
+  
 };
 
 const getCurrentUser = () => {
