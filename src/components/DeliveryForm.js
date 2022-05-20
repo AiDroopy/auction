@@ -17,9 +17,9 @@ const DeliveryForm = ({auctionId}) => {
     const [address, setAddress] = useState (
         { 
         "adress": "string",
-        "city": "Stockholm",
+        "city": "string",
         "zipCode": "string",
-        "country": "Sverige",
+        "country": "string",
         "auctionId": "string",
         "deliveryCost": 0,
         "dilivered": true,
