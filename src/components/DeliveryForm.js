@@ -4,11 +4,14 @@ import AuthService from "../services/AuthService";
 import DeliveryService from "../services/DeliveryService";
 import AuctionService from "../services/AuctionService";
 import Home from "./Pages/Home";
+import { Link } from "react-router-dom";
 
 const DeliveryForm = () => {
 
     const currentUser = AuthService.getCurrentUser()
     const [auction, setAuction] = useState([])
+    const[showResult, setShowResult] = useState(false)
+    const [dCost, setDCost] = useState([])
 
     const {id} = useParams();
 
@@ -18,7 +21,6 @@ const DeliveryForm = () => {
 
     const [address, setAddress] = useState (
         {   "VerboseMode": true,
-            "AuctionId": auction.id,
             "Adress": "",
             }
     );
@@ -26,6 +28,7 @@ const DeliveryForm = () => {
      // setting values for all instans fields, updates values, learn more!
      const handleOnChange = (event) => {
         setAddress({
+            
           ...address,
           [event.target.name]: event.target.value,  // prop name måste finnas med i html-fälten (i return..)
     
@@ -34,17 +37,23 @@ const DeliveryForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        
+        address.AuctionId = auction.id
         console.log("DeliveryForm.js ", address)  //DEBUG 
         DeliveryService.getDeliveryInfo(address).then((response) => {
-            console.log(response)
+            setDCost(response.deliveryCost)
         })
+        setShowResult(true)
 
-             
+        console.log(dCost)
   };
 
-    return (  <div className="delivery-form">
-    <h2>Enter delivery info: </h2>
-        <form className="delivery-input">
+    return ( 
+        <>
+        <Link to="/">Home</Link>
+    <div className="delivery-form">
+        <h2>Enter delivery info: </h2>
+            <form className="delivery-input">
 
             <label className="address-street-label" htmlFor="Adress">Address: </label>
             <input 
@@ -87,12 +96,17 @@ const DeliveryForm = () => {
                 onChange={handleOnChange}
               
             />
-           
+            <br></br>
             <button type="submit" onClick={handleSubmit}>
+               <h5>Send information</h5>
             </button>
-
+            
         </form> 
-    </div> );
+    </div> 
+    <div id="deliverycost">
+        { showResult ? <div>Your total delivery cost is: {dCost}</div> : null}
+    </div>
+    </> );
 }
 
 
