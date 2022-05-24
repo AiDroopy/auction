@@ -65,7 +65,7 @@ const Profile = () => {
               <br></br>
               Starting price: {auction.startPrice}
               <br></br>
-              <Link to="/DeliveryForm"><h5>Specify delivery Info</h5></Link>
+              <Link to={`/delivery/${auction.id}`}><h5>Specify delivery Info</h5></Link>
               <br></br>
               </div>}))}
 

@@ -37,6 +37,12 @@ export const AuctionProvider = ({ children }) => {
       console.log(response)
     })
   }
+  
+  // const newDelivery = async (address) => { 
+  //   DeliveryService.getDeliveryInfo(address).then((response) => {
+  //       console.log(response.data)
+  //   })}
+
 
   // Get all auctions
   const getAuctions = () =>{
@@ -50,10 +56,9 @@ const createAuction = async (aAuction) => {
   AuctionService.createAuction(aAuction).then((response) => {
   })
 };
-const newDelivery = async (address) => { 
-DeliveryService.getDeliveryInfo(address).then((response) => {
-  console.log(response);
-})}
+// const newDelivery = async (address) => { 
+// DeliveryService.getDeliveryInfo(address).then((response) => {
+// })}
 
 // Get all bids in database
 const getBids = () =>{
@@ -170,7 +175,6 @@ const createUser = (newUser) =>{
         auctions,
         bids,
         renderHighBid,
-        newDelivery
       }}
     >
       {children}

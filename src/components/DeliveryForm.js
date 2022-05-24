@@ -1,34 +1,26 @@
-import React, { useState, useContext } from "react";
-
+import React, { useState, useEffect } from "react";
+import {useParams} from 'react-router-dom'
 import AuthService from "../services/AuthService";
 import DeliveryService from "../services/DeliveryService";
-import { Link } from "react-router-dom";
-import AuctionContext from "../context/AuctionContext";
+import AuctionService from "../services/AuctionService";
+import Home from "./Pages/Home";
 
-const DeliveryForm = ({auctionId}) => {
+const DeliveryForm = () => {
+
     const currentUser = AuthService.getCurrentUser()
-    const {newDelivery} = useContext(AuctionContext)
-    const [auction_Id, setAuction_Id] = useState()
+    const [auction, setAuction] = useState([])
 
-    if (!auctionId){
-        console.log("AuctionId PROP not set");
-        auctionId = "PROP-NOT-SET";
-        
-    }
+    const {id} = useParams();
+
+    useEffect(() => {
+        AuctionService.getAuction(id).then(setAuction)
+        }, []);
 
     const [address, setAddress] = useState (
-        { 
-        "adress": "string",
-        "city": "string",
-        "zipCode": "string",
-        "country": "string",
-        "auctionId": auctionId,
-        "deliveryCost": 0,
-        "dilivered": true,
-        "tariff": 0,
-        "fixedCosts": 0,
-        "distanceInKm": 0,
-        "verboseMode": true }
+        {   "VerboseMode": true,
+            "AuctionId": auction.id,
+            "Adress": "",
+            }
     );
 
      // setting values for all instans fields, updates values, learn more!
@@ -38,27 +30,26 @@ const DeliveryForm = ({auctionId}) => {
           [event.target.name]: event.target.value,  // prop name måste finnas med i html-fälten (i return..)
     
       })
-    }
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // ANVÄNDER INTE DESSA FÄLT FÖR ATT SLIPPA DUPLICATED STUFF VID UTVECKLING
-        // address.address = "AuctionObjID";
-        // address.user.name = currentUser.id;
-        console.log("DeliveryForm.js ", address)        //DEBUG
-        newDelivery(address)
-    
-       
-  }
+        console.log("DeliveryForm.js ", address)  //DEBUG 
+        DeliveryService.getDeliveryInfo(address).then((response) => {
+            console.log(response)
+        })
+
+             
+  };
 
     return (  <div className="delivery-form">
-    <h2>Create Auction</h2>
+    <h2>Enter delivery info: </h2>
         <form className="delivery-input">
 
-            <label className="address-street-label" htmlFor="address">Address: </label>
+            <label className="address-street-label" htmlFor="Adress">Address: </label>
             <input 
                 type="text"
-                name="address"
+                name="Adress"
                 required 
                 defaultValue={""}
                 onChange={handleOnChange}
@@ -97,10 +88,9 @@ const DeliveryForm = ({auctionId}) => {
               
             />
            
-
             <button type="submit" onClick={handleSubmit}>
-                <Link to="/"><h2>Save</h2></Link>
             </button>
+
         </form> 
     </div> );
 }
