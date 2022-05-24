@@ -2,7 +2,6 @@ import React, {useState, useEffect, useContext } from 'react'
 import {useParams} from 'react-router-dom'
 import AuctionService from '../../services/AuctionService'
 import AuctionContext from '../../context/AuctionContext'
-import AuctionList from '../AuctionList'
 
 const SingleAuction = () => {
 

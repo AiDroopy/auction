@@ -3,7 +3,6 @@ import {useParams} from 'react-router-dom'
 import AuthService from "../services/AuthService";
 import DeliveryService from "../services/DeliveryService";
 import AuctionService from "../services/AuctionService";
-import Home from "./Pages/Home";
 import { Link } from "react-router-dom";
 
 const DeliveryForm = () => {
