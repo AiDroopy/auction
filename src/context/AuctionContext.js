@@ -50,6 +50,9 @@ const createAuction = async (aAuction) => {
   AuctionService.createAuction(aAuction).then((response) => {
   })
 };
+// const newDelivery = async (address) => { 
+// DeliveryService.getDeliveryInfo(address).then((response) => {
+// })}
 
 // Get all bids in database
 const getBids = () =>{
@@ -165,7 +168,7 @@ const createUser = (newUser) =>{
         getBids,
         auctions,
         bids,
-        renderHighBid
+        renderHighBid,
       }}
     >
       {children}

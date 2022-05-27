@@ -12,10 +12,17 @@ function deliver(address){
     return axios.post(`${API_URL}`, address)
 }
 
-const getDeliveryInfo = (address) =>{
-    //console.log("This is Delivery Service")
-    //console.log(address);
-    return axios.post(`${API_URL}`, address)
+const getDeliveryInfo = async (address) =>{
+    try {
+        const response = await axios.post(`${API_URL}`, address)
+
+        console.log(response.data)
+
+        return response.data
+
+        } catch (err) {
+        console.error(err)
+        }
 }
 
 const DeliveryService ={
