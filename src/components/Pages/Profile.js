@@ -13,7 +13,7 @@ const Profile = () => {
           <div key={currentUser.id}>
             <form>
               <Link to="/">Home</Link>
-              <Link to="/"><button onClick={AuthService.logout}></button></Link>
+              <Link to="/"><button onClick={AuthService.logout}>Log Out</button></Link>
               
               <br></br>
               <label>user id:</label>
