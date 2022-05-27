@@ -1,3 +1,4 @@
+// to able cypress intellisense 
 /// <reference types="Cypress" />
 
 // describ is like a collection of tests
