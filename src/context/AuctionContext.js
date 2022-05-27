@@ -23,7 +23,7 @@ export const AuctionProvider = ({ children }) => {
     getBids();
     getUsersBids();
     getAuctionBids();
-    getAllDestinations();
+    //getAllDestinations();
   }, []);
 
   // Deep copy / clone a json object, creates and returns an identical JSON object that was passed in.
@@ -32,11 +32,11 @@ export const AuctionProvider = ({ children }) => {
     return cloneObj;
   }
 
-  const getAllDestinations = () => {
+/*   const getAllDestinations = () => {
     DeliveryService.getAllDestinations().then((response) => {
       console.log(response)
     })
-  }
+  } */
 
   // Get all auctions
   const getAuctions = () =>{
