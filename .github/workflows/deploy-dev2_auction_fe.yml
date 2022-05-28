@@ -31,13 +31,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: npm ci, build and test
         run: |
-          echo 'todo: npm_ci'
           npm ci
-          
-          echo 'todo: npm run build --if-present'
-          npm run build --if-present
-          
-          echo 'todo: npm test'
+          npm run build --if-present       
           npm test
 
-          echo 'Workflow End"
+         
