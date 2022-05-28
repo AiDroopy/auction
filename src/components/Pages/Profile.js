@@ -14,9 +14,11 @@ const Profile = () => {
   return (
           <div key={currentUser.id}>
             <form>
-            
-              <Link to ="/">Home</Link>
-              <button onClick={AuthService.logout}></button>
+
+              <Link to="/">Home</Link>
+              <Link to="/"><button onClick={AuthService.logout}>Log Out</button></Link>
+              
+
               <br></br>
               <label>user id:</label>
               <input type = "text" name = "userId" value = {currentUser.id}/>
@@ -67,7 +69,7 @@ const Profile = () => {
               <br></br>
               Starting price: {auction.startPrice}
               <br></br>
-              End time: {auction.endTime}
+              <Link to={`/delivery/${auction.id}`}><h5>Specify delivery Info</h5></Link>
               <br></br>
               </div>}))}
 

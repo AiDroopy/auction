@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import Login from './Login';
-import Home from '../Pages/Home';
-
+import Home from '../Pages/Home'
 
 
 const LoginForm = () => {

@@ -48,6 +48,7 @@ const SignUp = ({submitForm}) => {
             <label className="label">Email</label>
             <input
               className="input"
+              data-cy="email"
               type="email"
               name="username"
               value={newUser.username}
@@ -59,6 +60,7 @@ const SignUp = ({submitForm}) => {
             <label className="label">Password</label>
             <input
               className="input"
+              data-cy="password"
               type="password"
               name="password"
               value={newUser.password}
