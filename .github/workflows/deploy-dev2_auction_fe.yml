@@ -18,7 +18,7 @@ jobs:
     # Instead of just try with one version of nodeJS.
     strategy:
       matrix:
-        node-version: [15.x, 16.7] # [10.x, 12.x, 14.x, 15.x, 16.7]
+        node-version: [16.7, 15.x, 14.x] # [10.x, 12.x, 14.x, 15.x, 16.7]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -31,6 +31,13 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: npm ci, build and test
         run: |
+          echo 'todo: npm_ci'
           npm ci
+          
+          echo 'todo: npm run build --if-present'
           npm run build --if-present
+          
+          echo 'todo: npm test'
           npm test
+
+          echo 'Workflow End"
