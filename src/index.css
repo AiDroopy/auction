@@ -107,5 +107,9 @@ code {
   justify-content:center;
 }
 
-
-
+.delivery-form{
+  margin-left: 7px;
+}
+#deliverycost{
+  float: right;
+}

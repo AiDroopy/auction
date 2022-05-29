@@ -11,6 +11,7 @@ import React from 'react';
 import SingleAuction from './components/Pages/SingleAuction';
 import DeliveryOptions from './components/Pages/DeliveryOptions';
 import DeliveryForm from "./components/DeliveryForm";
+import DeliverySuccess from './components/Pages/DeliverySuccess';
 
 
 
@@ -27,9 +28,8 @@ function App() {
         <Routes>
           
          
-
           <Route path='/' element={<Home />} />
-          <Route path='/deliveryForm' element={<DeliveryForm />} />
+          <Route path='/delivery/:id' element={<DeliveryForm />} />
           <Route path='/loginForm' element={<LoginForm />} />
           <Route path='/destination' element={<DeliveryOptions/>} />
           <Route path='/profile' element={<Profile />} />
@@ -38,7 +38,7 @@ function App() {
           <Route path='/signUpForm' element={<SignUpForm />} />
           <Route path='/auctionList' element={<AuctionList />} />
           <Route path='/auction/:id' element={<SingleAuction/>} />
-          
+          <Route path='/deliverysuccess' element={<DeliverySuccess/>}/>
         </Routes>
       </div>
       </AuctionProvider> 

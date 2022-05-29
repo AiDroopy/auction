@@ -13,7 +13,7 @@ const Profile = () => {
           <div key={currentUser.id}>
             <form>
               <Link to="/">Home</Link>
-              <button onClick={AuthService.logout}></button>
+              <Link to="/"><button onClick={AuthService.logout}></button></Link>
               
               <br></br>
               <label>user id:</label>
@@ -65,7 +65,7 @@ const Profile = () => {
               <br></br>
               Starting price: {auction.startPrice}
               <br></br>
-              End time: {auction.endTime}
+              <Link to={`/delivery/${auction.id}`}><h5>Specify delivery Info</h5></Link>
               <br></br>
               </div>}))}
 
