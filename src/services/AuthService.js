@@ -13,8 +13,12 @@ const login = async (newUser) => {
     .then((response) => {
       if (response.data.accessToken) {
         localStorage.setItem("user", JSON.stringify(response.data));
-        //console.log(localStorage.getItem("user");
+        if (localStorage.getItem("user").length > 3) 
+        {
+            console.log(localStorage.getItem("user"));
+        }
       }
+              
       return response.data;
     });
 };

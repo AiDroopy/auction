@@ -51,16 +51,28 @@ const Profile = () => {
                   </div>
             
             <h2>This is your won auctions:</h2>
-            {auctions.map((auction => { 
-              let highBid = 0
-              let highBidUserId = ''
-              bids.map((bid) => {
-              if (bid.auctionId === auction.id){
-                  if (highBid === 0 || highBid < bid.amount){
-                      highBid = bid.amount
-                      highBidUserId = bid.userId
-                  }}})
-              if (Date.parse(auction.endTime) < Date.parse(Date()) && highBidUserId === currentUser.id) return <div className="auctions" key={auction.auctionId}><br></br>
+              {
+                auctions.map((auction => 
+                { 
+                  let highBid = 0
+                  let highBidUserId = ''
+                  bids.map((bid) => 
+                  {
+              
+                    if (bid.auctionId === auction.id)
+                    {
+                      if (highBid === 0 || highBid < bid.amount)
+                      {
+                          highBid = bid.amount
+                          highBidUserId = bid.userId
+                      }
+                    } 
+                  }
+                )
+
+              if (Date.parse(auction.endTime) < Date.parse(Date()) && highBidUserId === currentUser.id)
+              {
+                return <div className="auctions" key={auction.auctionId}><br></br>
               Product name: {auction.productName}
               <br></br>
               Description: {auction.productInfo}
@@ -71,7 +83,9 @@ const Profile = () => {
               <br></br>
               <Link to={`/delivery/${auction.id}`}><h5>Specify delivery Info</h5></Link>
               <br></br>
-              </div>}))}
+              </div>
+              }
+              }))};
 
             <h2>This is the auctions where you are selling:</h2>
             <div className="auctions"> 
@@ -89,7 +103,8 @@ const Profile = () => {
                 </div>}))}
                 </div>
         
-      </div>
-          )}
+            </div>
+          )
+        }
     
 export default Profile;
