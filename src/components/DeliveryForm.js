@@ -7,7 +7,8 @@ import { Link } from "react-router-dom";
 
 const DeliveryForm = () => {
 
-    const currentUser = AuthService.getCurrentUser()
+    const currentUser = AuthService.getCurrentUser();
+    console.log(currentUser);
     const [auction, setAuction] = useState([])
     const[showResult, setShowResult] = useState(false)
     const [dCost, setDCost] = useState([])

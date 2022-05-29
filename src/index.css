@@ -6,6 +6,7 @@ body {
   display: flex;
 }
 
+
 a{
   text-decoration: none;
   color: black;
@@ -15,6 +16,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.profile-renderer {
+    all: revert;
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+
+  }
+  
+  
+  
+
 .cards {
   display: flex;
 

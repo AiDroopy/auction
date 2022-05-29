@@ -13,6 +13,7 @@ const login = async (newUser) => {
     .then((response) => {
       if (response.data.accessToken) {
         localStorage.setItem("user", JSON.stringify(response.data));
+        //console.log(localStorage.getItem("user");
       }
       return response.data;
     });

@@ -16,8 +16,11 @@ export const AuctionProvider = ({ children }) => {
   const [auctions, setAuctions] = useState([]);
   const [users, setUsers] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
-  const [destinations, setDestinations] = useState([])
+  // const [destinations, setDestinations] = useState([])
 
+  // console.log("users: "+ users, "loggedIn: " + loggedIn);  //unused vars
+  
+  
   useEffect(() => {
     getAuctions();
     getBids();
