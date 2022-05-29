@@ -69,6 +69,7 @@ const Profile = () => {
               <br></br>
               </div>}))}
 
+            
             <h2>This is the auctions where you are selling:</h2>
             <div className="auctions"> 
               {auctions.map((auction => { if (auction.userId === currentUser.id) return <div className="auctions" key={auction.auctionId}><br></br>

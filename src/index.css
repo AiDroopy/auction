@@ -67,6 +67,8 @@ code {
   margin: auto;
   padding: 0 20px;
 }
+
+
 .nav_container{
   display: flex;
   align-items: flex-end;

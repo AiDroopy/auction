@@ -91,7 +91,7 @@ const NewAuction = () => {
                 onChange={handleFileChange}
                 />
 
-            <button type="submit" onClick={handleSubmit}>
+            <button className="create-auction" type="submit" onClick={handleSubmit}>
                 <Link to="/"><h2>Create auction!</h2></Link>
             </button>
             </form>

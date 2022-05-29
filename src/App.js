@@ -29,9 +29,7 @@ function App() {
          
 
           <Route path='/' element={<Home />} />
-
           <Route path='/deliveryForm' element={<DeliveryForm />} />
-          
           <Route path='/loginForm' element={<LoginForm />} />
           <Route path='/destination' element={<DeliveryOptions/>} />
           <Route path='/profile' element={<Profile />} />
@@ -40,6 +38,7 @@ function App() {
           <Route path='/signUpForm' element={<SignUpForm />} />
           <Route path='/auctionList' element={<AuctionList />} />
           <Route path='/auction/:id' element={<SingleAuction/>} />
+          
         </Routes>
       </div>
       </AuctionProvider> 
