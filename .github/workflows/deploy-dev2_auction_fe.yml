@@ -30,14 +30,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: npm ci, build and test
+      - name: build and test
         run: |
           npm ci
-          CI = false npm run build --if-present       
+          npm run build --if-present       
           npm test
 
-# 
-# use: "CI = false npm run build --if-present" to NOT treat warnings as errors 
-# use: "npm run build --if-present" to treat warnings as errors
+
 
          
