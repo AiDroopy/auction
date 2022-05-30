@@ -2,7 +2,8 @@ name: Build and Test React Application on a Ubuntu Server 20.04LTS
 
 # Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
+  # Triggers the workflow on push or pull request events 
+  # but only for the the specified branch / branches
   push:
     branches: [ deployment-local-server ]
   pull_request:
@@ -34,5 +35,9 @@ jobs:
           npm ci
           CI = false npm run build --if-present       
           npm test
+
+# 
+# use: "CI = false npm run build --if-present" to NOT treat warnings as errors 
+# use: "npm run build --if-present" to treat warnings as errors
 
          
