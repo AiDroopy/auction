@@ -1,0 +1,46 @@
+name: Build and Test React Application on a Ubuntu Server 20.04LTS 
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events 
+  # but only for the the specified branch / branches
+  push:
+    branches: [ workfloww-dev6-build ]
+  
+
+
+env:
+    DAY_OF_WEEK: Tuesday
+    CI: false
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  
+  build_test:
+      # The type of runner that the job will run on, self-hosted = not on github
+    runs-on: self-hosted
+    
+    # Instead of just try with one version of nodeJS.
+    strategy:
+      matrix:
+        node-version: [16.7] # [10.x, 12.x, 14.x, 15.x, 16.7]
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+   
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: build 
+        run: |
+          npm ci
+          npm run build --if-present       
+
+# npm test no tests in project
+
+
+
+         
