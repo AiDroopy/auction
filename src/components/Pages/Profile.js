@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import AuctionContext from "../../context/AuctionContext";
 
 import { Link } from "react-router-dom";
@@ -13,7 +13,7 @@ const Profile = () => {
           <div key={currentUser.id}>
             <form>
               <Link to="/">Home</Link>
-              <Link to="/"><button onClick={AuthService.logout}></button></Link>
+              <Link to="/"><button onClick={AuthService.logout}><h3>Log out</h3></button></Link>
               
               <br></br>
               <label>user id:</label>
@@ -23,7 +23,7 @@ const Profile = () => {
             
             </form>
             <h2>These are the auctions where you have ongoing bids:</h2>
-            <div className="auctions"> 
+            <div className="auctions">
             {auctions.map((auction => { 
               let bidder = false
               bids.map((bid) => {
