@@ -39,6 +39,12 @@ export const AuctionProvider = ({ children }) => {
       console.log(response)
     })
   }
+  
+  // const newDelivery = async (address) => { 
+  //   DeliveryService.getDeliveryInfo(address).then((response) => {
+  //       console.log(response.data)
+  //   })}
+
 
   // Get all auctions
   const getAuctions = () =>{
@@ -52,6 +58,9 @@ const createAuction = async (aAuction) => {
   AuctionService.createAuction(aAuction).then((response) => {
   })
 };
+// const newDelivery = async (address) => { 
+// DeliveryService.getDeliveryInfo(address).then((response) => {
+// })}
 
 // Get all bids in database
 const getBids = () =>{
@@ -89,11 +98,9 @@ function insertBid (aBid) {
     userId:"",
     productName: "",
     productInfo: "",
-    productImgURL: "",
     startPrice: "",
     endTime: "",
     endPrice: 0,
-    bids: [], // Change to bidId for relationship instead of aggregation
   });
 
   // Getter / Setter auction object
@@ -169,7 +176,7 @@ const createUser = (newUser) =>{
         getBids,
         auctions,
         bids,
-        renderHighBid
+        renderHighBid,
       }}
     >
       {children}

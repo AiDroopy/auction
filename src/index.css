@@ -1,35 +1,26 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
   font-family: "Poppins", sans-serif;
   background-color: lightblue;
-  font-family: "Poppins", sans-serif;
   color: #fff;
   line-height: 1.6;
+  display: flex;
 }
 
 a{
   text-decoration: none;
   color: black;
-
-
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
 .cards {
   display: flex;
 
   /* Put a card in the next row when previous cards take all width */
   flex-wrap: wrap;
+
   margin-left: -8px;
   margin-right: -8px;
   border: 2px solid black;
@@ -78,7 +69,10 @@ code {
 }
 .nav_container{
   display: flex;
+  align-items: flex-end;
+  
 }
+
 .password, .email{
   margin-bottom: 10px; 
 }
@@ -104,26 +98,16 @@ code {
   margin-top: 3px;
 }
 
-header{
-  width: 100%;
-  height: 50px;
-  position: fixed;
+.auction-List{
   display: flex;
-  flex-direction: row;  
+  flex-wrap:wrap;
+  flex: 1 1 160px;
+  justify-content:center;
 }
 
- .h {
-  
-  color: black;
-  align-items: flex-start;
-  
-
-
+.delivery-form{
+  margin-left: 7px;
 }
-
-.navbar{
-  font-size: x-small;
-  margin-top: 10px;
-  margin-left: 750px;
+#deliverycost{
+  float: right;
 }
-

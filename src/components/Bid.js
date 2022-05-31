@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import AuctionContext from "../context/AuctionContext";
 import AuthService from "../services/AuthService";
 
+
 const Bid = ({theAuction}) => {
   const { bid, createNew, insertBid } = useContext (AuctionContext);  
   const [newBid, setNewBid] = useState(createNew(bid));  // newBid gets a fresh copy of bid
@@ -17,7 +18,9 @@ const Bid = ({theAuction}) => {
     if(currentUser.id === theAuction.userId){
       return alert("You may not bid on your own auction")
     }
+    
     insertBid(newBid)
+    window.location.reload();
     
 }
   const handleOnChange = (event) => {

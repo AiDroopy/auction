@@ -1,12 +1,13 @@
 import NavBar from "../NavBar";
 import AuctionList from"../AuctionList";
-import Layout from "../Layout";
 import React from "react";
 
 
 const Home = () => {
     return ( 
-        <Layout>
+
+        <>
+        <h1>Auction</h1>
         <div className="home">
             <div className = "navbar">
                 <NavBar />
@@ -17,7 +18,7 @@ const Home = () => {
         </div>
         
     </div> 
-    </Layout>
+    </>
     );
 }
  

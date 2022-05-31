@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import validation from "./Validation";
 import AuctionContext from "../../context/AuctionContext";
-
+import "./login.css";
+import { useNavigate } from "react-router-dom";
 const Login = ({submitForm}) => {
 
   const { user, createNew, authUser } = useContext (AuctionContext);  // get some stuff from AuctionContext
@@ -10,7 +11,8 @@ const Login = ({submitForm}) => {
   const [newUser, setNewUser] = useState(createNew(user));
   const [errors, setErrors] = useState({});
   const [dataIsCorrect, setDataIsCorrect] = useState(false);
-  
+  const navigate = useNavigate();
+
   // setting values for all instans fields.
   const handleChange = (event) => {
         setNewUser({
@@ -27,7 +29,8 @@ const Login = ({submitForm}) => {
     setErrors(validation(newUser));
     setDataIsCorrect(true);
     authUser(newUser);
-    
+    navigate("/profile")
+    window.location.reload()
   };
 
   // if errors is empty and data is correted change propsvalue to true 
@@ -72,9 +75,9 @@ const Login = ({submitForm}) => {
 
             <button className="submit" onClick={handleFormSubmit}>
               Login
-            </button>
-
+            </button> 
           </div>
+
         </form>
       </div>
     </div>
