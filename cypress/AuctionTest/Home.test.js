@@ -16,4 +16,9 @@ describe("/Home", () => {
     })
 
 
+    it("Navigate to search", () => {
+        cy.visit("/")
+        cy.get(".all-search").contains("Search")
+    })
+
 })
