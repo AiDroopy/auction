@@ -1,0 +1,38 @@
+.content{
+    display: flex;
+}
+
+
+.information {
+    margin-right: 1vh;
+    font-style: italic; 
+    border: black 1px solid;
+    max-width: 500%;
+    max-height: 100%;
+    width: 400px;
+    margin-block-end: 20px;
+}
+
+.box-1{
+    font-weight: bold;
+    justify-content: flex-end;
+}
+
+.about{
+    margin-right: 1vh;
+    background-color: bisque; 
+    font-style: italic; 
+    border: black 1px solid;
+    max-width: 500%;
+    max-height: 100%;
+    width: 400px;
+}
+
+img {
+    max-width: 500%;
+    max-height: 100%;
+   }
+.img {
+    height: 300px;
+    width: 200px;
+   }
