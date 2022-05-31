@@ -6,9 +6,7 @@ import AuctionContext from '../../context/AuctionContext'
 const SingleAuction = () => {
 
     const [auction, setAuction] = useState([])
-
     const {bids, renderHighBid} = useContext(AuctionContext);
-
     const {id} = useParams();
 
     useEffect(() => {

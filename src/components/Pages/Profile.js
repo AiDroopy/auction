@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import AuctionContext from "../../context/AuctionContext";
-
 import { Link } from "react-router-dom";
 import AuthService from "../../services/AuthService";
 
