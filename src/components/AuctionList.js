@@ -8,7 +8,6 @@ const AuctionList = () => {
 
     const { auctions, bids, renderHighBid} = useContext(AuctionContext);
 
-    
     return (
 
         <div className="auction-List"> 
@@ -24,7 +23,6 @@ const AuctionList = () => {
                     
                 <br></br>
                     
-    
         </div></Link> <div>{renderHighBid(bids, auction)}</div></div>))} 
          </div>
 

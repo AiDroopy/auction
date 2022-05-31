@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import {useParams} from 'react-router-dom'
-import AuthService from "../services/AuthService";
 import DeliveryService from "../services/DeliveryService";
 import AuctionService from "../services/AuctionService";
 import { Link } from "react-router-dom";
 
 const DeliveryForm = () => {
 
-    const currentUser = AuthService.getCurrentUser()
     const [auction, setAuction] = useState([])
     const[showResult, setShowResult] = useState(false)
     const [dCost, setDCost] = useState([])
@@ -27,7 +25,6 @@ const DeliveryForm = () => {
      // setting values for all instans fields, updates values, learn more!
      const handleOnChange = (event) => {
         setAddress({
-            
           ...address,
           [event.target.name]: event.target.value,  // prop name måste finnas med i html-fälten (i return..)
     
@@ -36,15 +33,12 @@ const DeliveryForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
         address.AuctionId = auction.id
         console.log("DeliveryForm.js ", address)  //DEBUG 
         DeliveryService.getDeliveryInfo(address).then((response) => {
             setDCost(response.deliveryCost)
         })
         setShowResult(true)
-
-        console.log(dCost)
   };
 
     return ( 
@@ -103,10 +97,11 @@ const DeliveryForm = () => {
         </form> 
     </div> 
     <div id="deliverycost">
+        <br></br>
         { showResult ? <div>Your total delivery cost is: {dCost}</div> : null}
     </div>
+
     </> );
 }
-
 
 export default DeliveryForm;

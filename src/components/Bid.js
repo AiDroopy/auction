@@ -18,8 +18,8 @@ const Bid = ({theAuction}) => {
     if(currentUser.id === theAuction.userId){
       return alert("You may not bid on your own auction")
     }
+    
     insertBid(newBid)
-
     window.location.reload();
     
 }

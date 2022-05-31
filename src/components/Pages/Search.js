@@ -12,7 +12,7 @@ const Search = () => {
     <div className="search-bar">
         <input type="text" placeholder="Search..." onChange={event => {setTheSearch(event.target.value)}}/>
         {auctions.filter((auction)=>{
-            if (theSearch === ''){
+            if (theSearch === '') {
                 return (<div>{auction.productName}</div>)
                 }
                 else if(auction.productName.toLowerCase().includes(theSearch.toLowerCase())){
