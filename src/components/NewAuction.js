@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import AuthService from "../services/AuthService";
 import FileService from "../services/FileService";
 
+
 // Måste börja med Stor bokstav, även filnamnet
 const NewAuction = () => {
     const { auction, createAuction, createNew } = useContext (AuctionContext);  
@@ -58,20 +59,55 @@ const NewAuction = () => {
                 onChange={handleOnChange}
               
             />
+
+
+
+            <label htmlFor="startPrice">Start Price:</label>
+            <input
+                id="startPrice" 
+                type="text"/>
+
  
             <label className="bidlabel" htmlFor="startPrice">Start Price:</label>
             <input 
                 type="Start Price"
+
                 name="startPrice"
                 id="startPrice"
                 required 
                 defaultValue={auction.startPrice}
+                onChange={handleOnChange}    
+            />
+            
+                        
+            <label htmlFor="endDate">End Date: </label>
+            <input 
+                type="text"
+                name="endDate"
+                required 
+                value={auction.endDate}
                 onChange={handleOnChange}
-                
+              
+            />
+
+        
+            <label htmlFor="endTime">Start Time: </label>
+            <input 
+                type="text"
+                name="endTime"
+                required 
+                value={auction.endTime}
+                onChange={handleOnChange}
+              
             />
 
             
+            <label htmlFor="productInfo">Information: </label>
+
+
+            
             <label className="bidlabel" htmlFor="productInfo">Information: </label>
+
             <input 
                 type="text"
                 id="productInfo"

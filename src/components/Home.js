@@ -7,7 +7,7 @@ import React, { Component }  from 'react';
 const Home = () => {
 
     return ( 
-      <><div><NavBar /></div>Clock Auction<div className="home">
+      <><div><NavBar /></div><div className="home">
           <div> <Auction /></div>
           <div><Auction /></div>
        </div></>   

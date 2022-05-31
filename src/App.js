@@ -6,6 +6,7 @@ import LoginForm from './components/Login/LoginForm';
 import SignUpForm from './components/SignUp/SignUpForm';
 import NewAuction from './components/NewAuction';
 import AuctionList from './components/AuctionList';
+
 import Search from './components/Pages/Search';
 import React from 'react';
 import SingleAuction from './components/Pages/SingleAuction';
