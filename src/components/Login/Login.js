@@ -46,13 +46,14 @@ const Login = ({submitForm}) => {
         <div>
           <h2 className="title">Login</h2>
         </div>
-        <form className="form-wrapper">
+        <form className="form-wrapper" data-cy="login-form">
           
           <div className="email">
             <label className="label">Username: </label>
             <input
               className="input"
               type="email"
+              data-cy="username"
               name="username"
               value={newUser.username}
               onChange={handleChange}
@@ -65,6 +66,7 @@ const Login = ({submitForm}) => {
             <input
               className="input"
               type="password"
+              data-cy="password"
               name="password"
               value={newUser.password}
               onChange={handleChange}
@@ -73,7 +75,7 @@ const Login = ({submitForm}) => {
           </div>
           <div>
 
-            <button className="submit" onClick={handleFormSubmit}>
+            <button className="submit" data-cy="submit" onClick={handleFormSubmit}>
               Login
             </button> 
           </div>

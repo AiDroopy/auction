@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import validation from "../Login/Validation";
 import AuctionContext from "../../context/AuctionContext";
 
+
 const SignUp = ({submitForm}) => {
 
   const { user, createNew, createUser} = useContext (AuctionContext);  // get some stuff from AuctionContext
@@ -10,6 +11,7 @@ const SignUp = ({submitForm}) => {
   const [newUser, setNewUser] = useState(createNew(user));
   const [errors, setErrors] = useState({});
   const [dataIsCorrect, setDataIsCorrect] = useState(false);
+ 
 
   // setting values for all instans fields, updates values. 
   const handleChange = (event) => {
@@ -27,6 +29,7 @@ const SignUp = ({submitForm}) => {
     setErrors(validation(newUser)); // Pass in validation 
     setDataIsCorrect(true);
     createUser(newUser);
+    
   };
 
   // if errors is empty and data is correted change propsvalue to true 

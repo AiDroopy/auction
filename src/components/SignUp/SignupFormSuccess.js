@@ -1,7 +1,9 @@
 import React from "react";
 import Home from "../Pages/Home";
 
+
 const SignupFormSuccess = () => {
+  
   return (
     <div className="container">
       <div className="app-wrapper">
