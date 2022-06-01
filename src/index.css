@@ -109,4 +109,19 @@ a:hover{
 
 .wonauctions{
   margin-top: 10px;
+  width: 35vw;
+}
+.row-wrapper{
+  margin-top: 5vh;
+  padding: 0.5em 1em;
+}
+.imglst{
+  width: 40PX;
+  float: right;
+}
+.list-group-item{
+  background-color: transparent;
+}
+.bg-primary{
+  background-color: transparent;
 }
