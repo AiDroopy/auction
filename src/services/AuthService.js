@@ -8,14 +8,12 @@ const register = (username, password) => {
 };
 
 const login = async (newUser) => {
-  return axios
-    .post(API_URL + "signin", newUser)
-    .then((response) => {
-      if (response.data.accessToken) {
-        localStorage.setItem("user", JSON.stringify(response.data));
-      }
-      return response.data;
-    });
+  const response = await axios
+    .post(API_URL + "signin", newUser);
+  if (response.data.accessToken) {
+    localStorage.setItem("user", JSON.stringify(response.data));
+  }
+  return response.data;
 };
 
 const logout = () => {

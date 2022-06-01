@@ -19,6 +19,7 @@ export const AuctionProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [destinations, setDestinations] = useState([])
+  const currentUser = AuthService.getCurrentUser();
 
   useEffect(() => {
     getAuctions();
@@ -158,7 +159,7 @@ const createUser = (newUser) =>{
             {< Bid theAuction ={ auction }/>}
             </div> 
     }
-}
+  }
 
   return (
     <AuctionContext.Provider

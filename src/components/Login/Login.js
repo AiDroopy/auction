@@ -18,7 +18,6 @@ const Login = ({submitForm}) => {
         setNewUser({
           ...newUser,
           [event.target.name]: event.target.value,
-
       })
   }
 
@@ -29,8 +28,7 @@ const Login = ({submitForm}) => {
     setErrors(validation(newUser));
     setDataIsCorrect(true);
     authUser(newUser);
-    navigate("/profile")
-    window.location.reload()
+    navigate("/")
   };
 
   // if errors is empty and data is correted change propsvalue to true 
