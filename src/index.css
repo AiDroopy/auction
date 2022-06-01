@@ -9,6 +9,7 @@ a{
 }
 a:hover{
   color: grey;
+  
 }
 
 .countdown-timer {
@@ -61,7 +62,7 @@ a:hover{
 }
 
 /*Signup*/
-.signUpForm{
+.signUpForm, .loginForm{
   width: 20vw;
   margin-top: 7vh;
 }
@@ -86,4 +87,9 @@ a:hover{
   background-color: transparent;
   color: black;
   border-color: grey;
+  margin-top: 2vh;
+}
+.btn-primary:hover{
+  background-color: grey;
+  border-color: white;
 }

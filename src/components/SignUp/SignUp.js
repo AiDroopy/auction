@@ -57,7 +57,7 @@ const SignUp = ({submitForm}) => {
             onChange={handleChange}/>
       </Form.Group>
       
-      <Button variant="outline-dark" href="/" onClick={handleFormSubmit}>
+      <Button className="btn-primary" href="/" onClick={handleFormSubmit}>
         Create Account
       </Button>
     </Form>
