@@ -17,6 +17,7 @@ export const AuctionProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [destinations, setDestinations] = useState([])
+  const currentUser = AuthService.getCurrentUser();
 
   useEffect(() => {
     getAuctions();
@@ -148,7 +149,7 @@ const createUser = (newUser) =>{
     if(Date.parse(auction.endTime) < Date.parse(Date())){
         return <div> Auction closed with winning bid: {highBid} </div> 
     }
-    if(Date.parse(auction.endTime) > Date.parse(Date())){
+    if(Date.parse(auction.endTime) > Date.parse(Date()) && currentUser.id != auction.userId){
         return <div>
             Highest bid: {highBid} 
             <CountdownTimer
@@ -156,7 +157,11 @@ const createUser = (newUser) =>{
             {< Bid theAuction ={ auction }/>}
             </div> 
     }
-}
+    if ((Date.parse(auction.endTime) > Date.parse(Date()) && currentUser.id == auction.userId)) {
+      return <CountdownTimer
+      countdownTimestampMs={auction.endTime}/>
+    }
+  }
 
   return (
     <AuctionContext.Provider
