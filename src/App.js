@@ -12,6 +12,7 @@ import SingleAuction from './components/Pages/SingleAuction';
 import DeliveryOptions from './components/Pages/DeliveryOptions';
 import DeliveryForm from "./components/DeliveryForm";
 import DeliverySuccess from './components/Pages/DeliverySuccess';
+import NavBar from './components/NavBar';
 
 
 
@@ -21,7 +22,7 @@ function App() {
     <div className="App">
     <AuctionProvider>  
     <header className="App-header">
-
+        <NavBar></NavBar>
     </header>
 
       <div className="content">

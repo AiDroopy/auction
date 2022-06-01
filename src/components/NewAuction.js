@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import AuctionContext from "../context/AuctionContext";
-import "../NewAuction.css";
 import { Link } from "react-router-dom";
 import AuthService from "../services/AuthService";
 import FileService from "../services/FileService";

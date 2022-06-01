@@ -151,10 +151,12 @@ const createUser = (newUser) =>{
     }
     if(Date.parse(auction.endTime) > Date.parse(Date())){
         return <div>
+
             Highest bid: {highBid} 
+            {< Bid theAuction ={ auction }/>}
+            <br></br>
             <CountdownTimer
             countdownTimestampMs={auction.endTime}/>
-            {< Bid theAuction ={ auction }/>}
             </div> 
     }
   }

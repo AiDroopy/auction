@@ -2,6 +2,7 @@ import React, {useState, useEffect, useContext } from 'react'
 import {useParams} from 'react-router-dom'
 import AuctionService from '../../services/AuctionService'
 import AuctionContext from '../../context/AuctionContext'
+import { Row , Card} from 'react-bootstrap'
 
 const SingleAuction = () => {
 
@@ -14,20 +15,23 @@ const SingleAuction = () => {
         }, []);
     
     return (
-      <div className="auctions" key={auction.id}> 
-                <br></br>
-                    Product name: {auction.productName}
-                <br></br>
-                    Description: {auction.productInfo}
-                <br></br>
-                    <img src={auction.productImgURL} alt="img" className="img"></img>
-                <br></br>
-                    Starting price: {auction.startPrice}
-                    
-                <br></br>
-                    {renderHighBid(bids, auction)}
+        <Row className="auctionCard" xs={12} md={6} lg={4} key={auction.id}>
+        <Card style={{ width: '50vw' }}>
+            <Card.Header><Card.Title>{auction.productName}</Card.Title></Card.Header>
+            
+                <Card.Img variant="top" src={auction.productImgURL} />
+            <Card.Body>
+                <Card.Text>
+                    {auction.productInfo}
+                    {auction.startPrice}
+                </Card.Text>
+            </Card.Body>
+
+            {renderHighBid(bids, auction)}
+
+        </Card>
+    </Row>
     
-        </div>
     )
 }
 

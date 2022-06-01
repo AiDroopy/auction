@@ -7,13 +7,13 @@ import { Card, Row } from 'react-bootstrap';
 
 const AuctionList = () => {
     
-    const { auctions, bids, renderHighBid} = useContext(AuctionContext);
+    const { auctions } = useContext(AuctionContext);
 
     return (
         <div className="auctionlist">
         {auctions.map((auction) => (
         <Row className="auctionCard" xs={12} md={6} lg={4} key={auction.id}>
-        <Card style={{ width: '18rem' }}>
+        <Card style={{ width: '50vw' }}>
         <Link to={`/auction/${auction.id}`}>
             <Card.Header><Card.Title>{auction.productName}</Card.Title></Card.Header>
             
@@ -24,7 +24,6 @@ const AuctionList = () => {
                     {auction.startPrice}
                 </Card.Text>
             </Card.Body>
-            {renderHighBid(bids, auction)}
             </Link>
         </Card>
     </Row>))} 
