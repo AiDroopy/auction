@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import validation from "../Login/Validation";
 import AuctionContext from "../../context/AuctionContext";
+import { Form, Container, Button } from "react-bootstrap";
 
 const SignUp = ({submitForm}) => {
 
@@ -37,43 +38,30 @@ const SignUp = ({submitForm}) => {
   });
 
   return (
-    <div className="container">
-      <div className="app-wrapper">
-        <div>
-          <h2 className="title">Create account</h2>
-        </div>
-        <form className="form-wrapper">
-          
-          <div className="email">
-            <label className="label">Email</label>
-            <input
-              className="input"
-              type="email"
-              name="username"
-              value={newUser.username}
-              onChange={handleChange}
-            />
-            {errors.email && <p className="error">{errors.email}</p>}
-          </div>
-          <div className="password">
-            <label className="label">Password</label>
-            <input
-              className="input"
-              type="password"
-              name="password"
-              value={newUser.password}
-              onChange={handleChange}
-            />
-            {errors.password && <p className="error">{errors.password}</p>}
-          </div>
-          <div>
-            <button className="submit" onClick={handleFormSubmit}>
-              Sign up
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
+    <Container className="signUpForm">
+    <Form>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Email address</Form.Label>
+          <Form.Control
+            type="username"
+            name="username"
+            value={newUser.username}
+            onChange={handleChange} />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Password</Form.Label>
+          <Form.Control type="password"
+            name="password"
+            value={newUser.password}
+            onChange={handleChange}/>
+      </Form.Group>
+      
+      <Button variant="outline-dark" href="/" onClick={handleFormSubmit}>
+        Create Account
+      </Button>
+    </Form>
+  </Container>
   );
 };
 

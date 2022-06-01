@@ -34,10 +34,7 @@ a:hover{
   width: 150px;
   text-align: right;
 }
-.submit{
-  width: 150px;
-  margin-left: 150px;
-}
+
 .title{
   margin-left: 150px;
 }
@@ -63,6 +60,11 @@ a:hover{
 	border-bottom: 1px solid #ccc;  
 }
 
+/*Signup*/
+.signUpForm{
+  width: 20vw;
+  margin-top: 7vh;
+}
 
 
 
