@@ -1,45 +1,60 @@
 import { Link } from "react-router-dom";
 import React from 'react';
 import AuthService from "../services/AuthService";
-import { Navbar, Container, Nav, NavLink } from "react-bootstrap";
+import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 
 const NavBar = () => {
-const currentUser = AuthService.getCurrentUser();
 
-if (currentUser) {
-return (
+        const currentUser = AuthService.getCurrentUser();
 
-        <Navbar bg="dark" variant="dark">
-        <Container>
-        <Navbar.Brand href="/">Auction</Navbar.Brand>
-        <Nav className="me-auto">
-          <Nav.Link href="/profile">Profile</Nav.Link>
-          <Nav.Link href="/auctionlist">Auctions</Nav.Link>
-          <Nav.Link href="/signupform">Sign up</Nav.Link>
-          <Nav.Link href="/search">Search</Nav.Link>
-          <Nav.Link href="/newauction">Create Auction</Nav.Link>
-        </Nav>
-        </Container>
-      </Navbar>
-
-  ) } else {
-
+        if(currentUser){
         return (
-                <Navbar bg="dark" variant="dark">
+        <div>
+        <Navbar id= "fade" bg="dark" variant={"dark"} expand="lg">
                 <Container>
-                <Navbar.Brand href="/">Auction</Navbar.Brand>
+                        <Navbar.Brand href="/">Watches</Navbar.Brand>
+                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                        <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
-                  <Nav.Link href="/auctionlist">Auctions</Nav.Link>
-                  <Nav.Link href="/signupform">Sign up</Nav.Link>
-                  <Nav.Link href="/login">Login</Nav.Link>
-                  <Nav.Link href="/search">Search</Nav.Link>
-                  <Nav.Link href="/newauction">Create Auction</Nav.Link>
+                        <Nav.Link href="/">Home</Nav.Link>
+                        <Nav.Link href="/profile">Profile</Nav.Link>
+                <NavDropdown title="Menu" id="basic-nav-dropdown">
+                        <NavDropdown.Item href="/search">Search</NavDropdown.Item>
+                        <NavDropdown.Item href="/newauction">Create Auction</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item href="/about">About</NavDropdown.Item>
+                </NavDropdown>
                 </Nav>
+                </Navbar.Collapse>
+    
                 </Container>
-              </Navbar>
-        )
-  }
+        </Navbar>
+        </div>
 
-}
+  )
+} else{
+        return (
+                <Navbar id="fade" bg="dark" variant={"dark"} expand="lg">
+                        <Container>
+                                <Navbar.Brand href="/">Watches</Navbar.Brand>
+                                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                                <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="me-auto">
+                                <Nav.Link href="/">Home</Nav.Link>
+                                <Nav.Link href="login">Login</Nav.Link>
+                        <NavDropdown title="menu" id="basic-nav-dropdown">
+                                <NavDropdown.Item href="signupform">Sign up!</NavDropdown.Item>
+                                <NavDropdown.Item href="search">Search</NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item href="about">About</NavDropdown.Item>
+                        </NavDropdown>
+                        </Nav>
+                        </Navbar.Collapse>
+            
+                        </Container>
+                </Navbar>
+
+)}
+} 
 
 export default NavBar;
