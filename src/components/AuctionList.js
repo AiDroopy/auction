@@ -2,7 +2,8 @@ import React from 'react'
 import { useContext } from 'react';
 import AuctionContext from '../context/AuctionContext';
 import { Link } from 'react-router-dom';
-import { Card, Col } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
+import Auction from './Card'
  
 
 const AuctionList = () => {
@@ -10,25 +11,19 @@ const AuctionList = () => {
     const { auctions } = useContext(AuctionContext);
 
     return (
-        <div className="auctionlist">
-        {auctions.map((auction) => (
-        <Col className="auctionCard" xs={12} md={6} lg={4} key={auction.id}>
-        <Card style={{ width: '20vw' }}>
-        <Link to={`/auction/${auction.id}`}>
-            <Card.Header><Card.Title>{auction.productName}</Card.Title></Card.Header>
+        <Container className="rowBidAuction">
+        <div className='row-wrapper'>
+            <Row>
             
-                <Card.Img variant="top" src={auction.productImgURL} />
-            <Card.Body>
-                <Card.Text>
-                    {auction.productInfo}
-                    {auction.startPrice}
-                </Card.Text>
-            </Card.Body>
-            </Link>
-        </Card>
-    </Col>))} 
-    </div>
-      );
+            {auctions.map((auction => { 
+         
+                    return <Auction key={auction.id} auction={auction}/>
+                    
+                }))}
+            </Row> 
+        </div>
+    </Container>
+    );
     }
 
 export default AuctionList;

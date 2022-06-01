@@ -36,11 +36,11 @@ const Bid = ({theAuction}) => {
     <div className="new-bid">
     <Form>
   <Form.Group className="mb-3">
-    <Form.Control type="number" placeholder="Enter bid" defaultValue={bid.amount}
+    <Form.Control type="number" placeholder="$" defaultValue={bid.amount}
               onChange={handleOnChange} />
   </Form.Group>
     <Button variant="primary" type="submit" onClick={handleSubmit}>
-     Enter Bid
+        Enter Bid
     </Button>
   </Form>
     </div>
