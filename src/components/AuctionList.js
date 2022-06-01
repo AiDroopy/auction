@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import AuctionContext from '../context/AuctionContext';
 import { Link } from 'react-router-dom';
 import { Container, Row } from 'react-bootstrap';
-import Auction from './Card'
+import AuctionLink from './CardLnk'
  
 
 const AuctionList = () => {
@@ -17,7 +17,7 @@ const AuctionList = () => {
             
             {auctions.map((auction => { 
          
-                    return <Auction key={auction.id} auction={auction}/>
+                    return <AuctionLink key={auction.id} auction={auction}/>
                     
                 }))}
             </Row> 

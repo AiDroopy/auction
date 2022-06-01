@@ -39,7 +39,6 @@ function App() {
           <Route path='/signUpForm' element={<SignUpForm />} />
           <Route path='/auctionList' element={<AuctionList />} />
           <Route path='/auction/:id' element={<SingleAuction/>} />
-          <Route path='/deliverysuccess' element={<DeliverySuccess/>}/>
           <Route path='/about' element={<About/>}/>
           
         </Routes>

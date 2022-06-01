@@ -3,6 +3,8 @@ import AuctionContext from "../../context/AuctionContext";
 import { Row, Container, Button, Form } from "react-bootstrap"; 
 import AuthService from "../../services/AuthService";
 import Auction from "../Card";
+import AuctionLink from "../CardLnk";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
 
@@ -28,12 +30,13 @@ const Profile = () => {
                         <Row>
                         {auctions.map((auction => { 
                           if (auction.userId === currentUser.id) 
-                              return <Auction key={auction.id} auction={auction}/>}))}
+                              return <AuctionLink key={auction.id} auction={auction}/>}))}
                         </Row>
                     </div>
               </Container>    
           
           <h3>Your won auctions: </h3>
+          <h5>Press auction to enter delivery details:</h5>
               <Container>
                     <div className='row-wrapper'>
                         <Row>
@@ -51,7 +54,8 @@ const Profile = () => {
                         )
 
                       if (Date.parse(auction.endTime) < Date.parse(Date()) && highBidUserId === currentUser.id)  
-                              return <Auction key={auction.id} auction={auction}/>}))}
+                              return <Link className="wonauctions" to={`/delivery/${auction.id}`}><Auction key={auction.id} auction={auction}/></Link>}))}
+
                         </Row>
                     </div>
               </Container>
@@ -67,7 +71,7 @@ const Profile = () => {
                               bidder = true
                           }})
                     if (bidder && Date.parse(auction.endTime) > Date.parse(Date()))
-                      return <Auction key={auction.id} auction={auction}/>}))}
+                      return <AuctionLink key={auction.id} auction={auction}/>}))}
                 </Row>
               </div>
             </Container>
