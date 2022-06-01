@@ -11,7 +11,8 @@ const AuctionList = () => {
     return (
 
         <div className="auction-List"> 
-            {auctions.map((auction) => (<div><Link to={`/auction/${auction.id}`}><div className="auctions" key={auction.id}> 
+            {auctions.map((auction) => (<div><Link to={`/auction/${auction.id}`}>
+                <div className="auctions" key={auction.id}> 
                 <br></br>
                     Product name: {auction.productName}
                 <br></br>

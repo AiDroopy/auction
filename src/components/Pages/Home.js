@@ -7,19 +7,10 @@ const Home = () => {
 
     return ( 
 
-        <>
-        <h1>Auction</h1>
-        <div className="home">
-            <div className = "navbar">
-                <NavBar />
-
-        </div>
-        <div className ="auctionlist">
-            <AuctionList />
-        </div>
-        
-    </div> 
-    </>
+    <div className="home">
+        <NavBar />
+        <AuctionList />
+    </div>
     );
 }
  
