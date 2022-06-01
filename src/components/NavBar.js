@@ -20,7 +20,7 @@ return (
                 <div className="nav_right">
                         <Link to="/LoginForm"><h2>Login</h2></Link>
                         <Link to="/Profile"><h2>Profile</h2></Link>
-                        <Link to="/NewAuction"><h2>Create auction!</h2></Link>
+                        <Link to="/NewAuction" data-cy="create-auction"><h2>Create auction!</h2></Link>
                 </div>
 
         </div>
