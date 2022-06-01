@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
  
 
 const AuctionList = () => {
-
+    
     const { auctions, bids, renderHighBid} = useContext(AuctionContext);
 
     return (

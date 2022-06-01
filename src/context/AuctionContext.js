@@ -149,17 +149,13 @@ const createUser = (newUser) =>{
     if(Date.parse(auction.endTime) < Date.parse(Date())){
         return <div> Auction closed with winning bid: {highBid} </div> 
     }
-    if(Date.parse(auction.endTime) > Date.parse(Date()) && currentUser.id != auction.userId){
+    if(Date.parse(auction.endTime) > Date.parse(Date())){
         return <div>
             Highest bid: {highBid} 
             <CountdownTimer
             countdownTimestampMs={auction.endTime}/>
             {< Bid theAuction ={ auction }/>}
             </div> 
-    }
-    if ((Date.parse(auction.endTime) > Date.parse(Date()) && currentUser.id == auction.userId)) {
-      return <CountdownTimer
-      countdownTimestampMs={auction.endTime}/>
     }
   }
 
