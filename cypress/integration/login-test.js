@@ -3,5 +3,7 @@
 describe("login test suite", () => {
   it("does work with right credentials", () => {
     cy.login()
+
+    cy.get(".auctions").should("exist")
   });
 });
