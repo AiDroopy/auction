@@ -3,6 +3,7 @@ import AuctionContext from "../context/AuctionContext";
 import { Link } from "react-router-dom";
 import AuthService from "../services/AuthService";
 import FileService from "../services/FileService";
+import { Form, Container, Col, Button } from "react-bootstrap";
 
 // Måste börja med Stor bokstav, även filnamnet
 const NewAuction = () => {
@@ -42,59 +43,58 @@ const NewAuction = () => {
     
     // setting values for all instans fields, updates values, learn more!
 
-    return ( <div className="new_auction">
-
-    <h2>Create Auction</h2>
-        <form id="formElem"className="new-auction">
-
-            <label className="bidlabel" htmlFor="productName">Title: </label>
-            <input 
-                type="productName"
-                name="productName"
-                id=""
-                required 
-                defaultValue={auction.productName}
-                onChange={handleOnChange}
+    return (   <Container>
+        <h2>Create auction</h2>
+      <Form>
+        <Col className="mb-3">
+          <Form.Group as={Col} md="4">
+            <Form.Label>Title: </Form.Label>
+            <Form.Control
+              required
+              type="text"
+              name="productName"
+              defaultValue={auction.productName}
+              onChange={handleOnChange}
+            />
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group as={Col} md="4">
+            <Form.Label>Start price</Form.Label>
+            <Form.Control
+              type="number"
+              name="startPrice"
+              required 
+              defaultValue={auction.startPrice}
+              onChange={handleOnChange}
               
             />
- 
-            <label className="bidlabel" htmlFor="startPrice">Start Price:</label>
-            <input 
-                type="Start Price"
-                name="startPrice"
-                id="startPrice"
-                required 
-                defaultValue={auction.startPrice}
-                onChange={handleOnChange}
-                
-            />
-
-            
-            <label className="bidlabel" htmlFor="productInfo">Information: </label>
-            <input 
-                type="text"
-                id="productInfo"
-                name="productInfo"
-                required 
-                defaultValue={auction.productInfo}
-                onChange={handleOnChange}
-              
-            />
-
-            <label className="bidlabel" htmlFor="file">Upload image:  </label>
-
-                <input type="file" 
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="textArea">
+            <Form.Label>Product information: </Form.Label>
+            <Form.Control as="textarea" rows={3} 
+              name="productInfo"
+              required    
+              defaultValue={auction.productInfo}
+              onChange={handleOnChange}/>
+            </Form.Group>
+          <Form.Group as={Col} md="4">
+            <Form.Label>Title: </Form.Label>
+            <Form.Control
+                input type="file" 
                 id="file" 
-                name="file"
-                accept="image/png, image/gif, image/jpeg"
+                name="productImgURL" 
                 onChange={handleFileChange}
-                />
-
-            <button type="submit" onClick={handleSubmit}>
-                <Link to="/"><h2>Create auction!</h2></Link>
-            </button>
-            </form>
-    </div>);
+            />
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          </Form.Group>
+        </Col>
+              <Button variant="outline-dark" onClick={handleSubmit}>
+                <h2>Save auction!</h2>
+              </Button>
+      
+      </Form>
+    </Container>)
 }
 
 export default NewAuction; // <- Måste börja med Stor bokstav
