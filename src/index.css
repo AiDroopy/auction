@@ -2,8 +2,6 @@ body {
   font-family: "Poppins", sans-serif;
   background-color: rgb(73, 80, 83);
   color: #fff;
-  line-height: 1.6;
-  display: flex;
 }
 
 a{
@@ -12,27 +10,6 @@ a{
 }
 a:hover{
   color: grey;
-}
-
-.cards {
-  display: flex;
-
-  /* Put a card in the next row when previous cards take all width */
-  flex-wrap: wrap;
-
-  margin-left: -8px;
-  margin-right: -8px;
-  border: 2px solid black;
-  width: 400px;
-  height: 300px;
-}
-
-.cards__item {
-  /* There will be 4 cards per row */
-  flex-basis: 25%;
-
-  padding-left: 8px;
-  padding-right: 8px;
 }
 
 .countdown-timer {
@@ -56,16 +33,12 @@ a:hover{
   width: 0.8ch;
 }
 
-.auction-List{
-  display: flex;
-  margin: auto;
-  justify-content: space-evenly;
-}
 .nav {
   max-width: 768px;
   margin: auto;
   padding: 0 20px;
 }
+
 .nav_container{
   display: flex;
   align-items: flex-end;
@@ -111,7 +84,4 @@ a:hover{
 .card-img-top{
   max-height: 20vh; 
   object-fit: contain;
-}
-.auctions{
-  margin: 8px;
 }
