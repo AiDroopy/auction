@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import React from 'react';
 import AuthService from "../services/AuthService";
-import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Container, Nav, NavDropdown, Button } from "react-bootstrap";
 
 const NavBar = () => {
 
@@ -23,6 +23,7 @@ const NavBar = () => {
                         <NavDropdown.Item href="/newauction">Create Auction</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item href="/about">About</NavDropdown.Item>
+                        <Button className="logOut" variant="outline-dark" href="/" onClick={AuthService.logout}><a>Log out!</a></Button>
                 </NavDropdown>
                 </Nav>
                 </Navbar.Collapse>
