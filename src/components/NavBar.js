@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import React from 'react';
 import AuthService from "../services/AuthService";
+import { Navbar, Container, Nav, NavLink } from "react-bootstrap";
 
 const NavBar = () => {
 const currentUser = AuthService.getCurrentUser();
@@ -8,32 +9,35 @@ const currentUser = AuthService.getCurrentUser();
 if (currentUser) {
 return (
 
-    <div className="nav">
-        
-        <div className="nav_container">
-                
-                <div className="nav_left">
-                <div className="nav_text">Welcome to our auction site, here you can buy awesome watches!</div>
-                        <Link to="/AuctionList"><h2>Auctions</h2></Link>
-                        <Link to="/Search"><h2>Search</h2></Link>
-                </div>
-                <div className="nav_right">
-                        <Link to="/Login"><h2>Login</h2></Link>
-                        <Link to="/Profile"><h2>Profile</h2></Link>
-                        <Link to="/NewAuction"><h2>Create auction!</h2></Link>
-                </div>
+        <Navbar bg="dark" variant="dark">
+        <Container>
+        <Navbar.Brand href="/">Auction</Navbar.Brand>
+        <Nav className="me-auto">
+          <Nav.Link href="/profile">Profile</Nav.Link>
+          <Nav.Link href="/auctionlist">Auctions</Nav.Link>
+          <Nav.Link href="/signupform">Sign up</Nav.Link>
+          <Nav.Link href="/search">Search</Nav.Link>
+          <Nav.Link href="/newauction">Create Auction</Nav.Link>
+        </Nav>
+        </Container>
+      </Navbar>
 
-        </div>
-    </div>
   ) } else {
-  return (<div className="Login">
-                
-  <Link to="/SignUpForm"><h2>Sign Up!</h2></Link> 
-  <Link to="/Login"><h2>Login</h2></Link> 
-  <Link to="/AuctionList"><h2>Auctions</h2></Link>
-<Link to="/Search"><h2>Search</h2></Link>
 
-</div> )
+        return (
+                <Navbar bg="dark" variant="dark">
+                <Container>
+                <Navbar.Brand href="/">Auction</Navbar.Brand>
+                <Nav className="me-auto">
+                  <Nav.Link href="/auctionlist">Auctions</Nav.Link>
+                  <Nav.Link href="/signupform">Sign up</Nav.Link>
+                  <Nav.Link href="/login">Login</Nav.Link>
+                  <Nav.Link href="/search">Search</Nav.Link>
+                  <Nav.Link href="/newauction">Create Auction</Nav.Link>
+                </Nav>
+                </Container>
+              </Navbar>
+        )
   }
 
 }

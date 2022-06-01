@@ -26,7 +26,6 @@ function App() {
 
       <div className="content">
         <Routes>
-          
          
           <Route path='/' element={<Home />} />
           <Route path='/delivery/:id' element={<DeliveryForm />} />
