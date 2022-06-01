@@ -8,7 +8,7 @@ const auction = {
 }
 describe("login test suite", () => {
     it("does work with right credentials", () => {
-      cy.visit("http://localhost:3000");
+      cy.visit("/");
       
       // Login in user
       cy.login()

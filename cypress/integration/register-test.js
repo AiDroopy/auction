@@ -12,7 +12,7 @@ describe("Sign up", () => {
     const password = "visiting";
 
     // On which url the test be done
-    cy.visit("http://localhost:3000");
+    cy.visit("/");
     cy.contains("a", "Sign Up!").click();
     
     cy.location('pathname').should('equal', '/SignUpForm')

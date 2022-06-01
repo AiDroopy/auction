@@ -15,7 +15,7 @@ const currentUser = {
 
 // Login commands
 Cypress.Commands.add('login', () => {
-    cy.visit("http://localhost:3000");
+    cy.visit("/");
     cy.contains("a", "Login").click();
     cy.get('[data-cy="username').type("delmon@baho.se");
     cy.get('[data-cy="password').type("123456");
