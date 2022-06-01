@@ -41,12 +41,12 @@ const NavBar = () => {
                                 <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                                 <Nav.Link href="/">Home</Nav.Link>
-                                <Nav.Link href="login">Login</Nav.Link>
+                                <Nav.Link href="/login">Login</Nav.Link>
                         <NavDropdown title="menu" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="signupform">Sign up!</NavDropdown.Item>
-                                <NavDropdown.Item href="search">Search</NavDropdown.Item>
+                                <NavDropdown.Item href="/signupform">Sign up!</NavDropdown.Item>
+                                <NavDropdown.Item href="/search">Search</NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="about">About</NavDropdown.Item>
+                                <NavDropdown.Item href="/about">About</NavDropdown.Item>
                         </NavDropdown>
                         </Nav>
                         </Navbar.Collapse>

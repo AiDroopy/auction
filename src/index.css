@@ -93,3 +93,8 @@ a:hover{
   background-color: grey;
   border-color: white;
 }
+
+.about{
+  margin-top: 7vh;
+  margin-left: 5vw;
+}
