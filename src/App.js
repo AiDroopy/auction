@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router';
 import Home from './components/Pages/Home';
 import { AuctionProvider } from './context/AuctionContext';
 import Profile from './components/Pages/Profile';
-import LoginForm from './components/Login/LoginForm';
+import Login from './components/Login/Login';
 import SignUpForm from './components/SignUp/SignUpForm';
 import NewAuction from './components/NewAuction';
 import AuctionList from './components/AuctionList';
@@ -30,7 +30,7 @@ function App() {
          
           <Route path='/' element={<Home />} />
           <Route path='/delivery/:id' element={<DeliveryForm />} />
-          <Route path='/loginForm' element={<LoginForm />} />
+          <Route path='/login' element={<Login/>} />
           <Route path='/destination' element={<DeliveryOptions/>} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/newAuction' element={<NewAuction />} />
