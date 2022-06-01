@@ -1,25 +1,26 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+
+
+Cypress.Commands.add('login', () => {
+    cy.visit("http://localhost:3000");
+    cy.contains("a", "Login").click();
+    cy.get('[data-cy="username').type("delmon@baho.se");
+    cy.get('[data-cy="password').type("123456");
+    
+
+    const currentUser = {
+      id: "6260f7ccdf970535df9f7c1e",
+
+      username: "delmon@baho.se",
+
+      roles: ["ROLE_USER"],
+
+      accessToken:
+        "$2a$10$qpS5NC6bLV1N77GOx80buO..r8q6jAcSZ/iCO09f5J714yZ8PDUOO",
+      tokenType: "Bearer",
+    };
+  
+      localStorage.setItem("user", JSON.stringify(currentUser));
+      cy.get("[data-cy=submit").click();
+      cy.location('pathname').should('equal', '/profile')
+})
