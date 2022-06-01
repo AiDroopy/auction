@@ -98,3 +98,6 @@ a:hover{
   margin-top: 7vh;
   margin-left: 5vw;
 }
+#textArea.form-control{
+  width: 28vw;
+}
