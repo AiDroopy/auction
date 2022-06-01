@@ -14,13 +14,24 @@ return (
                 
                 <div className="nav_left">
                 <div className="nav_text">Welcome to our auction site, here you can buy awesome watches!</div>
+                        <a className="all-auctions">
                         <Link to="/AuctionList"><h2>Auctions</h2></Link>
+                        </a>
+                        <a className="all-search">
                         <Link to="/Search"><h2>Search</h2></Link>
+                        </a>
                 </div>
                 <div className="nav_right">
+                        <a  className="my-login">
                         <Link to="/LoginForm"><h2>Login</h2></Link>
+                        </a>
+                        <a  className="my-profile">
                         <Link to="/Profile"><h2>Profile</h2></Link>
+                        </a>
+
+                        <a  className="create-auction">
                         <Link to="/NewAuction" data-cy="create-auction"><h2>Create auction!</h2></Link>
+                        </a>
                 </div>
 
         </div>

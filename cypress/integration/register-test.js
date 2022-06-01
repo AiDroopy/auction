@@ -3,8 +3,10 @@
 
 // describ is like a collection of tests
 describe("Sign up", () => {
+
   //Title for the test
   it("register a new user", () => {
+    
     // Some variable to fill in the sign up form
     const email = "dada@sese.se";
     const password = "visiting";
