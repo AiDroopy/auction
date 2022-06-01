@@ -43,7 +43,7 @@ const NewAuction = () => {
     
     // setting values for all instans fields, updates values, learn more!
 
-    return (   <Container>
+    return (   <Container className="newAuction">
         <h2>Create auction</h2>
       <Form>
         <Col className="mb-3">
@@ -89,8 +89,8 @@ const NewAuction = () => {
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
           </Form.Group>
         </Col>
-              <Button variant="outline-dark" onClick={handleSubmit}>
-                <h2>Save auction!</h2>
+              <Button className="btn-primary" onClick={handleSubmit}>
+                <h5>Save auction!</h5>
               </Button>
       
       </Form>
