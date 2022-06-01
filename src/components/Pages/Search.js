@@ -1,7 +1,6 @@
 import AuctionContext from "../../context/AuctionContext"
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import "./search.css";
 
 const Search = () => {
 
