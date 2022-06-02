@@ -12,7 +12,7 @@ const Search = () => {
         <input type="text" placeholder="Search..." onChange={event => {setTheSearch(event.target.value)}}/>
         {auctions.filter((auction)=>{
             if (theSearch === '') {
-                return (<div>{auction.productName}</div>)
+                // return (<div>{auction.productName}</div>)
                 }
                 else if(auction.productName.toLowerCase().includes(theSearch.toLowerCase())){
                     return(<div>{auction.productName}</div>)
