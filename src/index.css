@@ -111,3 +111,5 @@ code {
 #deliverycost{
   float: right;
 }
+
+.img{max-height: 20vh; object-fit: contain;}

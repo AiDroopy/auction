@@ -28,6 +28,7 @@ const getCurrentUser = () => {
   return currentUser
 };
 
+
 const AuthService = {
   register,
   login,

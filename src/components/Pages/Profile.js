@@ -12,7 +12,7 @@ const Profile = () => {
   const { auctions, bids } = useContext(AuctionContext);
   
   return (
-          <div key={currentUser.id}>
+              <div key={currentUser.id}>
             <form>
 
               <Link to="/">Home</Link>

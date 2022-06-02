@@ -7,10 +7,9 @@ import { Link } from 'react-router-dom';
 const AuctionList = () => {
 
     const { auctions, bids, renderHighBid} = useContext(AuctionContext);
-
     
     return (
-
+   
         <div className="auction-List"> 
             {auctions.map((auction) => (<div><Link to={`/auction/${auction.id}`}><div className="auctions" key={auction.id}> 
                 <br></br>
@@ -30,6 +29,8 @@ const AuctionList = () => {
          </div>
 
       );
+
+
     }
 
 export default AuctionList;

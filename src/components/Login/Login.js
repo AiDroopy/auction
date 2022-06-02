@@ -48,7 +48,7 @@ const Login = ({submitForm}) => {
         <div>
           <h2 className="title">Login</h2>
         </div>
-        <form className="form-wrapper">
+        <form className="form-wrapper" data-cy="login-form">
           
           <div className="email">
             <label className="label">Username: </label>
@@ -77,7 +77,7 @@ const Login = ({submitForm}) => {
           </div>
           <div>
 
-            <button className="submit" onClick={handleFormSubmit}>
+            <button className="submit" data-cy="submit" onClick={handleFormSubmit}>
               Login
             </button> 
           </div>
