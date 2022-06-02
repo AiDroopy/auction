@@ -26,8 +26,9 @@ const SingleAuction = () => {
                 <Card.Img variant="top" src={auction.productImgURL} />
             <Card.Body>
                 <Card.Text>
-                    {auction.productInfo}
+                    Info: {auction.productInfo}
                     <br></br>
+                    
                     Starting price: {auction.startPrice}
                 </Card.Text>
                 {renderHighBid(bids, auction)}
