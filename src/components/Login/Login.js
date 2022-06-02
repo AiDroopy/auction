@@ -1,84 +1,107 @@
-import React, { useContext, useEffect, useState } from "react";
-import validation from "./Validation";
-import AuctionContext from "../../context/AuctionContext";
-import "./login.css";
-import { useNavigate } from "react-router-dom";
-const Login = ({submitForm}) => {
+import React, { useState, useRef } from "react";
+import { useNavigate } from 'react-router-dom';
+import Form from "react-validation/build/form";
+import Input from "react-validation/build/input";
+import CheckButton from "react-validation/build/button";
+import { Container } from "react-bootstrap";
+import AuthService from "../../services/AuthService";
 
-  const { user, createNew, authUser } = useContext (AuctionContext);  // get some stuff from AuctionContext
-  
-  //useState for values, using object data types
-  const [newUser, setNewUser] = useState(createNew(user));
-  const [errors, setErrors] = useState({});
-  const [dataIsCorrect, setDataIsCorrect] = useState(false);
-  const navigate = useNavigate();
-
-  // setting values for all instans fields.
-  const handleChange = (event) => {
-        setNewUser({
-          ...newUser,
-          [event.target.name]: event.target.value,
-      })
+const required = (value) => {
+  if (!value) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        This field is required!
+      </div>
+    );
   }
+};
 
-  // event handler to prevent update site when click on Sign up!
-  // setErrors -->
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    setErrors(validation(newUser));
-    setDataIsCorrect(true);
-    authUser(newUser);
-    navigate("/")
+const Login = () => {
+  let navigate = useNavigate();
+  const form = useRef();
+  const checkBtn = useRef();
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+  const [newUser, setNewUser] = useState([]);
+
+  const handleChange = (event) => {
+    setNewUser({
+      ...newUser,
+      [event.target.name]: event.target.value,
+  })
+}
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    setMessage("");
+    setLoading(true);
+    form.current.validateAll();
+    if (checkBtn.current.context._errors.length === 0) {
+      AuthService.login(newUser).then(
+        () => {
+          navigate("/profile");
+          window.location.reload();
+        },
+        (error) => {
+          const resMessage =
+            (error.response &&
+              error.response.data &&
+              error.response.data.message) ||
+            error.message ||
+            error.toString();
+          setLoading(false);
+          setMessage(resMessage);
+        }
+      );
+    } else {
+      setLoading(false);
+    }
   };
-
-  // if errors is empty and data is correted change propsvalue to true 
-  useEffect(() =>{
-    if (Object.keys(errors).length === 0 && dataIsCorrect){
-      submitForm(true);
-    };
-  });
-
   return (
-    <div className="container">
-      <div className="app-wrapper">
-        <div>
-          <h2 className="title">Login</h2>
-        </div>
-        <form className="form-wrapper">
-          
-          <div className="email">
-            <label className="label">Username: </label>
-            <input
-              className="input"
-              type="email"
+    <Container className="loginForm">
+        <Form onSubmit={handleLogin} ref={form}>
+          <div className="form-group">
+            <label htmlFor="username">Username</label>
+            <Input
+              type="username"
+              className="form-control"
               name="username"
               value={newUser.username}
               onChange={handleChange}
+              validations={[required]}
             />
-            {errors.email && <p className="error">{errors.email}</p>}
           </div>
-
-          <div className="password">
-            <label className="label">Password: </label>
-            <input
-              className="input"
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <Input
               type="password"
+              className="form-control"
               name="password"
               value={newUser.password}
               onChange={handleChange}
+              validations={[required]}
             />
-            {errors.password && <p className="error">{errors.password}</p>}
           </div>
-          <div>
-
-            <button className="submit" onClick={handleFormSubmit}>
-              Login
-            </button> 
+          <div className="form-group">
+            
+            <button className="btn btn-primary btn-block" disabled={loading}>
+              {loading && (
+                <span className="spinner-border spinner-border-sm"></span>
+              )}
+              
+              <span>Login</span>
+            </button>
           </div>
-
-        </form>
-      </div>
-    </div>
+          {message && (
+            <div className="form-group">
+              <div className="alert alert-danger" role="alert">
+                {message}
+              </div>
+            </div>
+          )}
+          <CheckButton variant="outline-dark" style={{ display: "none" }} ref={checkBtn} />
+        </Form>
+</Container>
   );
 };
 
