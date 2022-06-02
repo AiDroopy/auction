@@ -100,7 +100,7 @@ code {
   margin-top: 3px;
 }
 
-.auction-List{
+.Auction{
   display: flex;
   flex-wrap:wrap;
   flex: 1 1 160px;
@@ -122,3 +122,6 @@ h1{
   max-width: 1240px;
   margin: 0 auto;
 }
+
+
+.img{max-height: 20vh; object-fit: contain;}

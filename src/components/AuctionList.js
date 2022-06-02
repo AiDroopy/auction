@@ -8,8 +8,10 @@ const AuctionList = () => {
     
     const { auctions, bids, renderHighBid} = useContext(AuctionContext);
 
-    return (
+    
 
+    return (
+        <div className='Auction'>
         <div className="auction-List"> 
             {auctions.map((auction) => (<div><Link to={`/auction/${auction.id}`}><div className="auctions" key={auction.id}> 
                 <br></br>
@@ -24,8 +26,9 @@ const AuctionList = () => {
                 <br></br>
                     
         </div></Link> <div>{renderHighBid(bids, auction)}</div></div>))} 
-         </div>
+         </div></div>
 
+        
       );
     }
 
