@@ -3,6 +3,8 @@ import validation from "./Validation";
 import AuctionContext from "../../context/AuctionContext";
 import "./login.css";
 import { useNavigate } from "react-router-dom";
+
+
 const Login = ({submitForm}) => {
 
   const { user, createNew, authUser } = useContext (AuctionContext);  // get some stuff from AuctionContext
@@ -29,7 +31,7 @@ const Login = ({submitForm}) => {
     setErrors(validation(newUser));
     setDataIsCorrect(true);
     authUser(newUser);
-    navigate("/profile")
+    navigate('/Profile')
     window.location.reload()
   };
 
@@ -53,6 +55,7 @@ const Login = ({submitForm}) => {
             <input
               className="input"
               type="email"
+              data-cy="username"
               name="username"
               value={newUser.username}
               onChange={handleChange}
@@ -65,6 +68,7 @@ const Login = ({submitForm}) => {
             <input
               className="input"
               type="password"
+              data-cy="password"
               name="password"
               value={newUser.password}
               onChange={handleChange}

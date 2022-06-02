@@ -1,8 +1,8 @@
 import NavBar from "../NavBar";
 import AuctionList from"../AuctionList";
 import React from "react";
-import Login from "../Login/Login";
-import { Link } from "react-router-dom";
+//import Login from "../Login/Login";
+//import { Link } from "react-router-dom";
 
 
 const Home = () => {
@@ -18,8 +18,7 @@ const Home = () => {
             
                 <NavBar />
                 </div>
-                
-
+            
         
         <div className ="auctionlist">
             <AuctionList />

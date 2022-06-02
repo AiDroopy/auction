@@ -16,10 +16,11 @@ const SignUp = ({submitForm}) => {
         setNewUser({
           ...newUser,
           [event.target.name]: event.target.value,
+          
 
       })
   }
-
+ 
   // event handler to prevent update site when click on Sign up!
   // setErrors -->
   const handleFormSubmit = (event) => {
@@ -27,7 +28,9 @@ const SignUp = ({submitForm}) => {
     setErrors(validation(newUser)); // Pass in validation 
     setDataIsCorrect(true);
     createUser(newUser);
+    
   };
+         
 
   // if errors is empty and data is correted change propsvalue to true 
   useEffect(() =>{
