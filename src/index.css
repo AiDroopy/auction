@@ -1,6 +1,7 @@
 body {
   font-family: "Poppins", sans-serif;
   background-color: rgb(73, 80, 83);
+  color: white;
 }
 
 a{
@@ -9,7 +10,6 @@ a{
 }
 a:hover{
   color: grey;
-  
 }
 
 .countdown-timer {
