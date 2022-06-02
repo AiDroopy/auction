@@ -17,19 +17,17 @@ const NavBar = () => {
                 <Nav className="me-auto">
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/profile">Profile</Nav.Link>
-                <NavDropdown title="Menu" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="/search">Search</NavDropdown.Item>
-                        <NavDropdown.Item href="/newauction">Create Auction</NavDropdown.Item>
+                        <Nav.Link href="/search">Search</Nav.Link>
+                        <Nav.Link href="/newauction">Create Auction</Nav.Link>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item href="/about">About</NavDropdown.Item>
-                        <Button className="logOut" variant="outline-dark" href="/" onClick={AuthService.logout}><a>Log out!</a></Button>
-                </NavDropdown>
+                        <Nav.Link href="/about">About</Nav.Link>
+                        
                 </Nav>
                 
                 </Navbar.Collapse>
                 
                 </Container>
-                
+                <Button className="logOut" variant="outline-dark" href="/" onClick={AuthService.logout}><a>Log out!</a></Button>
         </Navbar>
         </div>
 

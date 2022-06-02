@@ -13,8 +13,9 @@ const AuctionList = () => {
         <Container className="rowBidAuction">
         <div className='row-wrapper'>
             <Row>
-                {auctions.map((auction => { 
-                    return <AuctionLink key={auction.id} auction={auction}/>
+                {auctions.map((auction => {
+                    if(Date.parse(auction.endTime) > Date.parse(Date()))
+                        return <AuctionLink key={auction.id} auction={auction}/>
                 }))}
             </Row> 
         </div>

@@ -12,6 +12,8 @@ import SingleAuction from './components/Pages/SingleAuction';
 import DeliveryForm from "./components/DeliveryForm";
 import NavBar from './components/NavBar';
 import About from './components/Pages/About';
+import { Button } from 'react-bootstrap';
+import AuthService from './services/AuthService';
 
 function App() {
 
@@ -20,8 +22,9 @@ function App() {
     <AuctionProvider>  
     <header className="App-header">
         <NavBar></NavBar>
+        
     </header>
-
+    
       <div className="content">
         <Routes>
          

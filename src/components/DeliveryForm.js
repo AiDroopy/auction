@@ -39,6 +39,7 @@ const DeliveryForm = () => {
             setDCost(response.deliveryCost)
         })
         setShowResult(true)
+        
   };
 
     return ( 

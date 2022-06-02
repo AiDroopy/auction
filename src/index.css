@@ -7,19 +7,25 @@ body {
   background: -webkit-radial-gradient(#222233, #0A2742);
   background: radial-gradient(#222233, #0A2742);
 }
+.btn-outline-dark{
+  margin-right: 2vw;
+}
 
 a{
   text-decoration: none;
   color: Black;
 }
+
 a:hover{
   color:grey;
 }
 
+/*Countdown*/
 .countdown-timer {
   width: 300px;
   height: 50px;
   align-items: center;
+  float: right;
 }
 
 .countdown-timer span {
@@ -31,22 +37,31 @@ a:hover{
   width: 0.8ch;
 }
 
+/*new Auction*/
 .new_auction{
   max-width: 768px;
   margin: auto;
   padding: 0 20px;
+  margin-top: 7vh;
+}
+#textArea.form-control{
+  width: 28vw;
 }
 
-.bidlabel{
-  margin-top: 3px;
-}
-
+/*delivery*/
 .delivery-form{
   margin-left: 7px;
 }
 #deliverycost{
-  float: right;
+  margin-left: 4vw;
 }
+.deliver{
+  width: 28vw;
+}
+.deliveryform{
+  margin-top: 7vw;
+}
+
 
 /*Signup*/
 .signUpForm, .loginForm{
@@ -55,13 +70,11 @@ a:hover{
 }
 
 
-
 /*Auctions*/
 .card-img-top{
   max-height: 20vh; 
   object-fit: contain;
   margin-top: 2vh;
-  
 }
 .card{
   margin-top: 3vh;
@@ -73,9 +86,6 @@ a:hover{
 .card:hover{
   transform: scale(1.2);
   color: black;
-}
-.countdown-timer{
-  float: right;
 }
 .btn-primary{
   background-color: grey;
@@ -91,19 +101,6 @@ a:hover{
 .about{
   margin-top: 7vh;
   margin-left: 5vw;
-}
-#textArea.form-control{
-  width: 28vw;
-}
-.newAuction{
-  margin-top: 7vh;
-}
-
-.deliver{
-  width: 28vw;
-}
-.deliveryform{
-  margin-top: 7vw;
 }
 
 

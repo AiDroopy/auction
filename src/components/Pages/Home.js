@@ -8,6 +8,7 @@ const Home = () => {
 
     <div className="home">
         <AuctionList />
+        
     </div>
     );
 }
