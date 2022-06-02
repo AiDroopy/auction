@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import AuctionContext from "../context/AuctionContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthService from "../services/AuthService";
 import FileService from "../services/FileService";
 import { Form, Container, Col, Button } from "react-bootstrap";
@@ -11,6 +11,7 @@ const NewAuction = () => {
     const [newAuction, setNewAuction] = useState (createNew(auction));
     const [newFile, setNewFile] = useState ([]);
     const currentUser = AuthService.getCurrentUser();
+    const navigate = useNavigate()
 
     const handleOnChange = (event) => {
         setNewAuction({
@@ -38,7 +39,10 @@ const NewAuction = () => {
                createAuction(formData)
             } catch(error) {
             console.log(error)
-            }     
+            }
+        
+            navigate("/")
+            window.location.reload()
     }
     
     // setting values for all instans fields, updates values, learn more!
