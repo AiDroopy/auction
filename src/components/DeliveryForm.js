@@ -3,6 +3,7 @@ import {useParams} from 'react-router-dom'
 import DeliveryService from "../services/DeliveryService";
 import AuctionService from "../services/AuctionService";
 import { Link } from "react-router-dom";
+import { Form, Button, Container } from "react-bootstrap";
 
 const DeliveryForm = () => {
 
@@ -43,64 +44,53 @@ const DeliveryForm = () => {
 
     return ( 
         <>
-        <Link to="/">Home</Link>
-    <div className="delivery-form">
-        <h2>Enter delivery info: </h2>
-            <form className="delivery-input">
-
-            <label className="address-street-label" htmlFor="Adress">Address: </label>
-            <input 
-                type="text"
-                name="Adress"
-                required 
-                defaultValue={""}
-                onChange={handleOnChange}
-              
-            />
- 
-            <label className="address-city-label" htmlFor="city">City: </label>
-            <input 
-                type="text"
-                name="city"
-                required 
-                defaultValue={""}
-                onChange={handleOnChange}
-              
-                
-            />
-
-            
-            <label className="address-country-label" htmlFor="country">Country: </label>
-            <input 
-                type="text"
-                name="country"
-                required 
-                defaultValue={"Sweden"}
-                onChange={handleOnChange}
-              
-            />
-
-            <label className="address-zip-label" htmlFor="zip">Zip: </label>
-            <input 
-                type="text"
-                name="zip"
-                required 
-                defaultValue={"123 12"}
-                onChange={handleOnChange}
-              
-            />
-            <br></br>
-            <button type="submit" onClick={handleSubmit}>
-               <h5>Send information</h5>
-            </button>
-            
-        </form> 
-    </div> 
-    <div id="deliverycost">
-        <br></br>
-        { showResult ? <div>Your total delivery cost is: {dCost}</div> : null}
-    </div>
-
+        <Container className="deliveryform">
+            <Form>
+            <Form.Group className="mb-3">
+                <Form.Label>Address</Form.Label>
+                <Form.Control className="deliver"
+                    type="text"
+                    name="Adress"
+                    required 
+                    defaultValue={""}
+                    onChange={handleOnChange}/>
+            </Form.Group>
+            <Form.Group className="mb-3">
+                <Form.Label>City</Form.Label>
+                <Form.Control className="deliver"
+                    type="text"
+                    name="City"
+                    required 
+                    defaultValue={""}
+                    onChange={handleOnChange}/>
+            </Form.Group>
+            <Form.Group className="mb-3">
+                <Form.Label>Country</Form.Label>
+                <Form.Control className="deliver"
+                    type="text"
+                    name="Country"
+                    required 
+                    defaultValue={""}
+                    onChange={handleOnChange}/>
+            </Form.Group>
+            <Form.Group className="mb-3">
+                <Form.Label>Zip code</Form.Label>
+                <Form.Control className="deliver"
+                    type="text"
+                    name="Zip"
+                    required 
+                    defaultValue={""}
+                    onChange={handleOnChange}/>
+            </Form.Group>
+            <Button className="btn-primary" type="submit" onClick={handleSubmit}>
+                Send information
+            </Button>
+            </Form>
+            <div id="deliverycost">
+                <br></br>
+                { showResult ? <div className="dcost">Your total delivery cost is: {dCost}</div> : null}
+            </div>
+    </Container>
     </> );
 }
 

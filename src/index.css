@@ -1,50 +1,20 @@
 body {
   font-family: "Poppins", sans-serif;
-  background-color: lightblue;
-  color: black;
-  line-height: 1.6;
-  display: flex;
+  background-color: rgb(73, 80, 83);
 }
 
 a{
   text-decoration: none;
   color: black;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-.cards {
-  display: flex;
-
-  /* Put a card in the next row when previous cards take all width */
-  flex-wrap: wrap;
-
-  margin-left: -8px;
-  margin-right: -8px;
-  border: 2px solid black;
-  width: 400px;
-  height: 300px;
-}
-
-.cards__item {
-  /* There will be 4 cards per row */
-  flex-basis: 25%;
-
-  padding-left: 8px;
-  padding-right: 8px;
+a:hover{
+  color: grey;
+  
 }
 
 .countdown-timer {
   width: 300px;
   height: 50px;
-
-  font-family: "Oswald";
-  font-size: 15px;
-
-  display: flex;
-  justify-content: center;
   align-items: center;
 }
 
@@ -57,24 +27,6 @@ code {
   width: 0.8ch;
 }
 
-.auction-List{
-  display: flex;
-  margin: auto;
-  justify-content: space-evenly;
-}
-.nav {
-  max-width: 768px;
-  margin: auto;
-  padding: 0 20px;
-}
-
-
-.nav_container{
-  display: flex;
-  align-items: flex-end;
-  
-}
-
 .password, .email{
   margin-bottom: 10px; 
 }
@@ -83,10 +35,7 @@ code {
   width: 150px;
   text-align: right;
 }
-.submit{
-  width: 150px;
-  margin-left: 150px;
-}
+
 .title{
   margin-left: 150px;
 }
@@ -100,13 +49,6 @@ code {
   margin-top: 3px;
 }
 
-.Auction{
-  display: flex;
-  flex-wrap:wrap;
-  flex: 1 1 160px;
-  justify-content:center;
-}
-
 .delivery-form{
   margin-left: 7px;
 }
@@ -114,14 +56,72 @@ code {
   float: right;
 }
 
-.img{max-height: 20vh; object-fit: contain;}
-
-
-h1{
-  width: 90%;
-  max-width: 1240px;
-  margin: 0 auto;
+/*Signup*/
+.signUpForm, .loginForm{
+  width: 20vw;
+  margin-top: 7vh;
 }
 
 
-.img{max-height: 20vh; object-fit: contain;}
+
+/*Auctions*/
+.card-img-top{
+  max-height: 20vh; 
+  object-fit: contain;
+  margin-top: 2vh;
+}
+.card{
+  margin-top: 3vh;
+  left      : 20%;
+  position  : relative;
+}
+.countdown-timer{
+  float: right;
+}
+.btn-primary{
+  background-color: transparent;
+  color: black;
+  border-color: grey;
+  margin-top: 2vh;
+}
+.btn-primary:hover{
+  background-color: grey;
+  border-color: white;
+}
+
+.about{
+  margin-top: 7vh;
+  margin-left: 5vw;
+}
+#textArea.form-control{
+  width: 28vw;
+}
+.newAuction{
+  margin-top: 7vh;
+}
+
+.deliver{
+  width: 28vw;
+}
+.deliveryform{
+  margin-top: 7vw;
+}
+
+.wonauctions{
+  margin-top: 10px;
+  width: 35vw;
+}
+.row-wrapper{
+  margin-top: 5vh;
+  padding: 0.5em 1em;
+}
+.imglst{
+  width: 40PX;
+  float: right;
+}
+.list-group-item{
+  background-color: transparent;
+}
+.bg-primary{
+  background-color: transparent;
+}

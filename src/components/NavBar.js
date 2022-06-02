@@ -1,41 +1,61 @@
 import { Link } from "react-router-dom";
 import React from 'react';
 import AuthService from "../services/AuthService";
+import { Navbar, Container, Nav, NavDropdown, Button } from "react-bootstrap";
 
 const NavBar = () => {
-const currentUser = AuthService.getCurrentUser();
 
-if (currentUser) {
-return (
+        const currentUser = AuthService.getCurrentUser();
 
-    <div className="nav">
-        
-        <div className="nav_container">
-                
-                <div className="nav_left">
-                <div className="nav_text">Welcome to our auction site, here you can buy awesome watches!</div>
-                        <Link to="/AuctionList"><h2>Auctions</h2></Link>
-                        <Link to="/Search"><h2>Search</h2></Link>
-                </div>
-                <div className="nav_right">
-                        <Link to="/Login"><h2>Login</h2></Link>
-                        <Link to="/Profile"><h2>Profile</h2></Link>
-                        <Link to="/NewAuction"><h2>Create auction!</h2></Link>
-                </div>
-
+        if(currentUser){
+        return (
+        <div>
+        <Navbar id= "fade" bg="dark" variant={"dark"} expand="lg">
+                <Container>
+                        <Navbar.Brand href="/">Watches</Navbar.Brand>
+                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                        <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="me-auto">
+                        <Nav.Link href="/">Home</Nav.Link>
+                        <Nav.Link href="/profile">Profile</Nav.Link>
+                <NavDropdown title="Menu" id="basic-nav-dropdown">
+                        <NavDropdown.Item href="/search">Search</NavDropdown.Item>
+                        <NavDropdown.Item href="/newauction">Create Auction</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item href="/about">About</NavDropdown.Item>
+                        <Button className="logOut" variant="outline-dark" href="/" onClick={AuthService.logout}><a>Log out!</a></Button>
+                </NavDropdown>
+                </Nav>
+                </Navbar.Collapse>
+    
+                </Container>
+        </Navbar>
         </div>
-    </div>
-  ) } else {
-  return (<div className="Login">
-                
-  <Link to="/SignUpForm"><h2>Sign Up!</h2></Link> 
-  <Link to="/Login"><h2>Login</h2></Link> 
-  <Link to="/AuctionList"><h2>Auctions</h2></Link>
-<Link to="/Search"><h2>Search</h2></Link>
 
-</div> )
-  }
+  )
+} else{
+        return (
+                <Navbar id="fade" bg="dark" variant={"dark"} expand="lg">
+                        <Container>
+                                <Navbar.Brand href="/">Watches</Navbar.Brand>
+                                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                                <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="me-auto">
+                                <Nav.Link href="/">Home</Nav.Link>
+                                <Nav.Link href="/login">Login</Nav.Link>
+                        <NavDropdown title="menu" id="basic-nav-dropdown">
+                                <NavDropdown.Item href="/signupform">Sign up!</NavDropdown.Item>
+                                <NavDropdown.Item href="/search">Search</NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item href="/about">About</NavDropdown.Item>
+                        </NavDropdown>
+                        </Nav>
+                        </Navbar.Collapse>
+            
+                        </Container>
+                </Navbar>
 
-}
+)}
+} 
 
 export default NavBar;

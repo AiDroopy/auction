@@ -13,6 +13,8 @@ import SingleAuction from './components/Pages/SingleAuction';
 import DeliveryOptions from './components/Pages/DeliveryOptions';
 import DeliveryForm from "./components/DeliveryForm";
 import DeliverySuccess from './components/Pages/DeliverySuccess';
+import NavBar from './components/NavBar';
+import About from './components/Pages/About';
 
 
 
@@ -22,12 +24,11 @@ function App() {
     <div className="App">
     <AuctionProvider>  
     <header className="App-header">
-
+        <NavBar></NavBar>
     </header>
 
       <div className="content">
         <Routes>
-          
          
           <Route path='/' element={<Home />} />
           <Route path='/delivery/:id' element={<DeliveryForm />} />
@@ -39,7 +40,8 @@ function App() {
           <Route path='/signUpForm' element={<SignUpForm />} />
           <Route path='/auctionList' element={<AuctionList />} />
           <Route path='/auction/:id' element={<SingleAuction/>} />
-          <Route path='/deliverysuccess' element={<DeliverySuccess/>}/>
+          <Route path='/about' element={<About/>}/>
+          
         </Routes>
       </div>
       </AuctionProvider> 

@@ -2,34 +2,28 @@ import React from 'react'
 import { useContext } from 'react';
 import AuctionContext from '../context/AuctionContext';
 import { Link } from 'react-router-dom';
+import { Container, Row } from 'react-bootstrap';
+import AuctionLink from './CardLnk'
  
 
 const AuctionList = () => {
     
-    const { auctions, bids, renderHighBid} = useContext(AuctionContext);
-
-    
+    const { auctions } = useContext(AuctionContext);
 
     return (
-        <div className='Auction'>
-        <div className="auction-List"> 
-            {auctions.map((auction) => (<div><Link to={`/auction/${auction.id}`}><div className="auctions" key={auction.id}> 
-                <br></br>
-                    Product name: {auction.productName}
-                <br></br>
-                    Description: {auction.productInfo}
-                <br></br>
-                    <img src={auction.productImgURL} alt="img" className="img"></img>
-                <br></br>
-                    Starting price: {auction.startPrice}
+        <Container className="rowBidAuction">
+        <div className='row-wrapper'>
+            <Row>
+            
+            {auctions.map((auction => { 
+         
+                    return <AuctionLink key={auction.id} auction={auction}/>
                     
-                <br></br>
-                    
-        </div></Link> <div>{renderHighBid(bids, auction)}</div></div>))} 
-         </div></div>
-
-        
-      );
+                }))}
+            </Row> 
+        </div>
+    </Container>
+    );
     }
 
 export default AuctionList;

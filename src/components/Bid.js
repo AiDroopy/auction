@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import AuctionContext from "../context/AuctionContext";
 import AuthService from "../services/AuthService";
+import { Form } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 
 const Bid = ({theAuction}) => {
@@ -31,23 +33,16 @@ const Bid = ({theAuction}) => {
 
 
   return (
-      <div className="new-bid">
-    <h2>Add bid</h2>
-        <form>
-            <label className="bidlabel"htmlFor="amount">Bid </label>
-            <input 
-                type="number"
-                name="amount"
-                required 
-                defaultValue={bid.amount}
-                onChange={handleOnChange}
-              
-            />
-         
-            <button type="submit" onClick={handleSubmit}>
-                Bid
-            </button>
-            </form> 
+    <div className="new-bid">
+    <Form>
+  <Form.Group className="mb-3">
+    <Form.Control type="number" placeholder="$" defaultValue={bid.amount}
+              onChange={handleOnChange} />
+  </Form.Group>
+    <Button variant="primary" type="submit" onClick={handleSubmit}>
+        Enter Bid
+    </Button>
+  </Form>
     </div>
   )
 }
