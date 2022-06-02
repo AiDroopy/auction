@@ -1,7 +1,6 @@
 body {
   font-family: "Poppins", sans-serif;
   background-color: rgb(73, 80, 83);
-  color: white;
 }
 
 a{
@@ -124,4 +123,7 @@ a:hover{
 }
 .bg-primary{
   background-color: transparent;
+}
+.myAuctions{
+  color: white;
 }
