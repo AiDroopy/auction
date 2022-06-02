@@ -1,8 +1,6 @@
-import { Link } from "react-router-dom";
 import React from 'react';
 import AuthService from "../services/AuthService";
 import { Navbar, Container, Nav, NavDropdown, Button } from "react-bootstrap";
-import Search from "./Pages/Search";
 
 const NavBar = () => {
 

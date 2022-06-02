@@ -2,10 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import validation from "../Login/Validation";
 import AuctionContext from "../../context/AuctionContext";
 import { Form, Container, Button } from "react-bootstrap";
+import AuthService from "../../services/AuthService";
 
 const SignUp = ({submitForm}) => {
 
-  const { user, createNew, createUser} = useContext (AuctionContext);  // get some stuff from AuctionContext
+  const { user, createNew } = useContext (AuctionContext);  // get some stuff from AuctionContext
   
   //useState for values, using object data types
   const [newUser, setNewUser] = useState(createNew(user));
@@ -27,7 +28,7 @@ const SignUp = ({submitForm}) => {
     event.preventDefault();
     setErrors(validation(newUser)); // Pass in validation 
     setDataIsCorrect(true);
-    createUser(newUser);
+    AuthService.createUser(newUser);
   };
 
   // if errors is empty and data is correted change propsvalue to true 

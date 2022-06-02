@@ -1,4 +1,3 @@
-import NavBar from "../NavBar";
 import AuctionList from"../AuctionList";
 import React from "react";
 

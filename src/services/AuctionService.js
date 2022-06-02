@@ -16,18 +16,15 @@ const API_URL = "http://localhost:8080/api/auction"
 
     const getAuction = async (id) => {
         try {
-        const response = await axios.get(`${API_URL}/${id}`)
-
-        console.log(response.data)
-
-        return response.data
-
+            const response = await axios.get(`${API_URL}/${id}`)
+            console.log(response.data)
+                return response.data
         } catch (err) {
-        console.error(err)
+            console.error(err)
         }
     }
 
-    const AuctionService = {
+const AuctionService = {
     getAuctions,
     deleteAuction,
     createAuction,

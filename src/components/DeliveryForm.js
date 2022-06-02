@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import {useParams} from 'react-router-dom'
 import DeliveryService from "../services/DeliveryService";
 import AuctionService from "../services/AuctionService";
-import { Link } from "react-router-dom";
 import { Form, Button, Container } from "react-bootstrap";
 
 const DeliveryForm = () => {

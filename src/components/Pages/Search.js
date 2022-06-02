@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Search = () => {
 
-    const { auctions, bids, renderHighBid } = useContext(AuctionContext);
+    const { auctions } = useContext(AuctionContext);
     const [theSearch, setTheSearch] = useState('')
 
   return (
@@ -13,14 +13,14 @@ const Search = () => {
         <input type="text" placeholder="Search..." onChange={event => {setTheSearch(event.target.value)}}/>
         {auctions.filter((auction)=>{
             if (theSearch === '') {
-                // return (<div>{auction.productName}</div>)
                 }
                 else if(auction.productName.toLowerCase().includes(theSearch.toLowerCase())){
                     return(<div>{auction.productName}</div>)
                 }
         }).map((auction) => {
             return (
-                <div><Link to={`/auction/${auction.id}`}>
+                <div>
+                    <Link to={`/auction/${auction.id}`}>
                         <div className="searchproduct">{auction.productName} <img className="searchimg" src={auction.productImgURL}></img></div>
                         
                     </Link>   

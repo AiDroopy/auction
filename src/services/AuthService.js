@@ -1,11 +1,9 @@
 import axios from "axios";
 const API_URL = "http://localhost:8080/api/auth/";
-const register = (username, password) => {
-  return axios.post(API_URL + "signup", {
-    username,
-    password,
-  });
-};
+
+const createUser = (newUser) => {
+  return axios.post(API_URL + "signup", newUser)
+}
 
 const login = async (newUser) => {
   const response = await axios
@@ -18,7 +16,6 @@ const login = async (newUser) => {
 
 const logout = () => {
   localStorage.removeItem("user");
-  
 };
 
 const getCurrentUser = () => {
@@ -27,10 +24,10 @@ const getCurrentUser = () => {
 };
 
 const AuthService = {
-  register,
   login,
   logout,
   getCurrentUser,
+  createUser
 };
 
 export default AuthService;

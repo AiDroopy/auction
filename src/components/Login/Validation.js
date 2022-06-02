@@ -4,12 +4,6 @@ A function that returns error if some values statement are true when user are si
 const validation = (newUser) => {
 
     let errors={};
- 
-
-    /*
-    if(!newUser.fullname){
-        errors.fullname="Name is required."
-    }*/
 
     // if email is empty.... else if email don't contain . signs or @ sign 
     if (!newUser.email){

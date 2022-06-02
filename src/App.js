@@ -9,13 +9,9 @@ import AuctionList from './components/AuctionList';
 import Search from './components/Pages/Search';
 import React from 'react';
 import SingleAuction from './components/Pages/SingleAuction';
-import DeliveryOptions from './components/Pages/DeliveryOptions';
 import DeliveryForm from "./components/DeliveryForm";
-import DeliverySuccess from './components/Pages/DeliverySuccess';
 import NavBar from './components/NavBar';
 import About from './components/Pages/About';
-
-
 
 function App() {
 
@@ -32,7 +28,6 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/delivery/:id' element={<DeliveryForm />} />
           <Route path='/login' element={<Login/>} />
-          <Route path='/destination' element={<DeliveryOptions/>} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/newAuction' element={<NewAuction />} />
           <Route path='/search' element={<Search />} />

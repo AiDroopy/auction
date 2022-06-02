@@ -1,8 +1,7 @@
 import React, { useContext, useState } from "react";
 import AuctionContext from "../context/AuctionContext";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AuthService from "../services/AuthService";
-import FileService from "../services/FileService";
 import { Form, Container, Col, Button } from "react-bootstrap";
 
 // Måste börja med Stor bokstav, även filnamnet
