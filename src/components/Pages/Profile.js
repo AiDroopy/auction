@@ -29,7 +29,7 @@ const Profile = () => {
                         {auctions.map((auction => { 
                           if (auction.userId === currentUser.id) 
                               return<Link className="wonauctions" to={`/auction/${auction.id}`}>
-                              <ListGroup as="ol" numbered>
+                              <ListGroup as="ol">
                                     <ListGroup.Item
                                       as="li"
                                       className="d-flex justify-content-between align-items-start"
@@ -65,7 +65,7 @@ const Profile = () => {
 
               if (Date.parse(auction.endTime) < Date.parse(Date()) && highBidUserId === currentUser.id)  
                       return <Link className="wonauctions" to={`/delivery/${auction.id}`}>
-                                <ListGroup as="ol" numbered>
+                                <ListGroup as="ol">
                                       <ListGroup.Item
                                         as="li"
                                         className="d-flex justify-content-between align-items-start"
