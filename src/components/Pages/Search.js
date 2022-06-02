@@ -8,6 +8,7 @@ const Search = () => {
     const [theSearch, setTheSearch] = useState('')
 
   return (
+      
     <div className="search-bar">
         <input type="text" placeholder="Search..." onChange={event => {setTheSearch(event.target.value)}}/>
         {auctions.filter((auction)=>{

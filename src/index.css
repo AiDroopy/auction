@@ -1,14 +1,19 @@
 body {
   font-family: "Poppins", sans-serif;
-  background-color: rgb(73, 80, 83);
+  color:white;
+  min-width: 600px;
+  height: 100%;
+  position: relative;
+  background: -webkit-radial-gradient(#222233, #0A2742);
+  background: radial-gradient(#222233, #0A2742);
 }
 
 a{
   text-decoration: none;
-  color: black;
+  color: Black;
 }
 a:hover{
-  color: grey;
+  color:grey;
 }
 
 .countdown-timer {
@@ -26,18 +31,6 @@ a:hover{
   width: 0.8ch;
 }
 
-.password, .email{
-  margin-bottom: 10px; 
-}
-.label, .bidlabel {
-  display: inline-block;
-  width: 150px;
-  text-align: right;
-}
-
-.title{
-  margin-left: 150px;
-}
 .new_auction{
   max-width: 768px;
   margin: auto;
@@ -68,20 +61,27 @@ a:hover{
   max-height: 20vh; 
   object-fit: contain;
   margin-top: 2vh;
+  
 }
 .card{
   margin-top: 3vh;
   left      : 20%;
   position  : relative;
+  transition: transform .2s;
+  color: grey;
+}
+.card:hover{
+  transform: scale(1.2);
+  color: black;
 }
 .countdown-timer{
   float: right;
 }
 .btn-primary{
-  background-color: transparent;
-  color: black;
+  background-color: grey;
   border-color: grey;
   margin-top: 2vh;
+  vertical-align: middle;
 }
 .btn-primary:hover{
   background-color: grey;
@@ -106,10 +106,8 @@ a:hover{
   margin-top: 7vw;
 }
 
-.wonauctions{
-  margin-top: 10px;
-  width: 35vw;
-}
+
+/*Profile auctions*/
 .row-wrapper{
   margin-top: 5vh;
   padding: 0.5em 1em;
@@ -120,13 +118,21 @@ a:hover{
 }
 .list-group-item{
   background-color: transparent;
+  margin-top: 1vh;
+  transition: transform .2s;
+  border: 0px;
+  color: white;
+  padding-left: 0;
 }
-.bg-primary{
-  background-color: transparent;
+.list-group-item:hover{
+  transform: scale(1.2);
 }
 .myAuctions{
-  color: white;
+  width: 35vw;
+  margin-left: 7vw;
 }
+
+/*Search*/
 .searchimg{
   width: 2vw;
 }

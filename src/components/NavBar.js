@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import React from 'react';
 import AuthService from "../services/AuthService";
 import { Navbar, Container, Nav, NavDropdown, Button } from "react-bootstrap";
+import Search from "./Pages/Search";
 
 const NavBar = () => {
 
@@ -10,7 +11,7 @@ const NavBar = () => {
         if(currentUser){
         return (
         <div>
-        <Navbar id= "fade" bg="dark" variant={"dark"} expand="lg">
+        <Navbar id= "fade" bg="light" variant={"light"} expand="lg">
                 <Container>
                         <Navbar.Brand href="/">Watches</Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -26,9 +27,11 @@ const NavBar = () => {
                         <Button className="logOut" variant="outline-dark" href="/" onClick={AuthService.logout}><a>Log out!</a></Button>
                 </NavDropdown>
                 </Nav>
+                
                 </Navbar.Collapse>
-    
+                
                 </Container>
+                
         </Navbar>
         </div>
 
