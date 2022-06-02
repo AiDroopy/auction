@@ -34,7 +34,7 @@ const NavBar = () => {
   )
 } else{
         return (
-                <Navbar id="fade" bg="dark" variant={"dark"} expand="lg">
+                <Navbar id="fade" bg="light" variant={"light"} expand="lg">
                         <Container>
                                 <Navbar.Brand href="/">Watches</Navbar.Brand>
                                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -42,12 +42,9 @@ const NavBar = () => {
                         <Nav className="me-auto">
                                 <Nav.Link href="/">Home</Nav.Link>
                                 <Nav.Link href="/login">Login</Nav.Link>
-                        <NavDropdown title="menu" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="/signupform">Sign up!</NavDropdown.Item>
-                                <NavDropdown.Item href="/search">Search</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="/about">About</NavDropdown.Item>
-                        </NavDropdown>
+                                <Nav.Link href="/signupform">Sign up</Nav.Link>
+                                <Nav.Link href="/search">Search</Nav.Link>
+                                <Nav.Link href="/about">About</Nav.Link>
                         </Nav>
                         </Navbar.Collapse>
             
